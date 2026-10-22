@@ -1,0 +1,51 @@
+{
+  "unit_tests": {
+    "core_passed": 4,
+    "analysis_passed": 2,
+    "checkpoint_after_blobfuse_change_passed": 1,
+    "unique_tests": 6
+  },
+  "real_resume": {
+    "passed": true,
+    "resumed_from_step": 1,
+    "completed_step": 2,
+    "verification": {
+      "checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42-resume-check-v2/checkpoints/step-000001-11133d69",
+      "global_step": 1,
+      "optimizer_steps": [
+        1
+      ],
+      "scheduler_last_epoch": 1,
+      "next_lr": [
+        2e-05,
+        2e-05
+      ],
+      "saved_orders_restored": true,
+      "rng_restored": true
+    },
+    "final_checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42-resume-check-v2/checkpoints/step-000002-a600fe12"
+  },
+  "scoring_sanity": {
+    "identical_model_max_delta": 1.7881393432617188e-07,
+    "batch_padding_max_delta": 2.682209014892578e-06,
+    "tolerance": 2e-05,
+    "sample_ids": [
+      "algebra:train:135",
+      "algebra:train:571",
+      "algebra:train:314",
+      "algebra:train:48",
+      "algebra:train:997",
+      "algebra:train:1345",
+      "algebra:train:35",
+      "algebra:train:734"
+    ]
+  },
+  "effective_training_config_verified": true,
+  "training_implementation_hashes_verified": true,
+  "formal_training_steps": 32,
+  "formal_response_tokens": 138236,
+  "paired_scores": 1152,
+  "evaluation_examples": 1024,
+  "sklearn_auc_crosscheck": 0.6848907470703125,
+  "final_checkpoint_complete": true
+}

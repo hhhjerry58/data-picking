@@ -1,0 +1,115 @@
+{
+  "run_id": "math-algebra-numbertheory-qwen25-1p5b-seed42",
+  "directory": "2026-10-21_172347Z_math-algebra-numbertheory-qwen25-1p5b-seed42",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42",
+  "result_time_utc": "2026-10-21T17:23:47.726111+00:00",
+  "timestamp_basis": "metrics/metrics.json filesystem modification time captured at first export; proxy for original analysis completion, not export time",
+  "exported_at_utc": "2026-10-22T03:50:58.655876+00:00",
+  "exporter": {
+    "script": "scripts/export_analysis_notebook.py",
+    "sha256": "1ef17969fe6d0c9ee6744b357bd88a42a4d898a551cdaf769f958db38eaf4076",
+    "repository_head": "eb91e8e8c5b0878f454a1a64c3907a190b4200c2",
+    "working_tree_dirty": true
+  },
+  "files": {
+    "metrics.json": {
+      "source_relative_path": "metrics/metrics.json",
+      "bytes": 16952,
+      "sha256": "db88b2eae90bc49c738005846306d3312e932d2405de8e3ff0f998b1c0906c1f"
+    },
+    "per_example.parquet": {
+      "source_relative_path": "metrics/per_example.parquet",
+      "bytes": 340681,
+      "sha256": "1c52b3d31d3ec20df36a740495e8770a457ce86fe8f55aeab49960d7d2a4eec2"
+    },
+    "length_matched_ids.json": {
+      "source_relative_path": "metrics/length_matched_ids.json",
+      "bytes": 21108,
+      "sha256": "15ac0a9c155195b4e2cdde6abd36d16b421154b3fa62960592e41cc4565163ca"
+    },
+    "effective_config.json": {
+      "source_relative_path": "effective_config.json",
+      "bytes": 37891,
+      "sha256": "77b1ac90935052496f3e256faf7581368cacc668a53731abcdaa5008d1326676"
+    },
+    "training_complete.json": {
+      "source_relative_path": "training_complete.json",
+      "bytes": 275,
+      "sha256": "e412bde65bca5db9f5d373fe911ffe428fa7fe92e1745536ea3210a6e50237bb"
+    },
+    "validation_summary.json": {
+      "source_relative_path": "validation_summary.json",
+      "bytes": 1510,
+      "sha256": "5c094b764cf10619fa5f371ec792c650febfee9c877a2e75e6c29f7eb9a57bcf"
+    },
+    "train.jsonl": {
+      "source_relative_path": "logs/train.jsonl",
+      "bytes": 5959,
+      "sha256": "ed7d71c19a71272f636aa7f510f28718b9983d672a407ac1cef542803e9595e3"
+    }
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 12,
+    "notebook_sha256": "88efd5dd5d9a78aa3b8416cbbdfbbb083d4337c99fde396c1c713aff14a985d7",
+    "gpu_required": false
+  },
+  "notebook_edits": [
+    {
+      "updated_at_utc": "2026-10-22T04:07:50.939887+00:00",
+      "cell_id": "fa652fe8",
+      "cell_index": 10,
+      "description": "Added A2/B reference NLL and relative-gain histograms to the loss comparison cell; retained the table and existing two plots.",
+      "executed": true,
+      "other_cells_preserved": true,
+      "source_sha256": "8eceb0b3e24e54500f8ec9ef705d044b93a5b41d4c66c71502a99597d374f0be"
+    },
+    {
+      "updated_at_utc": "2026-10-22T04:13:54.421786+00:00",
+      "cell_id": "fa652fe8",
+      "cell_index": 10,
+      "description": "Ordered five plots as reference NLL, SFT NLL, reference-minus-SFT, relative reduction, and paired per-example losses; verified SFT checkpoint 32.",
+      "executed": true,
+      "other_cells_preserved": true,
+      "source_sha256": "c552c1f8933aa09e2bf09fda3347d4e021530c972d0f483174a3e85255279a6d"
+    },
+    {
+      "updated_at_utc": "2026-10-22T04:22:53.122979+00:00",
+      "cell_id": "fa652fe8",
+      "cell_index": 10,
+      "description": "Restored the fifth paired-loss plot to one grid column (third row, left), matching the original subplot size.",
+      "executed": true,
+      "other_cells_preserved": true,
+      "source_sha256": "cb2d924add33dbba9abdcf3300b509163c2142c109f82f3535b8c40b672b9d43"
+    },
+    {
+      "updated_at_utc": "2026-10-22T05:22:11.467752+00:00",
+      "cell_id": "3ab8ab4a",
+      "cell_index": 12,
+      "description": "Removed AUC 95% CI and AP from metric_table; retained ROC-AUC and top-10%/top-20% A2 fractions, and refreshed dependent tables.",
+      "executed": true,
+      "refreshed_output_cells": [
+        "3ab8ab4a",
+        "fa31ae9f",
+        "dd6644f9"
+      ],
+      "other_cells_preserved": true,
+      "source_sha256": "10e8b81d8938d51d43654d755cfbd2687a6f550e5c57c40648a19191873ac12b"
+    }
+  ],
+  "presentation_updates": [
+    {
+      "updated_at_utc": "2026-10-22T11:53:38.276316+00:00",
+      "reason": "User clarified delta_loss and relative_gain are examined in parallel without a primary/secondary ranking",
+      "changed_cells": [
+        0,
+        1,
+        12,
+        18
+      ],
+      "previous_notebook_sha256": "72a007783cbf1eaad4949c435f03a12f497702461a9649fd9da64c83fe7e939c",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425738Z_parallel_loss_metrics",
+      "snapshots_unchanged": true
+    }
+  ]
+}
