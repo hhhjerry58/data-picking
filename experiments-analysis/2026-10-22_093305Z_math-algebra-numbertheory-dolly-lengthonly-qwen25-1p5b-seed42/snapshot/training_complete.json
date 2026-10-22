@@ -1,0 +1,6 @@
+{
+  "checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/checkpoints/step-000032-1d6e5f24",
+  "global_step": 32,
+  "seen_response_tokens": 138236,
+  "fingerprint": "22d1d362f09e21e1ab1995af3261db33a10ee4573549c0cd623a64d0610ab1be"
+}

@@ -1,0 +1,1132 @@
+{
+  "question_normalization": "Unicode NFKC, lowercase, whitespace collapse; exact equality",
+  "scope": "Normalized question equality only; semantic paraphrases are not guaranteed detected",
+  "category": {
+    "examples": 2191,
+    "question_groups": 2110,
+    "repeated_question_groups": 54,
+    "examples_in_repeated_groups": 135,
+    "same_question_different_answer_groups": 54,
+    "groups": [
+      {
+        "group_id": "1720c5098a2a0abf64f272c5de0d89eb5ae2d58dc99aa25e2ab3d083f96cdf77",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1169",
+          "dolly:general_qa:10084"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1a953700f34e1d4bb181ba26f9684fc4942356dfd41ce1141b255b3cae69e695",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:513",
+          "dolly:general_qa:13683"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1cf211c427f557dc657c48ee36590439bac1e0cb6ec13f1119b5e0e9cca752a9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2377",
+          "dolly:general_qa:4920"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1e4307ff66fdf5c3836a7c3091bfdc0d93312340d2c198abc1d54166a8933767",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:4143",
+          "dolly:general_qa:10429",
+          "dolly:general_qa:12945"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "20c58ae9adb0722e314b7371268fb4955a5d5adcedd4e015de84a1e09ba7517d",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3586",
+          "dolly:general_qa:3607"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "273b37abff1b3ac4d731fb0d650fd0d30f8582b0544b92c9e476992e68e2ad24",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:4370",
+          "dolly:general_qa:5819",
+          "dolly:general_qa:14396"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "2a05d5da68542c3cc62de984f3a520224573d3dcb90554ddb82f704d742e4e8e",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:917",
+          "dolly:general_qa:3876",
+          "dolly:general_qa:4342",
+          "dolly:general_qa:4734"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "2e9640aa34f720a13a127683311d403c3d1ae08d33eb59bdfb5c7d3d74bbb896",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3533",
+          "dolly:general_qa:9284"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "2f61ec0a8f3a5461bec433b901b9ea3d11b5b6de78132eca2dbd37fc037e909b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:622",
+          "dolly:general_qa:9401"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "35e595c02bb95b5d2dac920f054faaab08ffdb2b7c7c474fd7b537a9fa7aeadc",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2195",
+          "dolly:general_qa:4245"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "3dda18357f157dd811e8a0e393fbafc1223fe7a9bb2613ff669f3bc062c2e5f9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4563",
+          "dolly:general_qa:8066"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "505a1175c15267a210d63f4c141322da022c0260afd14ef729f8d2a1e5b848ec",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:5105",
+          "dolly:general_qa:11413"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "523d2658860a7abdea45ba5e6bbe895756a0de484eb4bff6f0487a6b65b49eb4",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2551",
+          "dolly:general_qa:7236"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "581cdf942133d7c588a8ea2e0ee3d01ba17cd7887880e261d9b54343aa2f4f64",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1204",
+          "dolly:general_qa:7316"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "611483bce8e064d477b1e1b4bffafdcdee3215d210fbaa902fc94a053d75077c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:7209",
+          "dolly:general_qa:12203"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "64c65bc985d2e88d5cf676db6a79d3dcd47dd3076b9b925fed823ef1befff083",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3946",
+          "dolly:general_qa:5540"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "663706dd37cce48fc86045b64f5eb832ae331d8c838f14c09704a624e8d79611",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:8774",
+          "dolly:general_qa:10575"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "66ca7f2004caf361a3b205383160be71dc4d2fa206ccd2bd72fa6e87d02e89dd",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1054",
+          "dolly:general_qa:7798"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "6883b235ce289c075b067780d387abd79a52c88132caddf490cba85c6e751814",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2541",
+          "dolly:general_qa:13540"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "696aecb5bb6b0057d0c77ab61285f7f04751a06276d619ab87a7fa39789e7c9a",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:2669",
+          "dolly:general_qa:2989",
+          "dolly:general_qa:5465"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "6d9722bc1ce8155414ab07daf48ae6bfaece9b0f05be11209c9afb5e4f6ce994",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1742",
+          "dolly:general_qa:8602"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "6f96269908e9e68c56b650634bcd5d63266fac8735b0247a615f3297911b0bda",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:11298",
+          "dolly:general_qa:14032"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "726f9ab0679eac1911074e4b9f7e302a3ca610f4b54120930d3467b8ea7f9956",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:339",
+          "dolly:general_qa:5741"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "75b1d7cc82131b4e7fbfce3ed92d69108efea1f20cbb895f663c646d0241d386",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3300",
+          "dolly:general_qa:3568"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "7837472b1e9e0205d025d5cef2cb026775281c879c339af4a51ed47a995d30d5",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:7916",
+          "dolly:general_qa:8776",
+          "dolly:general_qa:9303",
+          "dolly:general_qa:14107"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "7c9d6ad241f0ebf234ce8d936b6e229c0daba7eaad1c48bc4df4801e2148a7c7",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:899",
+          "dolly:general_qa:3975"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "850b2f2143706af974f036d01d748a35b66f20411e1d4fcb2c9c05115d9d5f25",
+        "size": 6,
+        "ids": [
+          "dolly:general_qa:3848",
+          "dolly:general_qa:7108",
+          "dolly:general_qa:8681",
+          "dolly:general_qa:8687",
+          "dolly:general_qa:10603",
+          "dolly:general_qa:12592"
+        ],
+        "distinct_answers": 6
+      },
+      {
+        "group_id": "89668304b3f558c9c9d67b02cf8a8eed0412d1591286639c00bcf4ceede63631",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2747",
+          "dolly:general_qa:11654"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "8b41265ef96cdb5bc3c589d7d10db21ce3fabf96ef43b8c4c28076eee6295de3",
+        "size": 6,
+        "ids": [
+          "dolly:general_qa:1113",
+          "dolly:general_qa:1391",
+          "dolly:general_qa:2958",
+          "dolly:general_qa:5071",
+          "dolly:general_qa:5735",
+          "dolly:general_qa:7767"
+        ],
+        "distinct_answers": 5
+      },
+      {
+        "group_id": "8b8d35cab2347a304a2231acbcf24b14c27b68983e19082f7634e30da604eb62",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3009",
+          "dolly:general_qa:11761"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "92b6a7192e8d79de3fa2d1cf3f79aae4ac0eda764db3d93232d95d68d1740d3c",
+        "size": 5,
+        "ids": [
+          "dolly:general_qa:204",
+          "dolly:general_qa:2337",
+          "dolly:general_qa:5538",
+          "dolly:general_qa:10061",
+          "dolly:general_qa:11907"
+        ],
+        "distinct_answers": 5
+      },
+      {
+        "group_id": "947f147167381982abeffba76e7c8e0b737d7d3c645d8071c0fef27b6231750c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1440",
+          "dolly:general_qa:3578"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "9b28fbf028e136db6eb970e02022b895a842059cd92df7d90ef2ab47681063df",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:926",
+          "dolly:general_qa:10093"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "9f54dd44b8c75fe9c36bf7a49942c62fc869448993637925972f9ec68f0b3a24",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:1956",
+          "dolly:general_qa:6640",
+          "dolly:general_qa:12259"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "a0fbd3de44af1f0e067f88e43386462579351320018858884d31dd0a4f8a408b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3863",
+          "dolly:general_qa:13003"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "a58c0848e2db028e579b33ac6210e859599c54a49cf358e4ad5c3351b3de2c14",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4760",
+          "dolly:general_qa:14303"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "a9918028ecdcb34939f8b94e46013734e68da87cb976719b46f22743ab810d0b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1799",
+          "dolly:general_qa:3525"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "b4a36beda49f5c25b34ffc2e161defe0a1110d810bb2787d3d4875868fd56e7a",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:6620",
+          "dolly:general_qa:8986",
+          "dolly:general_qa:14862"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "b7bf7275bc63b864ab818020572e7fee9dd3ec51423cb3b5482ddceee845780b",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:5992",
+          "dolly:general_qa:10921",
+          "dolly:general_qa:11562"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "bcea9b4d9fb599fc6543244fa7c2cfb874b26d690a38c226f9b25ebf27258565",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:3776",
+          "dolly:general_qa:5050",
+          "dolly:general_qa:9039",
+          "dolly:general_qa:14500"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "c0dc87ba36f05804ae87f218c4aef674d0e0751c2ebe0af921c245f9c690650d",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3944",
+          "dolly:general_qa:8206"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "c2b2b6cd330de338010712c588d74e568f0d03bb1b44fa7c329062ccca187d97",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:2537",
+          "dolly:general_qa:2681",
+          "dolly:general_qa:11838",
+          "dolly:general_qa:12675"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "c2f18e38ebbc91924680b1b57d37fc5a6338a7d8859b3f51c1ab7480730e864c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:6267",
+          "dolly:general_qa:11221"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "ca2c08292f414c3dbd1db74662bd308a8c35ee39b506f11ca5e6a28ef3ab2f96",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:172",
+          "dolly:general_qa:2995"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "d7f40bfc3f9d57d16498e863579091fcbc6079f343a19cd4ab688c06e58a3bf6",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3382",
+          "dolly:general_qa:5447"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "da148871b4bb32805ad8fcd33a459777372a2b0430aae5e1db330df88e7259c9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1736",
+          "dolly:general_qa:11629"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "db4bec9b8f86a682281a191873fbb0a2649481ec6e5d332b04d38e1a7afb92c7",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:716",
+          "dolly:general_qa:2027"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "dc208e9fca488a19e9c0bfac37545a19b28d50f2c2039c2bf6631d631c297ea4",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:3381",
+          "dolly:general_qa:3874",
+          "dolly:general_qa:7884"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "e7509b33c6bc02cd64f523b98ba0f63b29db51298eda17151194b5ddcbe52e47",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1872",
+          "dolly:general_qa:8411"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f132cd6dd9cf208ffc37f7feb5f50c61ecac8035718cf3e8726108e263383540",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4867",
+          "dolly:general_qa:12129"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f15d9dd5f5b10614f97346474f57058befd9c6e36e6efbddb320b3cf44acf8c9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:9615",
+          "dolly:general_qa:11494"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f62393f9bb16cb86b80e6d096ee73288b1d700f5971a92ef36cf5212daee025d",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:3961",
+          "dolly:general_qa:7840",
+          "dolly:general_qa:9836"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "fd6cd0f409893f3c274453728e2f46524686ed1a34971606a1cc16ec49aaf0aa",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:367",
+          "dolly:general_qa:2130"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "ffa78d2917884362b1962dd438b7665751802091f260b93853978f34bf9518b6",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3515",
+          "dolly:general_qa:11257"
+        ],
+        "distinct_answers": 2
+      }
+    ]
+  },
+  "eligible": {
+    "examples": 2190,
+    "question_groups": 2109,
+    "repeated_question_groups": 54,
+    "examples_in_repeated_groups": 135,
+    "same_question_different_answer_groups": 54,
+    "groups": [
+      {
+        "group_id": "1720c5098a2a0abf64f272c5de0d89eb5ae2d58dc99aa25e2ab3d083f96cdf77",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1169",
+          "dolly:general_qa:10084"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1a953700f34e1d4bb181ba26f9684fc4942356dfd41ce1141b255b3cae69e695",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:513",
+          "dolly:general_qa:13683"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1cf211c427f557dc657c48ee36590439bac1e0cb6ec13f1119b5e0e9cca752a9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2377",
+          "dolly:general_qa:4920"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "1e4307ff66fdf5c3836a7c3091bfdc0d93312340d2c198abc1d54166a8933767",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:4143",
+          "dolly:general_qa:10429",
+          "dolly:general_qa:12945"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "20c58ae9adb0722e314b7371268fb4955a5d5adcedd4e015de84a1e09ba7517d",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3586",
+          "dolly:general_qa:3607"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "273b37abff1b3ac4d731fb0d650fd0d30f8582b0544b92c9e476992e68e2ad24",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:4370",
+          "dolly:general_qa:5819",
+          "dolly:general_qa:14396"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "2a05d5da68542c3cc62de984f3a520224573d3dcb90554ddb82f704d742e4e8e",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:917",
+          "dolly:general_qa:3876",
+          "dolly:general_qa:4342",
+          "dolly:general_qa:4734"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "2e9640aa34f720a13a127683311d403c3d1ae08d33eb59bdfb5c7d3d74bbb896",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3533",
+          "dolly:general_qa:9284"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "2f61ec0a8f3a5461bec433b901b9ea3d11b5b6de78132eca2dbd37fc037e909b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:622",
+          "dolly:general_qa:9401"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "35e595c02bb95b5d2dac920f054faaab08ffdb2b7c7c474fd7b537a9fa7aeadc",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2195",
+          "dolly:general_qa:4245"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "3dda18357f157dd811e8a0e393fbafc1223fe7a9bb2613ff669f3bc062c2e5f9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4563",
+          "dolly:general_qa:8066"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "505a1175c15267a210d63f4c141322da022c0260afd14ef729f8d2a1e5b848ec",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:5105",
+          "dolly:general_qa:11413"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "523d2658860a7abdea45ba5e6bbe895756a0de484eb4bff6f0487a6b65b49eb4",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2551",
+          "dolly:general_qa:7236"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "581cdf942133d7c588a8ea2e0ee3d01ba17cd7887880e261d9b54343aa2f4f64",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1204",
+          "dolly:general_qa:7316"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "611483bce8e064d477b1e1b4bffafdcdee3215d210fbaa902fc94a053d75077c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:7209",
+          "dolly:general_qa:12203"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "64c65bc985d2e88d5cf676db6a79d3dcd47dd3076b9b925fed823ef1befff083",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3946",
+          "dolly:general_qa:5540"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "663706dd37cce48fc86045b64f5eb832ae331d8c838f14c09704a624e8d79611",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:8774",
+          "dolly:general_qa:10575"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "66ca7f2004caf361a3b205383160be71dc4d2fa206ccd2bd72fa6e87d02e89dd",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1054",
+          "dolly:general_qa:7798"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "6883b235ce289c075b067780d387abd79a52c88132caddf490cba85c6e751814",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2541",
+          "dolly:general_qa:13540"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "696aecb5bb6b0057d0c77ab61285f7f04751a06276d619ab87a7fa39789e7c9a",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:2669",
+          "dolly:general_qa:2989",
+          "dolly:general_qa:5465"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "6d9722bc1ce8155414ab07daf48ae6bfaece9b0f05be11209c9afb5e4f6ce994",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1742",
+          "dolly:general_qa:8602"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "6f96269908e9e68c56b650634bcd5d63266fac8735b0247a615f3297911b0bda",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:11298",
+          "dolly:general_qa:14032"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "726f9ab0679eac1911074e4b9f7e302a3ca610f4b54120930d3467b8ea7f9956",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:339",
+          "dolly:general_qa:5741"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "75b1d7cc82131b4e7fbfce3ed92d69108efea1f20cbb895f663c646d0241d386",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3300",
+          "dolly:general_qa:3568"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "7837472b1e9e0205d025d5cef2cb026775281c879c339af4a51ed47a995d30d5",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:7916",
+          "dolly:general_qa:8776",
+          "dolly:general_qa:9303",
+          "dolly:general_qa:14107"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "7c9d6ad241f0ebf234ce8d936b6e229c0daba7eaad1c48bc4df4801e2148a7c7",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:899",
+          "dolly:general_qa:3975"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "850b2f2143706af974f036d01d748a35b66f20411e1d4fcb2c9c05115d9d5f25",
+        "size": 6,
+        "ids": [
+          "dolly:general_qa:3848",
+          "dolly:general_qa:7108",
+          "dolly:general_qa:8681",
+          "dolly:general_qa:8687",
+          "dolly:general_qa:10603",
+          "dolly:general_qa:12592"
+        ],
+        "distinct_answers": 6
+      },
+      {
+        "group_id": "89668304b3f558c9c9d67b02cf8a8eed0412d1591286639c00bcf4ceede63631",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:2747",
+          "dolly:general_qa:11654"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "8b41265ef96cdb5bc3c589d7d10db21ce3fabf96ef43b8c4c28076eee6295de3",
+        "size": 6,
+        "ids": [
+          "dolly:general_qa:1113",
+          "dolly:general_qa:1391",
+          "dolly:general_qa:2958",
+          "dolly:general_qa:5071",
+          "dolly:general_qa:5735",
+          "dolly:general_qa:7767"
+        ],
+        "distinct_answers": 5
+      },
+      {
+        "group_id": "8b8d35cab2347a304a2231acbcf24b14c27b68983e19082f7634e30da604eb62",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3009",
+          "dolly:general_qa:11761"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "92b6a7192e8d79de3fa2d1cf3f79aae4ac0eda764db3d93232d95d68d1740d3c",
+        "size": 5,
+        "ids": [
+          "dolly:general_qa:204",
+          "dolly:general_qa:2337",
+          "dolly:general_qa:5538",
+          "dolly:general_qa:10061",
+          "dolly:general_qa:11907"
+        ],
+        "distinct_answers": 5
+      },
+      {
+        "group_id": "947f147167381982abeffba76e7c8e0b737d7d3c645d8071c0fef27b6231750c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1440",
+          "dolly:general_qa:3578"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "9b28fbf028e136db6eb970e02022b895a842059cd92df7d90ef2ab47681063df",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:926",
+          "dolly:general_qa:10093"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "9f54dd44b8c75fe9c36bf7a49942c62fc869448993637925972f9ec68f0b3a24",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:1956",
+          "dolly:general_qa:6640",
+          "dolly:general_qa:12259"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "a0fbd3de44af1f0e067f88e43386462579351320018858884d31dd0a4f8a408b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3863",
+          "dolly:general_qa:13003"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "a58c0848e2db028e579b33ac6210e859599c54a49cf358e4ad5c3351b3de2c14",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4760",
+          "dolly:general_qa:14303"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "a9918028ecdcb34939f8b94e46013734e68da87cb976719b46f22743ab810d0b",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1799",
+          "dolly:general_qa:3525"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "b4a36beda49f5c25b34ffc2e161defe0a1110d810bb2787d3d4875868fd56e7a",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:6620",
+          "dolly:general_qa:8986",
+          "dolly:general_qa:14862"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "b7bf7275bc63b864ab818020572e7fee9dd3ec51423cb3b5482ddceee845780b",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:5992",
+          "dolly:general_qa:10921",
+          "dolly:general_qa:11562"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "bcea9b4d9fb599fc6543244fa7c2cfb874b26d690a38c226f9b25ebf27258565",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:3776",
+          "dolly:general_qa:5050",
+          "dolly:general_qa:9039",
+          "dolly:general_qa:14500"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "c0dc87ba36f05804ae87f218c4aef674d0e0751c2ebe0af921c245f9c690650d",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3944",
+          "dolly:general_qa:8206"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "c2b2b6cd330de338010712c588d74e568f0d03bb1b44fa7c329062ccca187d97",
+        "size": 4,
+        "ids": [
+          "dolly:general_qa:2537",
+          "dolly:general_qa:2681",
+          "dolly:general_qa:11838",
+          "dolly:general_qa:12675"
+        ],
+        "distinct_answers": 4
+      },
+      {
+        "group_id": "c2f18e38ebbc91924680b1b57d37fc5a6338a7d8859b3f51c1ab7480730e864c",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:6267",
+          "dolly:general_qa:11221"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "ca2c08292f414c3dbd1db74662bd308a8c35ee39b506f11ca5e6a28ef3ab2f96",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:172",
+          "dolly:general_qa:2995"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "d7f40bfc3f9d57d16498e863579091fcbc6079f343a19cd4ab688c06e58a3bf6",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3382",
+          "dolly:general_qa:5447"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "da148871b4bb32805ad8fcd33a459777372a2b0430aae5e1db330df88e7259c9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1736",
+          "dolly:general_qa:11629"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "db4bec9b8f86a682281a191873fbb0a2649481ec6e5d332b04d38e1a7afb92c7",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:716",
+          "dolly:general_qa:2027"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "dc208e9fca488a19e9c0bfac37545a19b28d50f2c2039c2bf6631d631c297ea4",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:3381",
+          "dolly:general_qa:3874",
+          "dolly:general_qa:7884"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "e7509b33c6bc02cd64f523b98ba0f63b29db51298eda17151194b5ddcbe52e47",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:1872",
+          "dolly:general_qa:8411"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f132cd6dd9cf208ffc37f7feb5f50c61ecac8035718cf3e8726108e263383540",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4867",
+          "dolly:general_qa:12129"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f15d9dd5f5b10614f97346474f57058befd9c6e36e6efbddb320b3cf44acf8c9",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:9615",
+          "dolly:general_qa:11494"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "f62393f9bb16cb86b80e6d096ee73288b1d700f5971a92ef36cf5212daee025d",
+        "size": 3,
+        "ids": [
+          "dolly:general_qa:3961",
+          "dolly:general_qa:7840",
+          "dolly:general_qa:9836"
+        ],
+        "distinct_answers": 3
+      },
+      {
+        "group_id": "fd6cd0f409893f3c274453728e2f46524686ed1a34971606a1cc16ec49aaf0aa",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:367",
+          "dolly:general_qa:2130"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "ffa78d2917884362b1962dd438b7665751802091f260b93853978f34bf9518b6",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3515",
+          "dolly:general_qa:11257"
+        ],
+        "distinct_answers": 2
+      }
+    ]
+  },
+  "selected": {
+    "examples": 512,
+    "question_groups": 504,
+    "repeated_question_groups": 8,
+    "examples_in_repeated_groups": 16,
+    "same_question_different_answer_groups": 8,
+    "groups": [
+      {
+        "group_id": "20c58ae9adb0722e314b7371268fb4955a5d5adcedd4e015de84a1e09ba7517d",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3607",
+          "dolly:general_qa:3586"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "35e595c02bb95b5d2dac920f054faaab08ffdb2b7c7c474fd7b537a9fa7aeadc",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:4245",
+          "dolly:general_qa:2195"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "505a1175c15267a210d63f4c141322da022c0260afd14ef729f8d2a1e5b848ec",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:11413",
+          "dolly:general_qa:5105"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "75b1d7cc82131b4e7fbfce3ed92d69108efea1f20cbb895f663c646d0241d386",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:3300",
+          "dolly:general_qa:3568"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "9f54dd44b8c75fe9c36bf7a49942c62fc869448993637925972f9ec68f0b3a24",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:12259",
+          "dolly:general_qa:6640"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "b4a36beda49f5c25b34ffc2e161defe0a1110d810bb2787d3d4875868fd56e7a",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:6620",
+          "dolly:general_qa:14862"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "bcea9b4d9fb599fc6543244fa7c2cfb874b26d690a38c226f9b25ebf27258565",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:5050",
+          "dolly:general_qa:9039"
+        ],
+        "distinct_answers": 2
+      },
+      {
+        "group_id": "c2b2b6cd330de338010712c588d74e568f0d03bb1b44fa7c329062ccca187d97",
+        "size": 2,
+        "ids": [
+          "dolly:general_qa:12675",
+          "dolly:general_qa:2537"
+        ],
+        "distinct_answers": 2
+      }
+    ]
+  },
+  "cross_split_matches": [],
+  "selected_overlap_ids": [],
+  "selection_effect": "None: duplicates and overlaps remain in the random sample"
+}

@@ -1,0 +1,102 @@
+{
+  "run_id": "math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+  "directory": "2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+  "analysis_type": "dolly_loss_comparison",
+  "result_time_utc": "2026-10-22T09:33:05.382369+00:00",
+  "timestamp_basis": "Original extension completion time; preserved when editing the review notebook",
+  "updated_at_utc": "2026-10-22T10:44:49.444857+00:00",
+  "exported_at_utc": "2026-10-22T10:44:49.939613+00:00",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/a2_dolly_loss/metrics.json",
+      "bytes": 15315,
+      "sha256": "29b72e87b478c8469bbc419872754174f41acfd48ac2b72b4a897b1229535fc0"
+    },
+    "per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/a2_dolly_loss/per_example.parquet",
+      "bytes": 293782,
+      "sha256": "7bf29cdc0b747c3e3afc101a488cfab9d2432c2e73c8ce13dc041ca2b47a1d7b"
+    },
+    "length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/a2_dolly_loss/length_matched_ids.json",
+      "bytes": 3959,
+      "sha256": "36abe16e340fd39054c01bf2f6ad003ed546a378fb885ef47518cc2a42b82ef1"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/effective_config.json",
+      "bytes": 37891,
+      "sha256": "77b1ac90935052496f3e256faf7581368cacc668a53731abcdaa5008d1326676"
+    },
+    "training_complete.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/training_complete.json",
+      "bytes": 275,
+      "sha256": "e412bde65bca5db9f5d373fe911ffe428fa7fe92e1745536ea3210a6e50237bb"
+    },
+    "train.jsonl": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/logs/train.jsonl",
+      "bytes": 5959,
+      "sha256": "ed7d71c19a71272f636aa7f510f28718b9983d672a407ac1cef542803e9595e3"
+    },
+    "extension_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/extension_config.json",
+      "bytes": 1055,
+      "sha256": "681c8a37bf05e0053acb238cc93294d64d1e6bcbef40969b71d66704075d5294"
+    },
+    "data_summary.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/data/summary.json",
+      "bytes": 4741,
+      "sha256": "9a3daad2d7655792b7d79b74620fa7e941b73391500e3a45f5302ff861823fdd"
+    },
+    "duplicate_report.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/data/duplicate_report.json",
+      "bytes": 32040,
+      "sha256": "4bb67cc9219a34c4ab614096b01097c09b5cb9dc9d5c89fa3201ad2fc1f9daed"
+    },
+    "c_manifest.jsonl": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/data/c_manifest.jsonl",
+      "bytes": 1431723,
+      "sha256": "042c90cb124100ca55a76bcfb3ff100011df81801ca78f379fcbdec0fc2e6e50"
+    },
+    "review_provenance.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/a2_dolly_loss/COMPLETED.json",
+      "bytes": 760,
+      "sha256": "e822e8f9c6a93d362cb923404b1e300bee7e58e7df99632417db4875c15d981f"
+    }
+  },
+  "exporter": {
+    "script": "scripts/export_generalization_notebook.py",
+    "sha256": "319e01ee94fe13a8bf00583de936d4bd76aa4562ec9fbb71d00a085fca5fc46f"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 12,
+    "notebook_sha256": "675bbd9866882baee1ae6d89d6731096e8b50e4e3fcb03386d551ba2d28695b8",
+    "gpu_required": false
+  },
+  "presentation_updated_at_utc": "2026-10-22T10:51:52.119060+00:00",
+  "presentation_change": "Relative-gain histogram: 40 equal bins over [-0.25, 0.85], full-domain normalization, outliers annotated; all samples retained in statistics",
+  "presentation_updates": [
+    {
+      "updated_at_utc": "2026-10-22T11:53:38.474237+00:00",
+      "reason": "User clarified delta_loss and relative_gain are examined in parallel without a primary/secondary ranking",
+      "changed_cells": [
+        0,
+        1,
+        12,
+        18
+      ],
+      "previous_notebook_sha256": "eded77e4070eb8c61729b6bd777d874ca4d7649e3ac02d6a8c76393da2ad7492",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425824Z_parallel_loss_metrics",
+      "snapshots_unchanged": true
+    }
+  ],
+  "integrity_updates": [
+    {
+      "updated_at_utc": "2026-10-22T12:08:42.256414+00:00",
+      "reason": "Refresh digest for the current executed notebook before commit; notebook source, outputs and result snapshots are unchanged by this update",
+      "previous_notebook_sha256": "1fb93b650e6cd40a5ee30a28230d485091a67dc01b015d8039193635405d1d85",
+      "notebook_sha256": "675bbd9866882baee1ae6d89d6731096e8b50e4e3fcb03386d551ba2d28695b8"
+    }
+  ]
+}
