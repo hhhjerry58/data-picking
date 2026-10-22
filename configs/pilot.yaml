@@ -1,0 +1,40 @@
+artifact_root: /mnt/tianzhu_hot/data-picking
+run_id: math-algebra-numbertheory-qwen25-1p5b-seed42
+model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+data:
+  name: EleutherAI/hendrycks_math
+  revision: 21a5633873b6a120296cce3e2df9d5550074f4a3
+  a_subset: algebra
+  b_subset: number_theory
+  a1_size: 1024
+  eval_size: 512
+  diagnostic_size: 128
+  split_seed: 2026
+  max_length: 2048
+  near_duplicate_threshold: 0.8
+training:
+  seed: 42
+  epochs: 1
+  micro_batch_size: 2
+  effective_batch_size: 32
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+  adam_epsilon: 0.00000001
+  max_grad_norm: 1.0
+  warmup_ratio: 0.1
+  save_steps: 16
+  save_optimizer: true
+  auto_resume: true
+  parameter_dtype: float32
+  autocast_dtype: bfloat16
+  attention_backend: math
+scoring:
+  batch_size: 4
+  forward_dtype: float32
+  sanity_tolerance: 0.00002
+analysis:
+  bootstrap_samples: 2000
+  bootstrap_seed: 2027
