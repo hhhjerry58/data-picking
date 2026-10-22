@@ -79,16 +79,17 @@ Lθ(x) = - (1 / N(x)) * Σ[t ∈ response_mask] log pθ(token_t | tokens_<t)
 3. 用经验证的 assistant token mask 或模板文本区间与 tokenizer offsets 建立 mask；验证首个回答 token、末尾控制 token、padding 和边界 token 的处理。不能只用“prompt 单独 tokenize 后的长度”盲切完整序列。
 4. 两模型都使用 `eval()` 和 inference/no-grad 模式，关闭 dropout；打分不做 packing，按相同设置分批。回答 mask 为空时直接报错或在准备阶段剔除，不能除以零。
 5. 训练目标同样按“每条回答先做 token 平均、再对有效 batch 做样本平均”计算，避免长回答仅因长度而获得更大权重；梯度累积与最后不足 batch 的归一化也必须一致。
-6. 同时存 `sum_nll`、`mean_nll`、`prompt_tokens`、`response_tokens`，便于检查长度效应。主排序使用 mean NLL。
+6. 同时存 `sum_nll`、`mean_nll`、`prompt_tokens`、`response_tokens`，便于检查长度效应。样本 loss 使用 mean NLL。
 
 ## 5. 比较哪些指标
 
 记 `L0 = Lθ₀(x)`，`LA = Lθ_A(x)`；统一为“分数越大，越倾向 A2”。
+loss 下降量与相对下降比例并列考察，不设主次。
 
 | 名称 | 定义 | 用途 |
 | --- | --- | --- |
-| `delta_loss` | `L0 - LA` | **预先指定的主指标**；正值表示 SFT 后 loss 下降 |
-| `relative_gain` | `(L0 - LA) / max(L0, 1e-6)` | 辅指标；考虑原始难度，但低 L0 时会不稳定 |
+| `delta_loss` | `L0 - LA` | loss 下降量；正值表示 SFT 后 loss 下降 |
+| `relative_gain` | `(L0 - LA) / max(L0, 1e-6)` | 相对下降比例；考虑原始 loss 尺度，但低 L0 时会不稳定 |
 | `neg_ref_loss` | `-L0` | 基线：只用原始模型就能否识别 A 域 |
 | `neg_sft_loss` | `-LA` | 基线：是否只看训练后的 loss 就够了 |
 
@@ -102,19 +103,19 @@ Lθ(x) = - (1 / N(x)) * Σ[t ∈ response_mask] log pθ(token_t | tokens_<t)
 
 固定 `label(A2)=1`、`label(B)=0`。首轮平衡的 A2/B 混合池中，每个指标都报告：
 
-- **ROC-AUC**：主评价指标，随机排序期望为 0.5。保持预定方向，即使 AUC < 0.5 也不事后翻转。
+- **ROC-AUC**：排序区分能力，随机排序期望为 0.5。保持预定方向，即使 AUC < 0.5 也不事后翻转。
 - **Average precision（AP）**：明确使用 average precision 定义，避免与另一种 PR 曲线积分混淆。
 - **Precision@top 10% / top 20%**：按分数降序选出后，A2 所占比例；随机期望为 0.5。边界同分用预先固定的随机次序打破，不能用域标签或带域前缀的 ID 排序。
 - A2/B 的 `L0`、`LA`、`delta_loss` 均值、中位数、分位数及正 delta 比例。
 
-对 A2/B 分层 bootstrap 2,000 次，给主 AUC 和 top-k precision 的 95% 区间。有重复题族/文档组时按 group 重采样，同一组不能拆成独立样本。比较主指标与 `neg_ref_loss` 的 AUC 差值时，在同一 bootstrap 样本上计算差值，使用配对区间。
+对 A2/B 分层 bootstrap 2,000 次，分别给两项指标的 AUC 和 top-k precision 的 95% 区间。有重复题族/文档组时按 group 重采样，同一组不能拆成独立样本。对于与原始 loss 基线的 AUC 差，在同一 bootstrap 样本上计算差值，使用配对区间，并明确标注所比较的指标。
 
 首轮结果按下面方式解释：
 
-- `delta_loss` 的 AUC 区间下界高于 0.5：有同域区分信号。
+- 对 `delta_loss` 和 `relative_gain` 分别判断：AUC 区间下界高于 0.5 表示该指标有同域区分信号。
 - `AUC(delta_loss) - AUC(neg_ref_loss)` 的配对区间下界高于 0：说明相比按 ref loss 从低到高排序，有额外区分收益；也同时展示与 `neg_sft_loss` 及预定反向基线的差异，避免遗漏领域难度本身提供的信号。
 - 能区分但不优于原始 loss：不能宣称 SFT 前后比较带来了增益。
-- 主指标无信号、只有辅指标有效：记为探索性发现，另取固定评估集复验，不能把辅指标改写成预先确定的成功结果。
+- 若两项指标结论不同，分别报告其证据和局限，不因预设优先级忽略其中一项，也不在看到结果后翻转方向。
 - Bootstrap 区间只描述给定模型和划分上的样本不确定性；不能代替多个训练 seed 或独立数据划分的复现。
 
 平衡数据上的 precision/AP 仅适用于本实验的 50% A 占比；真实候选池中 A 的占比不同，需要重新估计，不能直接沿用。
@@ -202,6 +203,11 @@ model_revision, checkpoint_step, run_id
 ```
 
 实现时显式设置 HF 等库的缓存目录及 trainer 输出目录，确保下载缓存、处理数据、训练日志和结果也遵守该根目录。代码、配置和设计文档留在 Git 仓库。
+
+按用户后续确定的分析组织方式，用于 review 的已执行 notebook 和小体积结果快照另存于
+仓库 `experiments-analysis/YYYY-MM-DD_HHMMSSZ_<run_id>/`。目录按原始结果时间（UTC）排序，
+每个分析保留来源路径和快照哈希；模型、optimizer 与原始训练数据仍保留在挂载中。
+入口和导出方法见 [实验分析索引](../experiments-analysis/README.md)。
 
 实际挂载不支持部分 POSIX 临时文件操作；仅这些短暂的运行/依赖安装 scratch 文件使用 `/dev/shm/data-picking-*` 内存盘，不用来保存实验产物。bf16 打分的 A1 sanity 检查发现最大 batch/padding 误差约 0.00468 nats/token，因此在正式训练和域区分分析前将打分改为完整 float32；重新检查后该误差约为 0.00000268。这个调整依据实现数值误差，未使用 A2/B 的区分结果。
 

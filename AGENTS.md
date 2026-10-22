@@ -16,8 +16,11 @@
 
 # Experiment conventions
 
-- Keep A2 and B out of training and checkpoint selection. Freeze the primary
-  metric and checkpoint rule before examining their results.
+- Keep A2 and B out of training and checkpoint selection. Freeze metric
+  definitions, score directions, and the checkpoint rule before examining results.
+- Evaluate loss decrease (`delta_loss`) and relative decrease (`relative_gain`)
+  in parallel, with no primary/secondary ranking. The user did not designate
+  either as primary. Present both in notebook summaries, tables, and conclusions.
 - Split by source/problem groups and check exact and near duplicates across
   A1, A2, and B. Preserve dataset revisions, IDs, split seeds, and manifests.
 - Evaluate reference and fine-tuned models on identical tokenized examples,
@@ -34,13 +37,44 @@
   math backend through both forward and backward: automatic backend selection
   produced non-finite bf16 gradients on a real batch, with or without activation
   checkpointing. Do not remove the finite-gradient check to bypass this failure.
+- The Dolly extension is configured in `configs/dolly_extension.yaml`: A2/B/C
+  each contain 512 fixed examples and reuse the original reference and step-32
+  SFT models. It is evaluation only, with no optimizer updates.
+- C is a uniform seeded sample of Dolly `general_qa`, filtered only for empty or
+  unscorable content and full-template length above 2,048 tokens. Do not truncate,
+  impose a minimum answer length, filter topics/languages, or manually replace rows.
+  Retain duplicate questions and different answers; record normalized question
+  groups for bootstrap intervals and report overlaps with A1/A2/B separately.
+- Gradient diagnostics use per-example mean response NLL, full float32, eval
+  mode and SDPA math. Measure unclipped gradients and count tied parameters once.
+  The directional reference uses only a fixed A1 sample, never A2/B/C.
+- The current Dolly review notebook shows only A2 versus Dolly loss results,
+  following the original pilot notebook's layout, including its five-panel
+  loss figure. Do not display B comparisons or gradient diagnostics in this
+  notebook. Fit length controls using only A2/C; retain full measurement artifacts.
+- The UltraChat replication uses `configs/ultrachat_extension.yaml`: fixed
+  `HuggingFaceH4/ultrachat_200k` `test_sft`, first complete user/assistant pair
+  per conversation, length/basic-validity filtering only, uniform 512-row sample.
+  Measure and retain loss plus gradient diagnostics for A2/C on both models;
+  its notebook follows Dolly's loss-only presentation. Document upstream data
+  processing and distinguish a source replication from a multiple-seed estimate.
 
 # Artifact storage
 
-- Store all project training and data artifacts under
+- Store heavyweight project training and data artifacts under
   `/mnt/tianzhu_hot/data-picking`: downloaded datasets and model/tokenizer caches,
   processed data, manifests, checkpoints, logs, scores, metrics, and figures.
   Keep source code, checked-in configuration, and documentation in this repository.
+- Store reviewable experiment analyses in the repository under
+  `experiments-analysis/YYYY-MM-DD_HHMMSSZ_<run_id>/analysis.ipynb`, ordered by
+  result time in UTC. Keep executed notebook outputs and small, checksummed
+  result/configuration snapshots there so reviews do not require the mount.
+  This is the user-requested exception to the external artifact location.
+  Keep checkpoints, model weights, downloaded datasets and token caches on the
+  mount; record their original paths in each analysis manifest.
+- Keep an experiment index in `experiments-analysis/README.md`. Preserve the
+  directory timestamp on later edits, document its source, and do not silently
+  overwrite an analysis notebook that may contain manual review notes.
 - Suggested layout: `cache/`, `data/raw/`, `data/processed/`, and
   `runs/<run_id>/{checkpoints,logs,scores,metrics,figures}` under that root.
 - Explicitly configure library cache and trainer output paths; do not silently
@@ -52,6 +86,10 @@
 - Transient POSIX scratch files (including dependency installation scratch) may
   use `/dev/shm/data-picking-*`: blobfuse2 cannot unlink open temporary files.
   This is not a storage location for retained experiment artifacts.
+- Large mounted checkpoints may need a temporary RAM copy for evaluation.
+  `scripts/stage_evaluation_weights.py` verifies original SHA-256 values before
+  use; persistent sources stay on the mount. Avoid CUDA copies directly from
+  mmap-backed blobfuse tensors. Never log the blob mount's credentials or signed URLs.
 
 # Training experiment preferences
 
