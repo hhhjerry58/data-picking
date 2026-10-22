@@ -1,0 +1,31 @@
+{
+  "question_normalization": "Unicode NFKC, lowercase, whitespace collapse; exact equality",
+  "scope": "Normalized first-question equality; semantic paraphrases are not guaranteed detected",
+  "category": {
+    "examples": 23110,
+    "question_groups": 23110,
+    "repeated_question_groups": 0,
+    "examples_in_repeated_groups": 0,
+    "same_question_different_answer_groups": 0,
+    "groups": []
+  },
+  "eligible": {
+    "examples": 23086,
+    "question_groups": 23086,
+    "repeated_question_groups": 0,
+    "examples_in_repeated_groups": 0,
+    "same_question_different_answer_groups": 0,
+    "groups": []
+  },
+  "selected": {
+    "examples": 512,
+    "question_groups": 512,
+    "repeated_question_groups": 0,
+    "examples_in_repeated_groups": 0,
+    "same_question_different_answer_groups": 0,
+    "groups": []
+  },
+  "cross_split_matches": [],
+  "selected_overlap_ids": [],
+  "selection_effect": "None: duplicates and overlaps remain in the random sample"
+}

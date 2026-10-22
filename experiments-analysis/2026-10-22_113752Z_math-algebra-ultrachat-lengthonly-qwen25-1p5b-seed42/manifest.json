@@ -1,0 +1,287 @@
+{
+  "run_id": "math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42",
+  "directory": "2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42",
+  "analysis_type": "ultrachat_loss_comparison",
+  "c_data": {
+    "kind": "ultrachat",
+    "display_name": "UltraChat",
+    "name": "HuggingFaceH4/ultrachat_200k",
+    "revision": "8049631c405ae6576f93f445c6b8166f76f5505a",
+    "split": "test_sft",
+    "source_file": "data/test_sft-00000-of-00001-f7dfac4afe5b93f4.parquet",
+    "source_bytes": 81176553,
+    "source_sha256": "c18fd6e77395577652bdefbc5a87044ea799e989451ecfca5c6cf977ae5c6f70",
+    "conversation_view": "first_user_assistant_pair",
+    "size": 512,
+    "seed": 20261022,
+    "max_length": 2048
+  },
+  "data_summary": {
+    "raw_count": 23110,
+    "source_split": "test_sft",
+    "category_count": 23110,
+    "eligible_count": 23086,
+    "selected_count": 512,
+    "conversation_view": "first_user_assistant_pair",
+    "status_counts": {
+      "eligible": 22574,
+      "selected": 512,
+      "overlong": 22,
+      "empty_response": 2
+    },
+    "exclusion_counts": {
+      "overlong": 22,
+      "empty_response": 2
+    },
+    "source_message_counts": {
+      "8": 6164,
+      "6": 7590,
+      "10": 1061,
+      "14": 387,
+      "4": 7434,
+      "12": 474
+    },
+    "domains": {
+      "A": {
+        "examples": 512,
+        "response_tokens": 70771
+      },
+      "C": {
+        "examples": 512,
+        "response_tokens": 182882
+      }
+    },
+    "original_data_dir": "/mnt/tianzhu_hot/data-picking/data/processed/15b20f8fca81ffee",
+    "original_split_hashes": {
+      "A1": "1ec3ddcd8400a47fd6fdfb9044f5c5ff45d42d405503db39a550a9e5fc67fbd6",
+      "A2": "45719263eadfd430461838c18d33c974a729a7a37e4468609627061ed29e5e79",
+      "B": "2b8bf4c5a5b6c35470b020584dc39e81019af73a28643aa5a53bc39c35ce75b4"
+    },
+    "raw_sha256": "c18fd6e77395577652bdefbc5a87044ea799e989451ecfca5c6cf977ae5c6f70",
+    "template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "anchor_ids": [
+      "algebra:train:135",
+      "algebra:train:571",
+      "algebra:train:314",
+      "algebra:train:48",
+      "algebra:train:997",
+      "algebra:train:1345",
+      "algebra:train:35",
+      "algebra:train:734",
+      "algebra:train:1143",
+      "algebra:train:1403",
+      "algebra:train:1167",
+      "algebra:train:1288",
+      "algebra:train:1414",
+      "algebra:train:1719",
+      "algebra:train:768",
+      "algebra:train:294",
+      "algebra:train:1366",
+      "algebra:train:641",
+      "algebra:train:123",
+      "algebra:train:771",
+      "algebra:train:1625",
+      "algebra:train:29",
+      "algebra:train:890",
+      "algebra:train:305",
+      "algebra:train:917",
+      "algebra:train:721",
+      "algebra:train:429",
+      "algebra:train:1230",
+      "algebra:train:133",
+      "algebra:train:572",
+      "algebra:train:716",
+      "algebra:train:530",
+      "algebra:train:216",
+      "algebra:train:238",
+      "algebra:train:1567",
+      "algebra:train:741",
+      "algebra:train:1279",
+      "algebra:train:1711",
+      "algebra:train:89",
+      "algebra:train:718",
+      "algebra:train:691",
+      "algebra:train:281",
+      "algebra:train:946",
+      "algebra:train:55",
+      "algebra:train:706",
+      "algebra:train:1555",
+      "algebra:train:991",
+      "algebra:train:1401",
+      "algebra:train:787",
+      "algebra:train:408",
+      "algebra:train:1257",
+      "algebra:train:1464",
+      "algebra:train:1390",
+      "algebra:train:1057",
+      "algebra:train:1079",
+      "algebra:train:399",
+      "algebra:train:1578",
+      "algebra:train:1452",
+      "algebra:train:561",
+      "algebra:train:1113",
+      "algebra:train:751",
+      "algebra:train:510",
+      "algebra:train:870",
+      "algebra:train:86",
+      "algebra:train:1721",
+      "algebra:train:574",
+      "algebra:train:1020",
+      "algebra:train:758",
+      "algebra:train:719",
+      "algebra:train:357",
+      "algebra:train:1304",
+      "algebra:train:581",
+      "algebra:train:374",
+      "algebra:train:1448",
+      "algebra:train:1354",
+      "algebra:train:663",
+      "algebra:train:690",
+      "algebra:train:640",
+      "algebra:train:750",
+      "algebra:train:509",
+      "algebra:train:1294",
+      "algebra:train:994",
+      "algebra:train:17",
+      "algebra:train:215",
+      "algebra:train:194",
+      "algebra:train:450",
+      "algebra:train:1723",
+      "algebra:train:495",
+      "algebra:train:1152",
+      "algebra:train:1447",
+      "algebra:train:260",
+      "algebra:train:1387",
+      "algebra:train:551",
+      "algebra:train:1360",
+      "algebra:train:978",
+      "algebra:train:1123",
+      "algebra:train:1525",
+      "algebra:train:1712",
+      "algebra:train:385",
+      "algebra:train:273",
+      "algebra:train:1482",
+      "algebra:train:943",
+      "algebra:train:1260",
+      "algebra:train:1133",
+      "algebra:train:1044",
+      "algebra:train:1382",
+      "algebra:train:1227",
+      "algebra:train:621",
+      "algebra:train:1682",
+      "algebra:train:165",
+      "algebra:train:897",
+      "algebra:train:362",
+      "algebra:train:1412",
+      "algebra:train:347",
+      "algebra:train:1583",
+      "algebra:train:871",
+      "algebra:train:1472",
+      "algebra:train:1490",
+      "algebra:train:176",
+      "algebra:train:1432",
+      "algebra:train:995",
+      "algebra:train:1290",
+      "algebra:train:1293",
+      "algebra:train:617",
+      "algebra:train:210",
+      "algebra:train:1051",
+      "algebra:train:1284",
+      "algebra:train:255"
+    ],
+    "dataset_license": "MIT",
+    "dataset_attribution": "HuggingFaceH4; UltraChat by Ding et al. (2023)",
+    "upstream_processing": "UltraChat 200k is an upstream filtered/truecased subset of synthetic ChatGPT dialogues; this experiment adds no topic/language/code filters",
+    "selection_policy": "Uniform seeded row sample of complete first user/assistant pairs with nonempty scorable content and sequence <= 2048 tokens; no truncation, minimum answer length, content filters or duplicate removal",
+    "selected_question_groups": 512,
+    "selected_overlap_count": 0
+  },
+  "result_time_utc": "2026-10-22T11:37:52.040489+00:00",
+  "timestamp_basis": "Original extension completion time; preserved when editing the review notebook",
+  "updated_at_utc": "2026-10-22T11:38:32.175482+00:00",
+  "exported_at_utc": "2026-10-22T11:39:34.765129+00:00",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/a2_ultrachat_loss/metrics.json",
+      "bytes": 15406,
+      "sha256": "38103b96f269804f047e12649ec7b285cb66fd1fa4a29a4b8ff3e925004a7a95"
+    },
+    "per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/a2_ultrachat_loss/per_example.parquet",
+      "bytes": 295796,
+      "sha256": "52fe9b539746fc27ee28be24fef8fc6afccd8186367818900b1d66f3cf189ba1"
+    },
+    "length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/a2_ultrachat_loss/length_matched_ids.json",
+      "bytes": 6660,
+      "sha256": "09260371fb339eaa2194050abd6d7b7248b96d6c48be7fdbfbb02f793f0aadb5"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/effective_config.json",
+      "bytes": 37891,
+      "sha256": "77b1ac90935052496f3e256faf7581368cacc668a53731abcdaa5008d1326676"
+    },
+    "training_complete.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/training_complete.json",
+      "bytes": 275,
+      "sha256": "e412bde65bca5db9f5d373fe911ffe428fa7fe92e1745536ea3210a6e50237bb"
+    },
+    "train.jsonl": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/logs/train.jsonl",
+      "bytes": 5959,
+      "sha256": "ed7d71c19a71272f636aa7f510f28718b9983d672a407ac1cef542803e9595e3"
+    },
+    "extension_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/extension_config.json",
+      "bytes": 1351,
+      "sha256": "b67847e1edda01366bcb28f0c4327f9df96b2bc8984d28e7315dff4da2860500"
+    },
+    "data_summary.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/data/summary.json",
+      "bytes": 5084,
+      "sha256": "e0a32f1f1dc1c1dc237cd5152fcadfc435c6e107bb163d0ac7a46d13fc6cf00e"
+    },
+    "duplicate_report.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/data/duplicate_report.json",
+      "bytes": 968,
+      "sha256": "4b8d311c2f240b9844991a17b0922947b585a2828b4148ccaa1fb77d54ab30cf"
+    },
+    "c_manifest.jsonl": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/data/c_selected_manifest.jsonl",
+      "bytes": 429410,
+      "sha256": "612bc1d8ae8ee1ab91eb54d6a074a0afb08338c0246f3dfc06430a49a44ea01b"
+    },
+    "review_provenance.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/a2_ultrachat_loss/COMPLETED.json",
+      "bytes": 760,
+      "sha256": "9bf17f4c0b2312192a1907aa7f33b01c9d130746574d2023b48ef805af8c4732"
+    }
+  },
+  "exporter": {
+    "script": "scripts/export_generalization_notebook.py",
+    "sha256": "dac352cbd4b1c008c928477a9f61c8785c06b217d87eda7098953380314bf40e"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 12,
+    "notebook_sha256": "7b8ca633c3e8958e4dd28fe9352d2a3bb44610454460486ce9bd0275d68ec301",
+    "gpu_required": false
+  },
+  "presentation_updates": [
+    {
+      "updated_at_utc": "2026-10-22T11:53:38.503178+00:00",
+      "reason": "User clarified delta_loss and relative_gain are examined in parallel without a primary/secondary ranking",
+      "changed_cells": [
+        0,
+        1,
+        12,
+        18
+      ],
+      "previous_notebook_sha256": "237da2a719a02fde24353b76c71d965c4267bd5135dcc0dd5867493b14985523",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425885Z_parallel_loss_metrics",
+      "snapshots_unchanged": true
+    }
+  ]
+}
