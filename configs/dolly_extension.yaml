@@ -1,0 +1,31 @@
+artifact_root: /mnt/tianzhu_hot/data-picking
+run_id: math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42
+base_config: configs/pilot.yaml
+base_run: /mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42
+gradient_directory: gradients
+c_data:
+  name: databricks/databricks-dolly-15k
+  revision: bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a
+  category: general_qa
+  size: 512
+  seed: 20261022
+  max_length: 2048
+gradients:
+  per_example: true
+  parameter_dtype: float32
+  forward_dtype: float32
+  attention_backend: math
+  clip: false
+  anchor_size: 128
+  anchor_seed: 2027
+  chunk_size: 32
+  loss_crosscheck_tolerance: 0.0001
+analysis:
+  bootstrap_samples: 2000
+  bootstrap_seed: 20261023
+  length_matching_seed: 20261024
+  primary_loss_score: delta_loss
+  positive_domains:
+    A_vs_B: A
+    A_vs_C: A
+    B_vs_C: B

@@ -1,0 +1,36 @@
+artifact_root: /mnt/tianzhu_hot/data-picking
+run_id: math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42
+base_config: configs/pilot.yaml
+base_run: /mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42
+evaluation_domains: [A, C]
+gradient_directory: gradients
+c_data:
+  kind: ultrachat
+  display_name: UltraChat
+  name: HuggingFaceH4/ultrachat_200k
+  revision: 8049631c405ae6576f93f445c6b8166f76f5505a
+  split: test_sft
+  source_file: data/test_sft-00000-of-00001-f7dfac4afe5b93f4.parquet
+  source_bytes: 81176553
+  source_sha256: c18fd6e77395577652bdefbc5a87044ea799e989451ecfca5c6cf977ae5c6f70
+  conversation_view: first_user_assistant_pair
+  size: 512
+  seed: 20261022
+  max_length: 2048
+gradients:
+  per_example: true
+  parameter_dtype: float32
+  forward_dtype: float32
+  attention_backend: math
+  clip: false
+  anchor_size: 128
+  anchor_seed: 2027
+  chunk_size: 32
+  loss_crosscheck_tolerance: 0.0001
+analysis:
+  bootstrap_samples: 2000
+  bootstrap_seed: 20261023
+  length_matching_seed: 20261024
+  primary_loss_score: delta_loss
+  positive_domains:
+    A_vs_C: A
