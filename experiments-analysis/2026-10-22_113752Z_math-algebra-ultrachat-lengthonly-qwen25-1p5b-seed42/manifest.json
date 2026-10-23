@@ -257,6 +257,31 @@
       "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/a2_ultrachat_loss/COMPLETED.json",
       "bytes": 760,
       "sha256": "9bf17f4c0b2312192a1907aa7f33b01c9d130746574d2023b48ef805af8c4732"
+    },
+    "gradient_per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_example.parquet",
+      "bytes": 435501,
+      "sha256": "f895e0371f25c6092e1f08189bae27edebbaeb1559ad6a3f263b01b427a19a9c"
+    },
+    "gradient_per_layer.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_layer.parquet",
+      "bytes": 1739947,
+      "sha256": "bc7b4457066056abe0286a3057a26a7701397cfe94eea7a927bccd2ed723d06a"
+    },
+    "gradient_parameter_summary.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_parameter_summary.parquet",
+      "bytes": 65223,
+      "sha256": "b9f45803eb57dbaafa4ced22382d75a19f7dacbd6c124ac8902212bdfaee0559"
+    },
+    "gradient_metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_metrics.json",
+      "bytes": 24128,
+      "sha256": "a0a926812959b3b708494677cbd738b5978d7d4df6191db80e57e1aed03fdefe"
+    },
+    "gradient_provenance.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/COMPLETED.json",
+      "bytes": 1577,
+      "sha256": "367f953ca36878378e6e84b999a5874d57dbb71b666d55b7dec1d28a962c9503"
     }
   },
   "exporter": {
@@ -265,9 +290,10 @@
   },
   "execution": {
     "status": "completed",
-    "code_cells": 12,
-    "notebook_sha256": "7b8ca633c3e8958e4dd28fe9352d2a3bb44610454460486ce9bd0275d68ec301",
-    "gpu_required": false
+    "code_cells": 18,
+    "notebook_sha256": "af514c4d3634e5ba1780fb1477aca3109ee9fea754d607739d1ac706bc767f6a",
+    "gpu_required": false,
+    "completed_at_utc": "2026-10-22T13:43:33.355278+00:00"
   },
   "presentation_updates": [
     {
@@ -282,6 +308,65 @@
       "previous_notebook_sha256": "237da2a719a02fde24353b76c71d965c4267bd5135dcc0dd5867493b14985523",
       "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425885Z_parallel_loss_metrics",
       "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T12:57:04.720085+00:00",
+      "reason": "Section 8.1: A2/UltraChat overlaid reference, SFT and paired ref-minus-SFT distributions for global L2 and maximum absolute gradient",
+      "changed_cells": [
+        29,
+        30
+      ],
+      "previous_notebook_sha256": "007f327670049d78a4c4b504a00e1fa385a510479cc60da0e960f91a89d664eb",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_125703_068984Z_grad_distributions_8_1",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T12:58:22.918450+00:00",
+      "reason": "Section 8.1: A2/UltraChat overlaid reference, SFT and paired ref-minus-SFT distributions for global L2 and maximum absolute gradient",
+      "changed_cells": [
+        29
+      ],
+      "previous_notebook_sha256": "667ecc9698fa18f61e91a5f4a4c4f74d0a5558514a9dd68ab751cab53e0164e2",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_125821_272327Z_grad_distributions_8_1",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:27:10.196748+00:00",
+      "reason": "Section 8.3: add A2/UltraChat reference cosine density comparison against the same reference-model A1 mean gradient; retain existing CDFs",
+      "changed_cells": [
+        35,
+        36
+      ],
+      "previous_notebook_sha256": "611610249155a08a154ced77908d5a89840a39dc791280ab1b95541354d7495a",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_132708_429478Z_ref_cosine_distribution_8_3",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:43:25.853882+00:00",
+      "reason": "Replace pandas Styler formatting with a plain DataFrame display copy, removing the optional Jinja2 dependency",
+      "changed_cells": [
+        29
+      ],
+      "previous_notebook_sha256": "baa2d251f60068b67f3bcb42e73ab1460ad03cd7a4e501e8ddcca473177d1c5e",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_134324_620933Z_no_styler_dependency",
+      "snapshots_unchanged": true,
+      "source_script": "scripts/append_gradient_analysis.py",
+      "source_script_sha256": "65b762105c3c294240faa781e222a33a059835ddb95615434e86e3ffdd07039b"
     }
-  ]
+  ],
+  "gradient_appendix": {
+    "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42",
+    "artifact_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review",
+    "domains": [
+      "A",
+      "C"
+    ],
+    "added_at_utc": "2026-10-22T12:27:37.440330+00:00",
+    "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_122736_010761Z_gradients",
+    "first_cell": 26,
+    "script": "scripts/append_gradient_analysis.py",
+    "script_sha256": "9ebd498c1f1a66c8d88e34f991b61b312e6a5c5d315ac2f4b6d320e28ccc3485",
+    "preserved_loss_cells": 26,
+    "loss_snapshots_unchanged": true
+  }
 }

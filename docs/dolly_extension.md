@@ -48,7 +48,7 @@ A2/B/C 各 512 条，在两个模型上分别执行单样本 forward/backward，
 
 ## 分析与呈现
 
-当前 review notebook 只展示 A2/C 的 loss，A2 为正类。loss 下降量 `loss_ref - loss_sft`
+当前 review notebook 展示 A2/C 的 loss，并在末尾追加同一批样本的梯度分析，A2 为正类。loss 下降量 `loss_ref - loss_sft`
 和相对下降比例 `(loss_ref - loss_sft) / max(loss_ref, 1e-6)` 并列考察，不设主次。
 按原 A/B notebook 的布局展示实验设置、训练曲线、五联 loss 图、ROC、top-k、长度控制、配对比较和结论。
 五联图包含 ref NLL、SFT NLL、下降量、相对下降比例和逐样本散点图。
@@ -59,9 +59,11 @@ A2/B/C 各 512 条，在两个模型上分别执行单样本 forward/backward，
 长度匹配后的区间仍按问题组重采样。原始 loss 基线与长度基线同时报告。
 Dolly 与 MATH 的来源、题型、文风和回答质量混杂；可分性不构成选数训练收益的证明。
 
-当前 notebook 不展示 B 对比或梯度结果；已完成的完整测量继续保存在挂载目录。
+当前 notebook 不展示 B 对比；末尾展示全局/逐层梯度、最大单参数梯度、A1 cosine、长度对照及观察。
+已完成的完整测量继续保存在挂载目录；原 A2/B notebook 的梯度附录复用其中经过模型与样本一致性核对的 A2/B 部分。
 用于这版展示的两域统计保存在 `metrics/a2_dolly_loss/`，不改动原始三域结果。
 更新已有 notebook 时保持目录时间，并在挂载的 `analysis_history/` 备份修改前的版本。
+追加或更新梯度部分使用 `scripts/append_gradient_analysis.py`，具体入口见实验分析索引。
 
 结果存入 `experiments-analysis/YYYY-MM-DD_HHMMSSZ_<run_id>/`。已执行 notebook 和小结果快照在仓库，
 完整数据、日志和梯度明细在 `/mnt/tianzhu_hot/data-picking`。

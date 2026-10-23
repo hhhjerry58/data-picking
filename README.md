@@ -31,15 +31,16 @@ loss 下降量和相对下降比例能否识别 A2。
 
 Dolly C 扩展已完成：仅按完整序列长度（≤2,048 tokens）和基本有效性筛选，
 从 2,190 条有效 `general_qa` 中固定随机抽 512 条，保留重复问题的不同回答。
-新的 [A2/Dolly loss notebook](experiments-analysis/2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb)
+新的 [A2/Dolly loss 与梯度 notebook](experiments-analysis/2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb)
 按首轮 notebook 的结构展示两域 loss 分布、ROC、top-k 和仅基于 A2/C 的长度对照。
 A2/C 的 loss 下降量 AUC 为 **0.6162**，相对下降比例 AUC 为 **0.8563**；
 原始 loss 与 prompt 长度本身已有很强的区分信号，解释时需一起比较。
 
-UltraChat 复验也已完成：[A2/UltraChat loss notebook](experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb)。
+UltraChat 复验也已完成：[A2/UltraChat loss 与梯度 notebook](experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb)。
 固定抽取 `ultrachat_200k/test_sft` 的 512 条有效首轮问答，loss 下降量和相对下降比例 AUC 分别为 **0.9857**、**0.9869**，
 两域长度匹配后分别为 **0.9727**、**0.9722**。本次 UltraChat 平均 loss 上升，A2 平均 loss 下降；
-与 Dolly 的差异说明结果依赖通用数据来源，单次复验不能估计全部随机性。梯度明细已保存，暂不在 notebook 展示。
+与 Dolly 的差异说明结果依赖通用数据来源，单次复验不能估计全部随机性。
+三个 notebook 的末尾均追加了全局/逐层梯度、最大单参数梯度、A1 方向相似度、长度对照及观察；原有 loss 分析保持不变。
 
 已实现数据准备、完整状态保存/恢复、SFT、逐样本打分、bootstrap 评估和作图。
 首轮配置为 MATH Algebra A1=1,024、A2=512，Number Theory B=512，

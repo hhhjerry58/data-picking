@@ -48,15 +48,16 @@
 - Gradient diagnostics use per-example mean response NLL, full float32, eval
   mode and SDPA math. Measure unclipped gradients and count tied parameters once.
   The directional reference uses only a fixed A1 sample, never A2/B/C.
-- The current Dolly review notebook shows only A2 versus Dolly loss results,
-  following the original pilot notebook's layout, including its five-panel
-  loss figure. Do not display B comparisons or gradient diagnostics in this
-  notebook. Fit length controls using only A2/C; retain full measurement artifacts.
+- The review notebooks preserve their loss sections and append gradient
+  diagnostics for the same two-domain comparison. Dolly contains A2 versus
+  Dolly, without B comparisons; its length control uses only A2/C. The A2/B
+  appendix may reuse the verified A2/B measurements from the Dolly run.
+  Preserve existing cells and review notes when adding or replacing an appendix.
 - The UltraChat replication uses `configs/ultrachat_extension.yaml`: fixed
   `HuggingFaceH4/ultrachat_200k` `test_sft`, first complete user/assistant pair
   per conversation, length/basic-validity filtering only, uniform 512-row sample.
   Measure and retain loss plus gradient diagnostics for A2/C on both models;
-  its notebook follows Dolly's loss-only presentation. Document upstream data
+  its notebook follows Dolly's loss presentation with a gradient appendix. Document upstream data
   processing and distinguish a source replication from a multiple-seed estimate.
 
 # Artifact storage

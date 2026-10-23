@@ -1,0 +1,26 @@
+{
+  "identity": {
+    "target_scores": "7bf29cdc0b747c3e3afc101a488cfab9d2432c2e73c8ce13dc041ca2b47a1d7b",
+    "length_matched_ids": "36abe16e340fd39054c01bf2f6ad003ed546a378fb885ef47518cc2a42b82ef1",
+    "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+    "source_files": {
+      "metrics/per_example.parquet": "cae0a457f4fa4c1638cb52782ca7b2b7d95d0cb6565103c8b66ab7ae0b4374dd",
+      "metrics/per_layer.parquet": "cbdf88a18788402e2bd46e4e273e679766d6b67fe9cfb7326782b78ddce982b0",
+      "metrics/parameter_summary.parquet": "50ec92a2d5e394ea155693317d353e100959e677d6f93d583d4e06b40fa515a6",
+      "metrics/metrics.json": "f8d849301b1d24ddb26ea51e9bdb1a880f1d0c45bdc7adadc39254581146ee06"
+    },
+    "implementation": {
+      "gradient_review.py": "ccae5c0d3945754f2e086a318a40a67a4283356c171668fc1d0e2cb86f8aad3a",
+      "generalization_analysis.py": "e909eb90a2cb5378da89199b98a085d9c51db8696707508955174d9e0452eced",
+      "analysis.py": "464f01862262dec47829a0c5cb1526360e88f45d2b14ef415a9467412532c480"
+    },
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 20261023
+  },
+  "files": {
+    "gradient_per_example.parquet": "d762a4148b0e971b325df85ed9380a82763a4ac167852b0ae351f913ae984fd9",
+    "gradient_per_layer.parquet": "a814d2588be00c181edc0acd9a0b60785360f6250330d41bd657a36407cd77fc",
+    "gradient_parameter_summary.parquet": "3aca22a7e338fa7ad336ba66b4b008827f2bc1f683ef09a3ab29f1e48d8be253",
+    "gradient_metrics.json": "253c2811ae95ab9afb61f1be76bac74c0a3b3bf208d11519e193197e0bce47b6"
+  }
+}

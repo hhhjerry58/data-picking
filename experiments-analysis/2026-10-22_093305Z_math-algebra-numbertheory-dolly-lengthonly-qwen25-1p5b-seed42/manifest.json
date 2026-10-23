@@ -62,6 +62,31 @@
       "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/a2_dolly_loss/COMPLETED.json",
       "bytes": 760,
       "sha256": "e822e8f9c6a93d362cb923404b1e300bee7e58e7df99632417db4875c15d981f"
+    },
+    "gradient_per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_example.parquet",
+      "bytes": 433276,
+      "sha256": "d762a4148b0e971b325df85ed9380a82763a4ac167852b0ae351f913ae984fd9"
+    },
+    "gradient_per_layer.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_layer.parquet",
+      "bytes": 1739688,
+      "sha256": "a814d2588be00c181edc0acd9a0b60785360f6250330d41bd657a36407cd77fc"
+    },
+    "gradient_parameter_summary.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_parameter_summary.parquet",
+      "bytes": 65292,
+      "sha256": "3aca22a7e338fa7ad336ba66b4b008827f2bc1f683ef09a3ab29f1e48d8be253"
+    },
+    "gradient_metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/gradient_metrics.json",
+      "bytes": 21256,
+      "sha256": "253c2811ae95ab9afb61f1be76bac74c0a3b3bf208d11519e193197e0bce47b6"
+    },
+    "gradient_provenance.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review/COMPLETED.json",
+      "bytes": 1586,
+      "sha256": "c948f2f5a2cea708c5912631c9690b11829c4af6e1d65cf474dfc5895b3849af"
     }
   },
   "exporter": {
@@ -70,9 +95,10 @@
   },
   "execution": {
     "status": "completed",
-    "code_cells": 12,
-    "notebook_sha256": "675bbd9866882baee1ae6d89d6731096e8b50e4e3fcb03386d551ba2d28695b8",
-    "gpu_required": false
+    "code_cells": 18,
+    "notebook_sha256": "19b4e92c8c3a054ecb513dec31ab46322d6732410ef3238a6407fff38c395744",
+    "gpu_required": false,
+    "completed_at_utc": "2026-10-22T13:43:33.054916+00:00"
   },
   "presentation_updated_at_utc": "2026-10-22T10:51:52.119060+00:00",
   "presentation_change": "Relative-gain histogram: 40 equal bins over [-0.25, 0.85], full-domain normalization, outliers annotated; all samples retained in statistics",
@@ -89,6 +115,29 @@
       "previous_notebook_sha256": "eded77e4070eb8c61729b6bd777d874ca4d7649e3ac02d6a8c76393da2ad7492",
       "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425824Z_parallel_loss_metrics",
       "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:06:47.805121+00:00",
+      "reason": "Section 8.1: overlaid reference, SFT and paired ref-minus-SFT distributions for the existing two-domain comparison; global L2 and maximum absolute gradient",
+      "changed_cells": [
+        28,
+        29
+      ],
+      "previous_notebook_sha256": "5f0e474bbe787f9efd025127636222b3003072562c8ce7fa1db64508791cc963",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_130646_417841Z_grad_distributions_8_1",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:43:25.812087+00:00",
+      "reason": "Replace pandas Styler formatting with a plain DataFrame display copy, removing the optional Jinja2 dependency",
+      "changed_cells": [
+        28
+      ],
+      "previous_notebook_sha256": "0adf84ff5db6d9f4ee5aa2978e1a0626e6d32dae0d950b7292212bc96e1e58d6",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_134324_591704Z_no_styler_dependency",
+      "snapshots_unchanged": true,
+      "source_script": "scripts/append_gradient_analysis.py",
+      "source_script_sha256": "65b762105c3c294240faa781e222a33a059835ddb95615434e86e3ffdd07039b"
     }
   ],
   "integrity_updates": [
@@ -98,5 +147,20 @@
       "previous_notebook_sha256": "1fb93b650e6cd40a5ee30a28230d485091a67dc01b015d8039193635405d1d85",
       "notebook_sha256": "675bbd9866882baee1ae6d89d6731096e8b50e4e3fcb03386d551ba2d28695b8"
     }
-  ]
+  ],
+  "gradient_appendix": {
+    "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+    "artifact_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/metrics/gradient_review",
+    "domains": [
+      "A",
+      "C"
+    ],
+    "added_at_utc": "2026-10-22T12:27:37.428901+00:00",
+    "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis_history/2026-10-22_122736_032023Z_gradients",
+    "first_cell": 25,
+    "script": "scripts/append_gradient_analysis.py",
+    "script_sha256": "aba4af1d46d2fc21f27d5de5d9800caf8e212e0ba3b32ee76e0c05ac009f0962",
+    "preserved_loss_cells": 25,
+    "loss_snapshots_unchanged": true
+  }
 }

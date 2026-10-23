@@ -99,6 +99,8 @@ def update_index(root):
             scores = metrics["comparisons"][comparison]["raw"]["loss_scores"]
         else:
             scores = metrics["main"]["scores"]
+        if manifest.get("gradient_appendix"):
+            title = title.replace(" · loss", "") + " · loss + grad"
         lines.append(f"| {timestamp} | [{title}]({folder.name}/analysis.ipynb) | {model} | "
                      f"{scores['delta_loss']['roc_auc']:.4f} | {scores['relative_gain']['roc_auc']:.4f} |")
     lines += ["", end]

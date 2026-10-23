@@ -46,13 +46,39 @@
       "source_relative_path": "logs/train.jsonl",
       "bytes": 5959,
       "sha256": "ed7d71c19a71272f636aa7f510f28718b9983d672a407ac1cef542803e9595e3"
+    },
+    "gradient_per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_example.parquet",
+      "bytes": 433573,
+      "sha256": "d1121724f798f70fe9dbcd8ddd73e998b84f5228c1923f787cc69d50177f1066"
+    },
+    "gradient_per_layer.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review/gradient_per_layer.parquet",
+      "bytes": 1738690,
+      "sha256": "70cce46bb5a7a9b15781b1fb0dd9bf4ac82c3babc7f45692aca980b7325954ab"
+    },
+    "gradient_parameter_summary.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review/gradient_parameter_summary.parquet",
+      "bytes": 65195,
+      "sha256": "df9ad7e588d90b92b739b9f39fe763656fe9a0ff710390df2e22b14ff2ca04a6"
+    },
+    "gradient_metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review/gradient_metrics.json",
+      "bytes": 39731,
+      "sha256": "939ce6fd5a0dcbc2fa2797d68663a363e128340ff696f57eb907fc85120ba070"
+    },
+    "gradient_provenance.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review/COMPLETED.json",
+      "bytes": 1586,
+      "sha256": "20941b825e988ba9735362db01983a8ab044cd0a614470effc03b7d7ebfaed78"
     }
   },
   "execution": {
     "status": "completed",
-    "code_cells": 12,
-    "notebook_sha256": "88efd5dd5d9a78aa3b8416cbbdfbbb083d4337c99fde396c1c713aff14a985d7",
-    "gpu_required": false
+    "code_cells": 18,
+    "notebook_sha256": "a4a8c6c7581fa99aab86660aba5527435aa2d4b7c6da4dc71bce6f25f1e5579f",
+    "gpu_required": false,
+    "completed_at_utc": "2026-10-22T13:43:33.126275+00:00"
   },
   "notebook_edits": [
     {
@@ -110,6 +136,55 @@
       "previous_notebook_sha256": "72a007783cbf1eaad4949c435f03a12f497702461a9649fd9da64c83fe7e939c",
       "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_115337_425738Z_parallel_loss_metrics",
       "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:06:32.193456+00:00",
+      "reason": "Section 8.1: overlaid reference, SFT and paired ref-minus-SFT distributions for the existing two-domain comparison; global L2 and maximum absolute gradient",
+      "changed_cells": [
+        28,
+        29
+      ],
+      "previous_notebook_sha256": "ef0fa4dff51ed24ef3f50ce2bd2d483b3116c7d0bd9bd2e9e853d0edc8b42b97",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_130630_965436Z_grad_distributions_8_1",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:33:46.426601+00:00",
+      "reason": "Section 8.3: add A2/B reference cosine density comparison against the same reference-model A1 mean gradient; retain existing CDFs",
+      "changed_cells": [
+        34,
+        35
+      ],
+      "previous_notebook_sha256": "f5fb36f05beeca5ef36d65731c23923ff2c3a1c4b224c2a26118f68bec9ada6f",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_133344_989426Z_ref_cosine_distribution_8_3",
+      "snapshots_unchanged": true
+    },
+    {
+      "updated_at_utc": "2026-10-22T13:43:25.631663+00:00",
+      "reason": "Replace pandas Styler formatting with a plain DataFrame display copy, removing the optional Jinja2 dependency",
+      "changed_cells": [
+        28
+      ],
+      "previous_notebook_sha256": "0cf3fcab4c2cd7391d6183a6d1eeabb169c5968448cc1e6a9f02d860a58749d1",
+      "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_134324_643689Z_no_styler_dependency",
+      "snapshots_unchanged": true,
+      "source_script": "scripts/append_gradient_analysis.py",
+      "source_script_sha256": "65b762105c3c294240faa781e222a33a059835ddb95615434e86e3ffdd07039b"
     }
-  ]
+  ],
+  "gradient_appendix": {
+    "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+    "artifact_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/metrics/gradient_review",
+    "domains": [
+      "A",
+      "B"
+    ],
+    "added_at_utc": "2026-10-22T12:27:37.054967+00:00",
+    "backup_directory": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-qwen25-1p5b-seed42/analysis_history/2026-10-22_122735_974669Z_gradients",
+    "first_cell": 25,
+    "script": "scripts/append_gradient_analysis.py",
+    "script_sha256": "9ebd498c1f1a66c8d88e34f991b61b312e6a5c5d315ac2f4b6d320e28ccc3485",
+    "preserved_loss_cells": 25,
+    "loss_snapshots_unchanged": true
+  }
 }

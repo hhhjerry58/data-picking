@@ -13,9 +13,9 @@
 
 | 结果时间（UTC） | 实验 notebook | 模型 | 下降量 AUC | 相对下降比例 AUC |
 | --- | --- | --- | --- | --- |
-| 2026-10-21 17:23:47 | [algebra / number_theory · seed 42](2026-10-21_172347Z_math-algebra-numbertheory-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6849 | 0.7007 |
-| 2026-10-22 09:33:05 | [algebra / Dolly C · loss](2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6162 | 0.8563 |
-| 2026-10-22 11:37:52 | [algebra / UltraChat C · loss](2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.9857 | 0.9869 |
+| 2026-10-21 17:23:47 | [algebra / number_theory · seed 42 · loss + grad](2026-10-21_172347Z_math-algebra-numbertheory-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6849 | 0.7007 |
+| 2026-10-22 09:33:05 | [algebra / Dolly C · loss + grad](2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6162 | 0.8563 |
+| 2026-10-22 11:37:52 | [algebra / UltraChat C · loss + grad](2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.9857 | 0.9869 |
 
 <!-- experiments-index:end -->
 
@@ -35,10 +35,26 @@ YYYY-MM-DD_HHMMSSZ_<run_id>/
     train.jsonl
 ```
 
-Dolly 和 UltraChat notebook 只展示各自的 A2/C loss 对比，包含 C 抽样 manifest、重复统计和两域长度匹配快照；通过
+Dolly 和 UltraChat notebook 展示各自的 A2/C loss 对比，包含 C 抽样 manifest、重复统计和两域长度匹配快照；通过
 `scripts/export_generalization_notebook.py --run-dir <run_dir>` 导出，具体配置见
 [Dolly 扩展说明](../docs/dolly_extension.md)。
 UltraChat 的首轮问答定义和来源说明见 [UltraChat 复验方案](../docs/ultrachat_extension.md)。
+
+三个 notebook 末尾已追加梯度分析，快照另含 `gradient_per_example.parquet`、
+`gradient_per_layer.parquet`、`gradient_parameter_summary.parquet`、`gradient_metrics.json` 和来源校验记录。
+梯度的长度对照复用各 notebook 原有的匹配 ID；A2/B 的测量来自 Dolly 扩展中的相同样本和模型。
+
+追加入口（只处理已有测量，不重新训练或评分）：
+
+```bash
+source scripts/env.sh
+.venv/bin/python scripts/append_gradient_analysis.py \
+  --notebook-dir experiments-analysis/<directory> \
+  --measurement-run /mnt/tianzhu_hot/data-picking/runs/<measurement_run_id>
+```
+
+脚本保留原有单元格，备份到挂载的 `analysis_history/`，并执行完整 notebook 核对。
+已有梯度附录默认拒绝重复追加；`--replace-appendix` 只替换标记的附录，使用前需保留其中的人工笔记。
 
 模型、optimizer、原始数据、token 缓存和完整运行日志保留在
 `/mnt/tianzhu_hot/data-picking/runs/<run_id>/` 及其他对应产物目录，原始路径在 manifest 和 notebook 中注明。

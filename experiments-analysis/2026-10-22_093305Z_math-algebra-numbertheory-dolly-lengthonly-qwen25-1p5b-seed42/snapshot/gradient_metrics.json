@@ -1,0 +1,724 @@
+{
+  "target_run_id": "math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+  "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+  "domains": [
+    "A",
+    "C"
+  ],
+  "domain_names": {
+    "A": "A2: Algebra",
+    "C": "C: Dolly"
+  },
+  "parameter_count": 1543714304,
+  "anchor_summary": {
+    "reference": {
+      "ids": [
+        "algebra:train:135",
+        "algebra:train:571",
+        "algebra:train:314",
+        "algebra:train:48",
+        "algebra:train:997",
+        "algebra:train:1345",
+        "algebra:train:35",
+        "algebra:train:734",
+        "algebra:train:1143",
+        "algebra:train:1403",
+        "algebra:train:1167",
+        "algebra:train:1288",
+        "algebra:train:1414",
+        "algebra:train:1719",
+        "algebra:train:768",
+        "algebra:train:294",
+        "algebra:train:1366",
+        "algebra:train:641",
+        "algebra:train:123",
+        "algebra:train:771",
+        "algebra:train:1625",
+        "algebra:train:29",
+        "algebra:train:890",
+        "algebra:train:305",
+        "algebra:train:917",
+        "algebra:train:721",
+        "algebra:train:429",
+        "algebra:train:1230",
+        "algebra:train:133",
+        "algebra:train:572",
+        "algebra:train:716",
+        "algebra:train:530",
+        "algebra:train:216",
+        "algebra:train:238",
+        "algebra:train:1567",
+        "algebra:train:741",
+        "algebra:train:1279",
+        "algebra:train:1711",
+        "algebra:train:89",
+        "algebra:train:718",
+        "algebra:train:691",
+        "algebra:train:281",
+        "algebra:train:946",
+        "algebra:train:55",
+        "algebra:train:706",
+        "algebra:train:1555",
+        "algebra:train:991",
+        "algebra:train:1401",
+        "algebra:train:787",
+        "algebra:train:408",
+        "algebra:train:1257",
+        "algebra:train:1464",
+        "algebra:train:1390",
+        "algebra:train:1057",
+        "algebra:train:1079",
+        "algebra:train:399",
+        "algebra:train:1578",
+        "algebra:train:1452",
+        "algebra:train:561",
+        "algebra:train:1113",
+        "algebra:train:751",
+        "algebra:train:510",
+        "algebra:train:870",
+        "algebra:train:86",
+        "algebra:train:1721",
+        "algebra:train:574",
+        "algebra:train:1020",
+        "algebra:train:758",
+        "algebra:train:719",
+        "algebra:train:357",
+        "algebra:train:1304",
+        "algebra:train:581",
+        "algebra:train:374",
+        "algebra:train:1448",
+        "algebra:train:1354",
+        "algebra:train:663",
+        "algebra:train:690",
+        "algebra:train:640",
+        "algebra:train:750",
+        "algebra:train:509",
+        "algebra:train:1294",
+        "algebra:train:994",
+        "algebra:train:17",
+        "algebra:train:215",
+        "algebra:train:194",
+        "algebra:train:450",
+        "algebra:train:1723",
+        "algebra:train:495",
+        "algebra:train:1152",
+        "algebra:train:1447",
+        "algebra:train:260",
+        "algebra:train:1387",
+        "algebra:train:551",
+        "algebra:train:1360",
+        "algebra:train:978",
+        "algebra:train:1123",
+        "algebra:train:1525",
+        "algebra:train:1712",
+        "algebra:train:385",
+        "algebra:train:273",
+        "algebra:train:1482",
+        "algebra:train:943",
+        "algebra:train:1260",
+        "algebra:train:1133",
+        "algebra:train:1044",
+        "algebra:train:1382",
+        "algebra:train:1227",
+        "algebra:train:621",
+        "algebra:train:1682",
+        "algebra:train:165",
+        "algebra:train:897",
+        "algebra:train:362",
+        "algebra:train:1412",
+        "algebra:train:347",
+        "algebra:train:1583",
+        "algebra:train:871",
+        "algebra:train:1472",
+        "algebra:train:1490",
+        "algebra:train:176",
+        "algebra:train:1432",
+        "algebra:train:995",
+        "algebra:train:1290",
+        "algebra:train:1293",
+        "algebra:train:617",
+        "algebra:train:210",
+        "algebra:train:1051",
+        "algebra:train:1284",
+        "algebra:train:255"
+      ],
+      "norm": 9.830080063436263,
+      "mean_nll": 0.8213617126457393,
+      "parameter_count": 1543714304,
+      "tied_input_output_embeddings": true,
+      "fingerprint": "5659f3d47381bab1b9fb3b01ba2260e4d4049430ec37860fa4471d1392f3e47c"
+    },
+    "sft": {
+      "ids": [
+        "algebra:train:135",
+        "algebra:train:571",
+        "algebra:train:314",
+        "algebra:train:48",
+        "algebra:train:997",
+        "algebra:train:1345",
+        "algebra:train:35",
+        "algebra:train:734",
+        "algebra:train:1143",
+        "algebra:train:1403",
+        "algebra:train:1167",
+        "algebra:train:1288",
+        "algebra:train:1414",
+        "algebra:train:1719",
+        "algebra:train:768",
+        "algebra:train:294",
+        "algebra:train:1366",
+        "algebra:train:641",
+        "algebra:train:123",
+        "algebra:train:771",
+        "algebra:train:1625",
+        "algebra:train:29",
+        "algebra:train:890",
+        "algebra:train:305",
+        "algebra:train:917",
+        "algebra:train:721",
+        "algebra:train:429",
+        "algebra:train:1230",
+        "algebra:train:133",
+        "algebra:train:572",
+        "algebra:train:716",
+        "algebra:train:530",
+        "algebra:train:216",
+        "algebra:train:238",
+        "algebra:train:1567",
+        "algebra:train:741",
+        "algebra:train:1279",
+        "algebra:train:1711",
+        "algebra:train:89",
+        "algebra:train:718",
+        "algebra:train:691",
+        "algebra:train:281",
+        "algebra:train:946",
+        "algebra:train:55",
+        "algebra:train:706",
+        "algebra:train:1555",
+        "algebra:train:991",
+        "algebra:train:1401",
+        "algebra:train:787",
+        "algebra:train:408",
+        "algebra:train:1257",
+        "algebra:train:1464",
+        "algebra:train:1390",
+        "algebra:train:1057",
+        "algebra:train:1079",
+        "algebra:train:399",
+        "algebra:train:1578",
+        "algebra:train:1452",
+        "algebra:train:561",
+        "algebra:train:1113",
+        "algebra:train:751",
+        "algebra:train:510",
+        "algebra:train:870",
+        "algebra:train:86",
+        "algebra:train:1721",
+        "algebra:train:574",
+        "algebra:train:1020",
+        "algebra:train:758",
+        "algebra:train:719",
+        "algebra:train:357",
+        "algebra:train:1304",
+        "algebra:train:581",
+        "algebra:train:374",
+        "algebra:train:1448",
+        "algebra:train:1354",
+        "algebra:train:663",
+        "algebra:train:690",
+        "algebra:train:640",
+        "algebra:train:750",
+        "algebra:train:509",
+        "algebra:train:1294",
+        "algebra:train:994",
+        "algebra:train:17",
+        "algebra:train:215",
+        "algebra:train:194",
+        "algebra:train:450",
+        "algebra:train:1723",
+        "algebra:train:495",
+        "algebra:train:1152",
+        "algebra:train:1447",
+        "algebra:train:260",
+        "algebra:train:1387",
+        "algebra:train:551",
+        "algebra:train:1360",
+        "algebra:train:978",
+        "algebra:train:1123",
+        "algebra:train:1525",
+        "algebra:train:1712",
+        "algebra:train:385",
+        "algebra:train:273",
+        "algebra:train:1482",
+        "algebra:train:943",
+        "algebra:train:1260",
+        "algebra:train:1133",
+        "algebra:train:1044",
+        "algebra:train:1382",
+        "algebra:train:1227",
+        "algebra:train:621",
+        "algebra:train:1682",
+        "algebra:train:165",
+        "algebra:train:897",
+        "algebra:train:362",
+        "algebra:train:1412",
+        "algebra:train:347",
+        "algebra:train:1583",
+        "algebra:train:871",
+        "algebra:train:1472",
+        "algebra:train:1490",
+        "algebra:train:176",
+        "algebra:train:1432",
+        "algebra:train:995",
+        "algebra:train:1290",
+        "algebra:train:1293",
+        "algebra:train:617",
+        "algebra:train:210",
+        "algebra:train:1051",
+        "algebra:train:1284",
+        "algebra:train:255"
+      ],
+      "norm": 1.2615313600282183,
+      "mean_nll": 0.5154068900155835,
+      "parameter_count": 1543714304,
+      "tied_input_output_embeddings": true,
+      "fingerprint": "00c3ac8cd931ec20bd648b2471f5bf28353fbfc4b92cf17a09926165b8502815"
+    }
+  },
+  "model_provenance": {
+    "reference": {
+      "measurement_config_sha256": "614e410f887b138d49cea4225107926dd3cef91ce8ac66eb1a0a5915f6abb1b1",
+      "fingerprint": "5659f3d47381bab1b9fb3b01ba2260e4d4049430ec37860fa4471d1392f3e47c",
+      "completed_at_utc": "2026-10-22T09:31:54.145285+00:00",
+      "measurement_spec": {
+        "per_example": true,
+        "parameter_dtype": "float32",
+        "forward_dtype": "float32",
+        "attention_backend": "math",
+        "clip": false,
+        "anchor_size": 128,
+        "anchor_seed": 2027,
+        "chunk_size": 32,
+        "loss_crosscheck_tolerance": 0.0001
+      },
+      "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "checkpoint_sha256": null
+    },
+    "sft": {
+      "measurement_config_sha256": "a7fb24852cb9b5aa25bfb4aa7dea593f7324354fdfa2417b6dbb4f70b5c441ba",
+      "fingerprint": "00c3ac8cd931ec20bd648b2471f5bf28353fbfc4b92cf17a09926165b8502815",
+      "completed_at_utc": "2026-10-22T09:32:16.629265+00:00",
+      "measurement_spec": {
+        "per_example": true,
+        "parameter_dtype": "float32",
+        "forward_dtype": "float32",
+        "attention_backend": "math",
+        "clip": false,
+        "anchor_size": 128,
+        "anchor_seed": 2027,
+        "chunk_size": 32,
+        "loss_crosscheck_tolerance": 0.0001
+      },
+      "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "checkpoint_sha256": "e42f629272d19991eca867018b1bf1e44d4ba7fecb0dfbc978354545911ca20a"
+    }
+  },
+  "checkpoint_step": 32,
+  "examples": 1024,
+  "length_matched_counts": {
+    "A": 78,
+    "C": 78
+  },
+  "length_matched_ids": [
+    "algebra:train:1000",
+    "algebra:train:1007",
+    "algebra:train:1016",
+    "algebra:train:1041",
+    "algebra:train:1068",
+    "algebra:train:1081",
+    "algebra:train:110",
+    "algebra:train:1114",
+    "algebra:train:1142",
+    "algebra:train:117",
+    "algebra:train:1173",
+    "algebra:train:1186",
+    "algebra:train:1239",
+    "algebra:train:1282",
+    "algebra:train:1285",
+    "algebra:train:1286",
+    "algebra:train:1302",
+    "algebra:train:1307",
+    "algebra:train:1362",
+    "algebra:train:1400",
+    "algebra:train:1421",
+    "algebra:train:1440",
+    "algebra:train:1467",
+    "algebra:train:1493",
+    "algebra:train:1496",
+    "algebra:train:1507",
+    "algebra:train:1508",
+    "algebra:train:1516",
+    "algebra:train:152",
+    "algebra:train:1548",
+    "algebra:train:160",
+    "algebra:train:1606",
+    "algebra:train:162",
+    "algebra:train:1620",
+    "algebra:train:1669",
+    "algebra:train:1689",
+    "algebra:train:1728",
+    "algebra:train:1739",
+    "algebra:train:178",
+    "algebra:train:200",
+    "algebra:train:221",
+    "algebra:train:239",
+    "algebra:train:251",
+    "algebra:train:252",
+    "algebra:train:263",
+    "algebra:train:287",
+    "algebra:train:303",
+    "algebra:train:315",
+    "algebra:train:372",
+    "algebra:train:378",
+    "algebra:train:387",
+    "algebra:train:395",
+    "algebra:train:424",
+    "algebra:train:441",
+    "algebra:train:455",
+    "algebra:train:461",
+    "algebra:train:485",
+    "algebra:train:488",
+    "algebra:train:49",
+    "algebra:train:537",
+    "algebra:train:546",
+    "algebra:train:560",
+    "algebra:train:57",
+    "algebra:train:633",
+    "algebra:train:678",
+    "algebra:train:700",
+    "algebra:train:737",
+    "algebra:train:803",
+    "algebra:train:821",
+    "algebra:train:822",
+    "algebra:train:861",
+    "algebra:train:865",
+    "algebra:train:866",
+    "algebra:train:895",
+    "algebra:train:907",
+    "algebra:train:913",
+    "algebra:train:957",
+    "algebra:train:964",
+    "dolly:general_qa:10010",
+    "dolly:general_qa:1009",
+    "dolly:general_qa:10090",
+    "dolly:general_qa:10488",
+    "dolly:general_qa:10557",
+    "dolly:general_qa:10620",
+    "dolly:general_qa:10715",
+    "dolly:general_qa:11048",
+    "dolly:general_qa:11723",
+    "dolly:general_qa:11743",
+    "dolly:general_qa:11757",
+    "dolly:general_qa:12073",
+    "dolly:general_qa:12129",
+    "dolly:general_qa:12314",
+    "dolly:general_qa:12446",
+    "dolly:general_qa:1270",
+    "dolly:general_qa:12747",
+    "dolly:general_qa:12807",
+    "dolly:general_qa:12978",
+    "dolly:general_qa:13015",
+    "dolly:general_qa:13084",
+    "dolly:general_qa:13157",
+    "dolly:general_qa:1348",
+    "dolly:general_qa:13637",
+    "dolly:general_qa:13841",
+    "dolly:general_qa:13941",
+    "dolly:general_qa:14234",
+    "dolly:general_qa:14304",
+    "dolly:general_qa:14448",
+    "dolly:general_qa:14455",
+    "dolly:general_qa:14505",
+    "dolly:general_qa:14560",
+    "dolly:general_qa:14815",
+    "dolly:general_qa:1492",
+    "dolly:general_qa:1726",
+    "dolly:general_qa:2130",
+    "dolly:general_qa:2165",
+    "dolly:general_qa:2305",
+    "dolly:general_qa:2484",
+    "dolly:general_qa:3074",
+    "dolly:general_qa:3093",
+    "dolly:general_qa:3533",
+    "dolly:general_qa:3664",
+    "dolly:general_qa:3671",
+    "dolly:general_qa:375",
+    "dolly:general_qa:3874",
+    "dolly:general_qa:3912",
+    "dolly:general_qa:4006",
+    "dolly:general_qa:4013",
+    "dolly:general_qa:4144",
+    "dolly:general_qa:4163",
+    "dolly:general_qa:4824",
+    "dolly:general_qa:4903",
+    "dolly:general_qa:4916",
+    "dolly:general_qa:5026",
+    "dolly:general_qa:5098",
+    "dolly:general_qa:5775",
+    "dolly:general_qa:5817",
+    "dolly:general_qa:5992",
+    "dolly:general_qa:608",
+    "dolly:general_qa:632",
+    "dolly:general_qa:7324",
+    "dolly:general_qa:7492",
+    "dolly:general_qa:7770",
+    "dolly:general_qa:7890",
+    "dolly:general_qa:8074",
+    "dolly:general_qa:8199",
+    "dolly:general_qa:8239",
+    "dolly:general_qa:8574",
+    "dolly:general_qa:8590",
+    "dolly:general_qa:8611",
+    "dolly:general_qa:8782",
+    "dolly:general_qa:882",
+    "dolly:general_qa:9123",
+    "dolly:general_qa:922",
+    "dolly:general_qa:9526",
+    "dolly:general_qa:9592",
+    "dolly:general_qa:9841"
+  ],
+  "comparisons": {
+    "raw": {
+      "counts": {
+        "A": 512,
+        "C": 512
+      },
+      "question_group_counts": {
+        "A": 512,
+        "C": 504
+      },
+      "gradient_scores": {
+        "ref_grad_l2": {
+          "roc_auc": 0.2760467529296875,
+          "roc_auc_ci95": [
+            0.24550334048499486,
+            0.3089027505564829
+          ]
+        },
+        "sft_grad_l2": {
+          "roc_auc": 0.1055755615234375,
+          "roc_auc_ci95": [
+            0.08724979487273476,
+            0.12631319554155856
+          ]
+        },
+        "grad_l2_delta": {
+          "roc_auc": 0.6025238037109375,
+          "roc_auc_ci95": [
+            0.5679725948523577,
+            0.6390897014948327
+          ]
+        },
+        "ref_grad_max_abs": {
+          "roc_auc": 0.19112777709960938,
+          "roc_auc_ci95": [
+            0.16552818863744986,
+            0.21943037826217818
+          ]
+        },
+        "sft_grad_max_abs": {
+          "roc_auc": 0.1432952880859375,
+          "roc_auc_ci95": [
+            0.12237187217263615,
+            0.167521767541544
+          ]
+        },
+        "grad_max_abs_delta": {
+          "roc_auc": 0.6281547546386719,
+          "roc_auc_ci95": [
+            0.5915795141412307,
+            0.662677332038375
+          ]
+        },
+        "ref_cos_to_a1": {
+          "roc_auc": 0.9443244934082031,
+          "roc_auc_ci95": [
+            0.9298526881077828,
+            0.9580714064494432
+          ]
+        },
+        "sft_cos_to_a1": {
+          "roc_auc": 0.6995124816894531,
+          "roc_auc_ci95": [
+            0.6677063174182676,
+            0.7340316766883894
+          ]
+        }
+      },
+      "length_baselines": {
+        "prompt_tokens": {
+          "positive_auc": 0.9544696807861328,
+          "negative_auc": 0.04553031921386719
+        },
+        "response_tokens": {
+          "positive_auc": 0.5981693267822266,
+          "negative_auc": 0.40183067321777344
+        }
+      },
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261023,
+      "bootstrap_unit": "group_id, stratified by domain",
+      "gradient_direction": "Higher raw feature predicts positive domain; exploratory; no sign flipping"
+    },
+    "length_matched": {
+      "counts": {
+        "A": 78,
+        "C": 78
+      },
+      "question_group_counts": {
+        "A": 78,
+        "C": 78
+      },
+      "gradient_scores": {
+        "ref_grad_l2": {
+          "roc_auc": 0.40187376725838264,
+          "roc_auc_ci95": [
+            0.31524079552925705,
+            0.4886587771203156
+          ]
+        },
+        "sft_grad_l2": {
+          "roc_auc": 0.1398750821827745,
+          "roc_auc_ci95": [
+            0.08398257725180802,
+            0.1987220578566732
+          ]
+        },
+        "grad_l2_delta": {
+          "roc_auc": 0.690499671268902,
+          "roc_auc_ci95": [
+            0.603525641025641,
+            0.7682569033530572
+          ]
+        },
+        "ref_grad_max_abs": {
+          "roc_auc": 0.2567389875082183,
+          "roc_auc_ci95": [
+            0.1840811965811966,
+            0.33530982905982903
+          ]
+        },
+        "sft_grad_max_abs": {
+          "roc_auc": 0.18671926364234057,
+          "roc_auc_ci95": [
+            0.12031147271531888,
+            0.2557569033530572
+          ]
+        },
+        "grad_max_abs_delta": {
+          "roc_auc": 0.616370808678501,
+          "roc_auc_ci95": [
+            0.5300747863247863,
+            0.7048035831689677
+          ]
+        },
+        "ref_cos_to_a1": {
+          "roc_auc": 0.9659763313609467,
+          "roc_auc_ci95": [
+            0.9398339907955293,
+            0.9875082182774491
+          ]
+        },
+        "sft_cos_to_a1": {
+          "roc_auc": 0.6176857330703485,
+          "roc_auc_ci95": [
+            0.5244781393819856,
+            0.705465154503616
+          ]
+        }
+      },
+      "length_baselines": {
+        "prompt_tokens": {
+          "positive_auc": 0.5708415516107824,
+          "negative_auc": 0.42915844838921763
+        },
+        "response_tokens": {
+          "positive_auc": 0.5115055884286653,
+          "negative_auc": 0.48849441157133466
+        }
+      },
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261024,
+      "bootstrap_unit": "group_id, stratified by domain",
+      "gradient_direction": "Higher raw feature predicts positive domain; exploratory; no sign flipping"
+    }
+  },
+  "norm_correlations": [
+    {
+      "domain": "A",
+      "model": "ref",
+      "nll": 0.424782615070782,
+      "prompt_tokens": -0.3655618252212721,
+      "response_tokens": -0.8735915457669539
+    },
+    {
+      "domain": "A",
+      "model": "sft",
+      "nll": 0.4083710095730193,
+      "prompt_tokens": -0.17227676303708137,
+      "response_tokens": -0.7053526022083388
+    },
+    {
+      "domain": "C",
+      "model": "ref",
+      "nll": 0.1797735992378206,
+      "prompt_tokens": -0.1699775130894115,
+      "response_tokens": -0.9266245313382188
+    },
+    {
+      "domain": "C",
+      "model": "sft",
+      "nll": 0.09220522052849019,
+      "prompt_tokens": -0.11897935569635175,
+      "response_tokens": -0.9383242808231237
+    }
+  ],
+  "norm_drop_loss_correlations": [
+    {
+      "domain": "A",
+      "delta_loss": 0.8189506478811182,
+      "relative_gain": 0.7633867774458979
+    },
+    {
+      "domain": "C",
+      "delta_loss": 0.7467025690653574,
+      "relative_gain": 0.7630287905837653
+    }
+  ],
+  "nll_difference_from_loss_notebook": {
+    "ref": 0.0,
+    "sft": 0.0
+  },
+  "nll_crosscheck_tolerance": 0.0001,
+  "source_identity": {
+    "target_scores": "7bf29cdc0b747c3e3afc101a488cfab9d2432c2e73c8ce13dc041ca2b47a1d7b",
+    "length_matched_ids": "36abe16e340fd39054c01bf2f6ad003ed546a378fb885ef47518cc2a42b82ef1",
+    "measurement_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42",
+    "source_files": {
+      "metrics/per_example.parquet": "cae0a457f4fa4c1638cb52782ca7b2b7d95d0cb6565103c8b66ab7ae0b4374dd",
+      "metrics/per_layer.parquet": "cbdf88a18788402e2bd46e4e273e679766d6b67fe9cfb7326782b78ddce982b0",
+      "metrics/parameter_summary.parquet": "50ec92a2d5e394ea155693317d353e100959e677d6f93d583d4e06b40fa515a6",
+      "metrics/metrics.json": "f8d849301b1d24ddb26ea51e9bdb1a880f1d0c45bdc7adadc39254581146ee06"
+    },
+    "implementation": {
+      "gradient_review.py": "ccae5c0d3945754f2e086a318a40a67a4283356c171668fc1d0e2cb86f8aad3a",
+      "generalization_analysis.py": "e909eb90a2cb5378da89199b98a085d9c51db8696707508955174d9e0452eced",
+      "analysis.py": "464f01862262dec47829a0c5cb1526360e88f45d2b14ef415a9467412532c480"
+    },
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 20261023
+  },
+  "completed_at_utc": "2026-10-22T12:19:50.981705+00:00",
+  "interpretation": "Exploratory gradient diagnostics; larger raw feature predicts A2; no direction flipping; not actual training utility"
+}
