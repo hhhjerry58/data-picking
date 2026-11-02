@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+cache_dir = "/mnt/tianzhu_hot/data-picking/cache/pytest"
+addopts = "-ra"

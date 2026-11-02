@@ -30,20 +30,28 @@ def main():
     parser.add_argument('--config',default='configs/dolly_extension.yaml')
     parser.add_argument('--blob-config',required=True,type=Path)
     parser.add_argument('--workers',type=int,default=128,help='Concurrent bounded range reads')
+    parser.add_argument('--checkpoint',type=Path,help='Explicit checkpoint; defaults to training_complete.json')
+    parser.add_argument('--metadata-name',default='runtime_weights.json')
     args=parser.parse_args()
     cfg=yaml.safe_load(Path(args.config).read_text())
-    base=yaml.safe_load(Path(cfg['base_config']).read_text())
+    base=yaml.safe_load(Path(cfg['base_config']).read_text()) if 'base_config' in cfg else cfg
     root=Path(cfg['artifact_root'])
     run=root/'runs'/cfg['run_id']
     blob_cfg=yaml.safe_load(args.blob_config.read_text())
     cache=Path(blob_cfg['file_cache']['path'])
     mount=root.parent
     model=root/'cache/models'/base['model']['name'].replace('/','--')/base['model']['revision']
-    completed=json.loads((Path(cfg['base_run'])/'training_complete.json').read_text())
-    checkpoint=Path(completed['checkpoint'])
+    if args.checkpoint:
+        checkpoint=args.checkpoint
+    else:
+        completed=json.loads((Path(cfg.get('base_run',str(run)))/'training_complete.json').read_text())
+        checkpoint=Path(completed['checkpoint'])
     manifest=json.loads((checkpoint/'manifest.json').read_text())
     runtime=Path('/dev/shm/data-picking-runtime/weights')/manifest['files']['state.pt']['sha256'][:16]
     runtime.mkdir(parents=True,exist_ok=True)
+    runtime_model=Path(base.get('runtime_model_dir',str(runtime/'model')))
+    if Path(args.metadata_name).name != args.metadata_name:
+        raise ValueError('metadata-name must be a filename')
     records=[]
 
     def stage(source,target,expected,expected_size):
@@ -100,15 +108,15 @@ def main():
 
     for name in ['config.json','generation_config.json','tokenizer_config.json','tokenizer.json','vocab.json','merges.txt','model.safetensors']:
         info=json.loads((model/(name+'.complete.json')).read_text())
-        stage(model/name,runtime/'model'/name,info['sha256'],info['size'])
-    partial={'model_dir':str(runtime/'model'),'checkpoint_file':str(runtime/'state.pt'),
+        stage(model/name,runtime_model/name,info['sha256'],info['size'])
+    partial={'model_dir':str(runtime_model),'checkpoint_file':str(runtime/'state.pt'),
              'ephemeral_only':True,'checkpoint_ready':False,'records':records}
-    (run/'runtime_weights.json').write_text(json.dumps(partial,indent=2)+'\n')
+    (run/args.metadata_name).write_text(json.dumps(partial,indent=2)+'\n')
     stage(checkpoint/'state.pt',runtime/'state.pt',manifest['files']['state.pt']['sha256'],manifest['files']['state.pt']['size'])
-    result={'model_dir':str(runtime/'model'),'checkpoint_file':str(runtime/'state.pt'),
+    result={'model_dir':str(runtime_model),'checkpoint_file':str(runtime/'state.pt'),
             'ephemeral_only':True,'checkpoint_ready':True,'records':records}
-    (run/'runtime_weights.json').write_text(json.dumps(result,indent=2)+'\n')
-    print('STAGING_COMPLETE',run/'runtime_weights.json',flush=True)
+    (run/args.metadata_name).write_text(json.dumps(result,indent=2)+'\n')
+    print('STAGING_COMPLETE',run/args.metadata_name,flush=True)
 
 
 if __name__=='__main__':

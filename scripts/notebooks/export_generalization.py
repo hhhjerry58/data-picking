@@ -12,7 +12,7 @@ from nbclient import NotebookClient
 from jupyter_client import KernelManager
 
 from data_picking.loss_review import prepare_loss_review
-from export_analysis_notebook import read_json, write_json, sha256, update_index, loss_metric_overview, metric_conclusion_prefix
+from _shared import read_json, write_json, sha256, update_index, loss_metric_overview, metric_conclusion_prefix
 
 
 def build_notebook(manifest, metrics):
@@ -369,7 +369,7 @@ def main():
     run = args.run_dir.resolve()
     original_metrics = read_json(run/'metrics/metrics.json')
     date = datetime.fromisoformat(original_metrics['completed_at_utc']).astimezone(timezone.utc)
-    repo = Path(__file__).resolve().parents[1]
+    repo = Path(__file__).resolve().parents[2]
     name = date.strftime('%Y-%m-%d_%H%M%SZ_')+original_metrics['run_id']
     folder = repo/'experiments-analysis'/name
     if folder.exists() and not args.overwrite: raise FileExistsError(folder)

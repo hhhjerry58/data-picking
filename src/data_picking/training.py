@@ -13,11 +13,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, get_linear_schedul
 from .checkpoint import latest_checkpoint, load_training_checkpoint, save_checkpoint
 from .common import code_state, digest, file_hash, paths, read_json, read_jsonl, seed_all, write_json
 from .loss import per_example_nll
+from .runtime_model import verified_model_path
 from .tokenization import collate
 
 
 def load_model(cfg, train=False):
-    model = AutoModelForCausalLM.from_pretrained(paths(cfg)["model"], dtype=torch.float32,
+    model = AutoModelForCausalLM.from_pretrained(verified_model_path(cfg), dtype=torch.float32,
                                                 attn_implementation="sdpa", local_files_only=True)
     model.config.use_cache = False
     model.to("cuda")
@@ -52,6 +53,8 @@ def train(cfg, stop_after_steps=None, subset_size=None, run_suffix=""):
     current_code = code_state()
     # Scoring/analysis edits cannot change training semantics. These hashes do.
     training_files = ["src/data_picking/training.py", "src/data_picking/checkpoint.py", "src/data_picking/loss.py", "src/data_picking/tokenization.py"]
+    if cfg.get("runtime_model_dir"):
+        training_files.append("src/data_picking/runtime_model.py")
     identity = {"model": cfg["model"], "training": t, "data_manifest_hash": file_hash(p["data"] / "manifest.jsonl"),
                 "train_data_hash": file_hash(p["data"] / "A1.jsonl"),
                 "train_ids": [r["id"] for r in rows], "total_steps": total_steps,

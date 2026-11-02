@@ -355,7 +355,7 @@ def main():
         assert file_hash(target)==file_hash(source)
     manifest['gradient_appendix']={'measurement_run':str(args.measurement_run.resolve()),'artifact_directory':str(artifacts),
         'domains':summary['domains'],'added_at_utc':datetime.now(timezone.utc).isoformat(),'backup_directory':str(backup),
-        'first_cell':len(prefix),'script':'scripts/append_gradient_analysis.py','script_sha256':file_hash(__file__),
+        'first_cell':len(prefix),'script':'scripts/notebooks/append_gradients.py','script_sha256':file_hash(__file__),
         'preserved_loss_cells':len(prefix),'loss_snapshots_unchanged':True}
     manifest['execution']['status']='pending'
     write_json(folder/'manifest.json',manifest)

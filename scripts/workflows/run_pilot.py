@@ -32,7 +32,7 @@ run_lock.flush()
 
 
 def run(script, *extra):
-    command = [sys.executable, f"scripts/{script}.py", "--config", args.config, *extra]
+    command = [sys.executable, str(Path(__file__).resolve().parents[1] / "experiment.py"), script, "--config", args.config, *extra]
     with (p["run"] / "logs/pipeline.log").open("a") as log:
         log.write("COMMAND " + repr(command) + "\n")
         log.flush()
@@ -45,10 +45,10 @@ def run(script, *extra):
             raise SystemExit(f"Failed: {script}; inspect {p['run'] / 'logs/pipeline.log'}")
 
 
-run("download_assets")
-run("prepare_data")
+run("download")
+run("prepare")
 run("score")
-run("train_sft")
+run("train")
 run("score", "--checkpoint", "final")
 run("analyze")
 final_step = read_json(p["run"] / "training_complete.json")["global_step"]

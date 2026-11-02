@@ -76,10 +76,13 @@ def load_config(path):
 def paths(cfg):
     root = Path(cfg["artifact_root"])
     data_key = digest({"data": cfg["data"], "model": cfg["model"]})[:16]
+    prepared = cfg["data"].get("prepared_dir")
+    if prepared and (not Path(prepared).is_absolute() or not Path(prepared).resolve().is_relative_to(root.resolve())):
+        raise ValueError("Prepared training data must be an absolute path within artifact_root")
     return {
         "root": root,
         "model": root / "cache/models" / cfg["model"]["name"].replace("/", "--") / cfg["model"]["revision"],
-        "data": root / "data/processed" / data_key,
+        "data": Path(prepared) if prepared else root / "data/processed" / data_key,
         "run": root / "runs" / cfg["run_id"],
     }
 
@@ -95,7 +98,8 @@ def seed_all(seed):
 
 def code_state():
     root = Path(__file__).resolve().parents[2]
-    files = sorted([*root.glob("src/**/*.py"), *root.glob("scripts/*.py"), *root.glob("configs/*.yaml"), root / "requirements.txt"])
+    files = sorted([*root.glob("src/**/*.py"), *root.glob("scripts/**/*.py"), *root.glob("configs/*.yaml"),
+                    *root.glob("requirements/*.txt"), root / "requirements.txt", root / "pyproject.toml"])
     return {
         "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip(),
         "dirty": bool(subprocess.check_output(["git", "status", "--porcelain"], cwd=root, text=True).strip()),

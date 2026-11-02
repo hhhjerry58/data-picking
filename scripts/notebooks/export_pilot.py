@@ -5,8 +5,6 @@ It never loads model weights, optimizer state, or the original training dataset.
 """
 import argparse
 from datetime import datetime, timezone
-import hashlib
-import json
 import os
 from pathlib import Path
 import re
@@ -19,6 +17,8 @@ import nbformat
 from nbclient import NotebookClient
 from jupyter_client import KernelManager
 
+from _shared import read_json, write_json, sha256, update_index, loss_metric_overview, metric_conclusion_prefix
+
 
 SNAPSHOTS = {
     "metrics.json": "metrics/metrics.json",
@@ -29,84 +29,6 @@ SNAPSHOTS = {
     "validation_summary.json": "validation_summary.json",
     "train.jsonl": "logs/train.jsonl",
 }
-
-
-def sha256(path):
-    h = hashlib.sha256()
-    with Path(path).open("rb") as f:
-        for block in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(block)
-    return h.hexdigest()
-
-
-def read_json(path):
-    return json.loads(Path(path).read_text())
-
-
-def write_json(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
-
-
-def loss_metric_overview(scores):
-    parts = []
-    for key, label in [("delta_loss", "loss 下降量"), ("relative_gain", "相对下降比例")]:
-        value = scores[key]
-        low, high = value["roc_auc_ci95"]
-        parts.append(f"{label} ROC-AUC **{value['roc_auc']:.4f}**（95% CI {low:.4f}–{high:.4f}）")
-    return "两项指标并列考察，不设主次：" + "；".join(parts) + "。"
-
-
-def metric_conclusion_prefix():
-    return textwrap.dedent(r"""
-    texts = []
-    for key in ['delta_loss', 'relative_gain']:
-        value = metrics['main']['scores'][key]
-        lo, hi = value['roc_auc_ci95']
-        signal = ('在固定方向上有区分信号' if lo > .5 else
-                  '区分方向与预设假设相反，没有事后翻转分数' if hi < .5 else
-                  '区间覆盖 0.5，尚无稳定的区分证据')
-        texts.append(f"{score_labels[key]}：AUC {value['roc_auc']:.4f}，95% CI {interval(value['roc_auc_ci95'])}；{signal}。")
-    """).strip()
-
-
-def update_index(root):
-    readme = root / "README.md"
-    if not readme.exists():
-        readme.write_text("# 实验分析\n\n<!-- experiments-index:start -->\n<!-- experiments-index:end -->\n")
-    start, end = "<!-- experiments-index:start -->", "<!-- experiments-index:end -->"
-    content = readme.read_text()
-    if start not in content or end not in content:
-        raise ValueError(f"Preserving README without index markers: {readme}")
-    lines = [start, "", "| 结果时间（UTC） | 实验 notebook | 模型 | 下降量 AUC | 相对下降比例 AUC |",
-             "| --- | --- | --- | --- | --- |"]
-    for folder in sorted(root.iterdir()):
-        if not (folder / "manifest.json").is_file():
-            continue
-        manifest = read_json(folder / "manifest.json")
-        if manifest.get("execution", {}).get("status") != "completed":
-            continue
-        cfg = read_json(folder / "snapshot/effective_config.json")["config"]
-        metrics = read_json(folder / "snapshot/metrics.json")
-        title = f"{cfg['data']['a_subset']} / {cfg['data']['b_subset']} · seed {cfg['training']['seed']}"
-        timestamp = datetime.fromisoformat(manifest["result_time_utc"]).strftime("%Y-%m-%d %H:%M:%S")
-        model = cfg["model"]["name"].split("/")[-1]
-        if metrics.get("analysis_type") in {"dolly_loss_comparison", "ultrachat_loss_comparison"}:
-            title = f"{cfg['data']['a_subset']} / {metrics.get('c_display_name', 'Dolly')} C · loss"
-            scores = metrics["main"]["scores"]
-        elif metrics.get("analysis_type") == "dolly_gradient_extension":
-            title = f"{cfg['data']['a_subset']} / {cfg['data']['b_subset']} / Dolly C · loss + gradients"
-            comparison = metrics["primary_comparison"]
-            scores = metrics["comparisons"][comparison]["raw"]["loss_scores"]
-        else:
-            scores = metrics["main"]["scores"]
-        if manifest.get("gradient_appendix"):
-            title = title.replace(" · loss", "") + " · loss + grad"
-        lines.append(f"| {timestamp} | [{title}]({folder.name}/analysis.ipynb) | {model} | "
-                     f"{scores['delta_loss']['roc_auc']:.4f} | {scores['relative_gain']['roc_auc']:.4f} |")
-    lines += ["", end]
-    prefix, rest = content.split(start, 1)
-    _, suffix = rest.split(end, 1)
-    readme.write_text(prefix + "\n".join(lines) + suffix)
 
 
 def make_notebook(manifest, cfg, metrics):
@@ -450,7 +372,7 @@ def make_notebook(manifest, cfg, metrics):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-dir", type=Path, required=True)
-    parser.add_argument("--output-root", type=Path, default=Path(__file__).resolve().parents[1] / "experiments-analysis")
+    parser.add_argument("--output-root", type=Path, default=Path(__file__).resolve().parents[2] / "experiments-analysis")
     parser.add_argument("--overwrite", action="store_true", help="Explicitly replace an existing exported notebook and snapshots")
     args = parser.parse_args()
     run = args.run_dir.resolve()
@@ -477,13 +399,13 @@ def main():
         files[name] = {"source_relative_path": relative, "bytes": source.stat().st_size, "sha256": sha256(snapshot / name)}
         if files[name]["sha256"] != sha256(source):
             raise RuntimeError(f"Snapshot copy mismatch: {source}")
-    repo = Path(__file__).resolve().parents[1]
+    repo = Path(__file__).resolve().parents[2]
     manifest = {
         "run_id": run_id, "directory": folder_name, "source_run_dir": str(run),
         "result_time_utc": result_time.isoformat(),
         "timestamp_basis": "metrics/metrics.json filesystem modification time captured at first export; proxy for original analysis completion, not export time",
         "exported_at_utc": datetime.now(timezone.utc).isoformat(),
-        "exporter": {"script": "scripts/export_analysis_notebook.py", "sha256": sha256(__file__),
+        "exporter": {"script": "scripts/notebooks/export_pilot.py", "sha256": sha256(__file__),
                      "repository_head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo, text=True).strip(),
                      "working_tree_dirty": bool(subprocess.check_output(["git", "status", "--porcelain"], cwd=repo, text=True).strip())},
         "files": files, "execution": {"status": "pending", "gpu_required": False},
