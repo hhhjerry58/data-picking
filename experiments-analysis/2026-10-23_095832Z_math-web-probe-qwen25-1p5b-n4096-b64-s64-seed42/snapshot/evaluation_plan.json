@@ -1,0 +1,95 @@
+{
+  "frozen_at_utc": "2026-10-23T08:35:07.994932+00:00",
+  "config": {
+    "training_config": "configs/web_math_sft.yaml",
+    "bundle": "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023",
+    "final_checkpoint_step": 64,
+    "diagnostic_validation_steps": [
+      16,
+      32,
+      48
+    ],
+    "scoring": {
+      "forward_dtype": "float32",
+      "attention_backend": "math",
+      "batch_size": 4,
+      "chunk_size": 128,
+      "num_shards": 2,
+      "sanity_tolerance": 2e-05
+    },
+    "analysis": {
+      "reported_loss_scores": [
+        "delta_loss",
+        "relative_gain"
+      ],
+      "raw_loss_baselines": [
+        "neg_ref_loss",
+        "neg_sft_loss",
+        "pos_ref_loss",
+        "pos_sft_loss"
+      ],
+      "top_fractions": [
+        0.01,
+        0.05,
+        0.1
+      ],
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261027,
+      "tie_seed": 20261028,
+      "length_matching_seed": 20261029,
+      "length_quantiles": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "matched_background_per_math": 9
+    },
+    "label_policy": "Injected OpenWebMath source is positive; background is unlabeled, not verified non-math.",
+    "score_direction": "Higher delta_loss and relative_gain predict injected math source; no post-hoc sign flips.",
+    "document_aggregation": "Sum window NLL and scored-token counts, then divide; compute both changes from document mean NLL."
+  },
+  "prepared_bundle_sha256": "e89841642939eaaaf081c0ff16d119f82045f30c216c272c11f035433ddd5e5f",
+  "checkpoint_rule": "Use final step 64; checkpoints 16/32/48 only for target-validation trends",
+  "training_preflight": {
+    "run_id": "math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42",
+    "model": {
+      "name": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+    },
+    "prepared_data": "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/sft",
+    "train_examples": 4096,
+    "epochs": 1,
+    "effective_batch_size": 64,
+    "micro_batch_size": 2,
+    "gradient_accumulation_steps": 32,
+    "total_steps": 64,
+    "warmup_steps": 7,
+    "learning_rate": 2e-05,
+    "save_every_steps": 16,
+    "checkpoint_steps": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "checkpoint_directory": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints",
+    "save_optimizer": true,
+    "auto_resume": true,
+    "saved_state": [
+      "model",
+      "optimizer",
+      "scheduler",
+      "RNG",
+      "global_step",
+      "data_order_and_position"
+    ],
+    "parameter_dtype": "float32",
+    "autocast_dtype": "bfloat16",
+    "attention_backend": "math",
+    "finite_gradient_check": true,
+    "train_data_sha256": "887cb159c5499be4208ac94816a56601afa0fce682b79e523a3683dc015bc842",
+    "validation_data_sha256": "f5ac6ef577ad0e542dacbb0183ed48bf59adfa9cdcd2b129ed0ec8d587c3e296",
+    "validation_only": true
+  },
+  "scope": "Math-SFT probe, reference/final full-web loss retrieval and held-out MATH NLL; no further document training"
+}

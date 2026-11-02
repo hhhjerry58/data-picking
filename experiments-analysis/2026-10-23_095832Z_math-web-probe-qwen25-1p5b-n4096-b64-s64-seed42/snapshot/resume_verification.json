@@ -1,0 +1,14 @@
+{
+  "checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000048-494e209e",
+  "global_step": 48,
+  "optimizer_steps": [
+    48
+  ],
+  "scheduler_last_epoch": 48,
+  "next_lr": [
+    5.6140350877192985e-06,
+    5.6140350877192985e-06
+  ],
+  "saved_orders_restored": true,
+  "rng_restored": true
+}

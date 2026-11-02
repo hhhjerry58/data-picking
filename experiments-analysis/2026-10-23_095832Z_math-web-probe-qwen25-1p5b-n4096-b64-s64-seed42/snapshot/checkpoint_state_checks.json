@@ -1,0 +1,66 @@
+{
+  "16": {
+    "step": 16,
+    "optimizer_steps": [
+      16
+    ],
+    "scheduler_step": 16,
+    "saved_rng_keys": [
+      "cuda",
+      "numpy",
+      "python",
+      "torch"
+    ],
+    "saved_orders": 1,
+    "seen_response_tokens": 208088,
+    "state_sha256": "fc534a9a378f1b2334257f82e9fe98940734d211a957947d092788c173b5856e"
+  },
+  "32": {
+    "step": 32,
+    "optimizer_steps": [
+      32
+    ],
+    "scheduler_step": 32,
+    "saved_rng_keys": [
+      "cuda",
+      "numpy",
+      "python",
+      "torch"
+    ],
+    "saved_orders": 1,
+    "seen_response_tokens": 414576,
+    "state_sha256": "16e63b4022534bb3e225d14c2dcb81df64c8738c0388557ee9eb5cfbe25924b4"
+  },
+  "48": {
+    "step": 48,
+    "optimizer_steps": [
+      48
+    ],
+    "scheduler_step": 48,
+    "saved_rng_keys": [
+      "cuda",
+      "numpy",
+      "python",
+      "torch"
+    ],
+    "saved_orders": 1,
+    "seen_response_tokens": 615954,
+    "state_sha256": "9e5988735a9de8bee9e68fdbac6c30683092cab0aedf0690f6da61dca9986daf"
+  },
+  "64": {
+    "step": 64,
+    "optimizer_steps": [
+      64
+    ],
+    "scheduler_step": 64,
+    "saved_rng_keys": [
+      "cuda",
+      "numpy",
+      "python",
+      "torch"
+    ],
+    "saved_orders": 1,
+    "seen_response_tokens": 830862,
+    "state_sha256": "ef43521b16315fa0d124b51a8879839efffc88ae789e654e83a5ec989292a28b"
+  }
+}

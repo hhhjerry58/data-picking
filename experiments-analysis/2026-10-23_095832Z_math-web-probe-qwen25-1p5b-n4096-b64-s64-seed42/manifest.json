@@ -1,0 +1,148 @@
+{
+  "run_id": "math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42",
+  "directory": "2026-10-23_095832Z_math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42",
+  "analysis_type": "web_document_retrieval",
+  "result_time_utc": "2026-10-23T09:58:32.795444+00:00",
+  "timestamp_basis": "metrics_web/metrics.json completed_at_utc",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/metrics.json",
+      "bytes": 36246,
+      "sha256": "e93ad7bc552333dfa4e622d8dfc46e927188c11bd94d2b858c35d5616148530e"
+    },
+    "per_document.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/per_document.parquet",
+      "bytes": 2505123,
+      "sha256": "0723b08374ab5f34b6c3c83a7023d72ce696d42e407f0531f30e08a5efaac756"
+    },
+    "per_window.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/per_window.parquet",
+      "bytes": 1568877,
+      "sha256": "775a42e1a562a7e8213517821014742568222ca3b129c16f8ef97750490112c1"
+    },
+    "target_validation.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/target_validation.parquet",
+      "bytes": 119728,
+      "sha256": "66d8dc753c33a59ba4b818a3a979495bece1918998c8ebdd70f4343c6da9300f"
+    },
+    "length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/length_matched_ids.json",
+      "bytes": 247863,
+      "sha256": "563f233ca5601aa2ea606cbb8fa222530e9658f54d16b930fe6298202736c96c"
+    },
+    "gradient_per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/gradient_per_example.parquet",
+      "bytes": 36993,
+      "sha256": "38891678e6078c5af27ad2f404e1f5c8ad038df2d8e645e0d76c7a9d8b43a19c"
+    },
+    "gradient_per_layer.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/gradient_per_layer.parquet",
+      "bytes": 215541,
+      "sha256": "0bc2519cb89432a9ba23872b410d035380e0bc2010d3b8c8e8a8cfe648fd0573"
+    },
+    "gradient_parameter_summary.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/gradient_parameter_summary.parquet",
+      "bytes": 41728,
+      "sha256": "a7185000e4145b4a853e05a11c2888629626b50a1cdc3c91c4efd6b9b0887bdd"
+    },
+    "gradient_summary.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/gradient_summary.json",
+      "bytes": 21939,
+      "sha256": "38a42a34c28493e63f4153c083a50bff90c627d557ddd0608192e652cddfe2a8"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/effective_config.json",
+      "bytes": 173262,
+      "sha256": "7b82aa53e76213b405e90f77780e6ecc6ac8cc41f82116a2878c69aa3951457b"
+    },
+    "training_complete.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/training_complete.json",
+      "bytes": 278,
+      "sha256": "0f1805c95e6a2d16955449ee17e7e6becefea5b1eaf7a047509cdc037a3ab453"
+    },
+    "train.jsonl": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/logs/train.jsonl",
+      "bytes": 11668,
+      "sha256": "fcd9909acfb79d9e6f07effbe7894c261dda333927109b98f9fc500ad7339da7"
+    },
+    "evaluation_plan.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/evaluation_plan.json",
+      "bytes": 3110,
+      "sha256": "bbf3574004c1d3fb3d700f8b6bc6266df026350a3307454998004a25d0e6a50d"
+    },
+    "dataset_summary.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/summary.json",
+      "bytes": 5094,
+      "sha256": "c3186345c271873755973654bd96c5a428f5981215329510d80a2d6ecd2ce75b"
+    },
+    "numerical_validation_amendment.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/numerical_validation_amendment.json",
+      "bytes": 1209,
+      "sha256": "d49a779f1547fe3b563c6ba7ea27b61cfe68ade60bdabb1919b184df6a0b1830"
+    },
+    "checkpoint_io_transition.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoint_io_transition.json",
+      "bytes": 571,
+      "sha256": "2a23f3381e7072fde22c3e6493feba0a68ac4f4dfed6d22bba199a51c78d7004"
+    },
+    "resume_verification.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/resume_verification.json",
+      "bytes": 356,
+      "sha256": "89fbb56fe719dcacb7d2406e469631513806e679efdc08b7e6cd0b71483775d0"
+    },
+    "checkpoint_state_checks.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/checkpoint_state_checks.json",
+      "bytes": 1339,
+      "sha256": "4c46712b5ab023d5a677a9183772e4117741f38af6767104a3aec36d849205d4"
+    }
+  },
+  "gradient_appendix": {
+    "sample": "fixed random 64 documents per source",
+    "whole_document_gradients": true
+  },
+  "exporter": {
+    "script": "scripts/notebooks/export_web.py",
+    "sha256": "b0cadea81fc0020623829416ec0976484cda52182d90d156b97fec421296cfa0"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 9,
+    "notebook_sha256": "20fcbdeec32fb28ec66dd6fd7a62327e14c3faffbef6396649a1111f98b07fa9",
+    "gpu_required": false
+  },
+  "integrity_updates": [
+    {
+      "updated_at_utc": "2026-11-02T05:57:03.416838+00:00",
+      "reason": "记录已有的事后 checkpoint 分布图附录及其依赖；原 step-64 正式结果、快照、目录时间和 notebook 保存输出均不变。",
+      "previous_execution": {
+        "status": "completed",
+        "code_cells": 8,
+        "notebook_sha256": "7e854db93c5a8d5b4c17a466c116ce376d8404d77816f96be89cc7476cde54a3",
+        "gpu_required": false
+      },
+      "notebook_sha256": "20fcbdeec32fb28ec66dd6fd7a62327e14c3faffbef6396649a1111f98b07fa9",
+      "supporting_files": [
+        {
+          "path": "experiments-analysis/2026-10-23_095832Z_math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/plot_web_checkpoints.py",
+          "bytes": 6386,
+          "sha256": "cb1024abf9c435b34c26cb39dd5f377decdd8a57cde1405cc5d281ab7f2566cf"
+        }
+      ],
+      "source_snapshots": [
+        {
+          "path": "experiments-analysis/2026-10-23_165639Z_math-web-probe-diagnostics-qwen25-1p5b-seed42/snapshot/web_per_document.parquet",
+          "bytes": 3500830,
+          "sha256": "a1749bb7fec88433a61488c0277542e7054f1d88f01660f6b4107930632a1ed8"
+        }
+      ],
+      "validation": {
+        "notebook_sha256": "20fcbdeec32fb28ec66dd6fd7a62327e14c3faffbef6396649a1111f98b07fa9",
+        "verified_at_utc": "2026-11-02T05:56:32.269575+00:00",
+        "code_cells": 9,
+        "validation": "All code cells executed in memory on CPU using the existing project environment; repository notebook bytes and saved outputs preserved.",
+        "python_version": "3.12.3"
+      }
+    }
+  ]
+}

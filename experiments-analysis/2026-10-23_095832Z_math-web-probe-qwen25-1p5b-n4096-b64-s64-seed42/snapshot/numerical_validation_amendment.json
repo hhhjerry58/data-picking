@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-10-23T09:44:57.455742+00:00",
+  "trigger_model_step": 64,
+  "trigger_shard": 1,
+  "observed_window_mean_difference": 2.09808349609375e-05,
+  "unchanged_tolerance": 2e-05,
+  "trigger_window": "doc:fba826607b79420819c5553f:window:1",
+  "trigger_scored_tokens": 1,
+  "document_scored_tokens": 2048,
+  "tail_contribution_to_document_mean": 1.0244548320770264e-08,
+  "probe": "float64 sum did not remove the same padding-shape difference; see nll_reduction_probe.json",
+  "previous_unit": "Per-window mean NLL, including tiny tail windows",
+  "new_unit": "Complete document token-weighted mean NLL for web; QA example mean NLL unchanged",
+  "retained_diagnostics": "Window-level repeat/padding differences are still reported",
+  "score_computation_changed": false,
+  "data_models_or_checkpoint_rule_changed": false,
+  "scoring_module_sha256_unchanged": "8dcb72b4aa543895d0fbccb41c4b2d0dec3a81aec2bfeb38e8230808a403ae9f",
+  "document_validator_sha256": "27972a9143d0ea29881ad1661adc11dd62ad9d4cf2bbccc1c6f5bd7887b131ea",
+  "rationale": "Retrieval uses document mean NLL; audit all windows of the sampled documents at that unit rather than treating a one-token tail as a full example"
+}

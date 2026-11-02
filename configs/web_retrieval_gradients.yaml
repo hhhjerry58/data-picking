@@ -1,0 +1,12 @@
+training_config: configs/web_math_sft.yaml
+bundle: /mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023
+checkpoint_step: 64
+examples_per_source: 64
+sample_seed: 20261030
+anchor_size: 128
+anchor_seed: 2027
+forward_dtype: float32
+attention_backend: math
+clip: false
+chunk_size: 8
+loss_crosscheck_tolerance: 0.0001

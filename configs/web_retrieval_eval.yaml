@@ -1,0 +1,24 @@
+training_config: configs/web_math_sft.yaml
+bundle: /mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023
+final_checkpoint_step: 64
+diagnostic_validation_steps: [16, 32, 48]
+scoring:
+  forward_dtype: float32
+  attention_backend: math
+  batch_size: 4
+  chunk_size: 128
+  num_shards: 2
+  sanity_tolerance: 0.00002
+analysis:
+  reported_loss_scores: [delta_loss, relative_gain]
+  raw_loss_baselines: [neg_ref_loss, neg_sft_loss, pos_ref_loss, pos_sft_loss]
+  top_fractions: [0.01, 0.05, 0.10]
+  bootstrap_samples: 2000
+  bootstrap_seed: 20261027
+  tie_seed: 20261028
+  length_matching_seed: 20261029
+  length_quantiles: [0.25, 0.50, 0.75]
+  matched_background_per_math: 9
+label_policy: Injected OpenWebMath source is positive; background is unlabeled, not verified non-math.
+score_direction: Higher delta_loss and relative_gain predict injected math source; no post-hoc sign flips.
+document_aggregation: Sum window NLL and scored-token counts, then divide; compute both changes from document mean NLL.

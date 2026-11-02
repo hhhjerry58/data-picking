@@ -1,0 +1,45 @@
+artifact_root: /mnt/tianzhu_hot/data-picking
+run_id: math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42
+model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+data:
+  name: EleutherAI/hendrycks_math
+  revision: 21a5633873b6a120296cce3e2df9d5550074f4a3
+  prepared_dir: /mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/sft
+  preparation_config: configs/web_retrieval_data_4096.yaml
+  a1_size: 4096
+  eval_size: 512
+  max_length: 2048
+training:
+  seed: 42
+  epochs: 1
+  micro_batch_size: 2
+  effective_batch_size: 64
+  learning_rate: 2.0e-05
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.999
+  adam_epsilon: 1.0e-08
+  max_grad_norm: 1.0
+  warmup_ratio: 0.1
+  save_steps: 16
+  save_optimizer: true
+  auto_resume: true
+  parameter_dtype: float32
+  autocast_dtype: bfloat16
+  attention_backend: math
+  expected_total_steps: 64
+scoring:
+  batch_size: 4
+  forward_dtype: float32
+  sanity_tolerance: 0.00002
+analysis:
+  bootstrap_samples: 2000
+  bootstrap_seed: 2027
+  reported_loss_scores:
+  - delta_loss
+  - relative_gain
+experiment_kind: web_math_sft
+runtime_model_dir: /dev/shm/data-picking-runtime/weights/e42f629272d19991/model

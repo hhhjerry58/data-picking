@@ -1,0 +1,152 @@
+{
+  "dataset_id": "math-web-retrieval-v2-4096-seed20261023",
+  "completed_at_utc": "2026-10-23T07:31:09.406343+00:00",
+  "data_only": true,
+  "model_training_performed": false,
+  "model_scoring_performed": false,
+  "target": {
+    "raw_examples": 7500,
+    "status_counts": {
+      "target_train": 4096,
+      "reserved_legacy_evaluation_group": 1026,
+      "target_validation": 512,
+      "requires_image_or_diagram": 1283,
+      "eligible": 568,
+      "duplicate_problem_group": 14,
+      "overlong": 1
+    },
+    "splits": {
+      "train": {
+        "examples": 4096,
+        "response_tokens": 830862,
+        "subjects": {
+          "counting_and_probability": 542,
+          "prealgebra": 782,
+          "algebra": 907,
+          "number_theory": 279,
+          "intermediate_algebra": 922,
+          "geometry": 241,
+          "precalculus": 423
+        },
+        "levels": {
+          "Level 5": 1181,
+          "Level 4": 927,
+          "Level 3": 893,
+          "Level 2": 768,
+          "Level 1": 326,
+          "Level ?": 1
+        }
+      },
+      "validation": {
+        "examples": 512,
+        "response_tokens": 101727,
+        "subjects": {
+          "counting_and_probability": 68,
+          "intermediate_algebra": 115,
+          "precalculus": 53,
+          "prealgebra": 96,
+          "algebra": 114,
+          "number_theory": 36,
+          "geometry": 30
+        },
+        "levels": {
+          "Level 5": 148,
+          "Level 4": 116,
+          "Level 2": 96,
+          "Level 3": 111,
+          "Level 1": 41
+        }
+      }
+    },
+    "duplicate_edges": 22,
+    "official_test_used": false,
+    "legacy_evaluation_ids_reserved": 1024,
+    "policy": "Official train only; text-only/scorable <=2048-token QA; one representative per problem group; subject/level-stratified split",
+    "expansion": {
+      "parent": "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v1-seed20261023/target",
+      "parent_train_examples": 1024,
+      "validation_sha256": "f5ac6ef577ad0e542dacbb0183ed48bf59adfa9cdcd2b129ed0ec8d587c3e296",
+      "parent_train_is_subset": true,
+      "validation_unchanged": true
+    }
+  },
+  "control_sft": {
+    "examples": 4096,
+    "source_split": "train_sft",
+    "response_tokens": 1373161,
+    "status_counts": {
+      "selected": 4096,
+      "overlong": 3,
+      "empty_response": 3
+    },
+    "purpose": "General SFT control pool; equal-token training subset/budget must be fixed before future training"
+  },
+  "web_pools": {
+    "math": {
+      "population_in_fixed_shards_and_crawl": 4540,
+      "random_priority_candidates": 4000,
+      "examined": 1000,
+      "status_counts": {
+        "selected": 1000
+      }
+    },
+    "background": {
+      "population_in_fixed_shards_and_crawl": 309148,
+      "random_priority_candidates": 18000,
+      "examined": 9000,
+      "status_counts": {
+        "selected": 9000
+      }
+    }
+  },
+  "web": {
+    "documents": 10000,
+    "injected_math": 1000,
+    "unlabeled_background": 9000,
+    "windows": 11688,
+    "scored_tokens": 9188836,
+    "document_groups": 10000,
+    "duplicate_edges": 0,
+    "cross_source_groups": 0,
+    "quarantined_for_possible_target_overlap": 0,
+    "crawl": "CC-MAIN-2023-06",
+    "per_source": {
+      "math": {
+        "documents": 1000,
+        "tokens": 2563988
+      },
+      "background": {
+        "documents": 9000,
+        "tokens": 6634848
+      }
+    }
+  },
+  "tokenization": {
+    "model": {
+      "name": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+    },
+    "chat_template_hash_for_sft": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "web_chat_template": false,
+    "web_added_special_tokens": false,
+    "window_tokens": 2048,
+    "window_overlap": 1,
+    "coverage": "Every body token after the document's first is scored exactly once; aggregate token-weighted NLL before computing both loss-change metrics"
+  },
+  "overlap_checks": {
+    "indexed_target_passages": 10941,
+    "skipped_short_passages": {
+      "response": 191,
+      "prompt": 132
+    },
+    "scope": "Selected target train/validation plus legacy A2/B; exact normalized substring and >=0.8 5-token containment via rare anchors; short generic answers and semantic paraphrases are not certified clean"
+  },
+  "duplicate_method": "Normalized exact text/URL plus 64-permutation MinHash (16x4 bands) and verified >=0.8 five-token Jaccard; approximate, all web rows retained",
+  "limitations": [
+    "Uniform draws within fixed source shards and one crawl, not a uniform sample of all Common Crawl",
+    "OpenWebMath and FineWeb have different upstream extraction/quality filters; identical minimal local newline normalization does not remove that source confound",
+    "OpenWebMath is a math-related source including physics/CS; injection labels are source labels, not manually verified mathematical relevance",
+    "Background pages may contain mathematics; semantic negatives have not been asserted",
+    "No training, ranking metric, retrieval quality or training benefit has been measured"
+  ]
+}

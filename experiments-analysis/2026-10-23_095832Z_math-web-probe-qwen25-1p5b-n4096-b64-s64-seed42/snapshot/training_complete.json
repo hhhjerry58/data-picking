@@ -1,0 +1,6 @@
+{
+  "checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000064-a96c8e03",
+  "global_step": 64,
+  "seen_response_tokens": 830862,
+  "fingerprint": "14cdb0e983d5c571e69f51f0cc9b32ec14e1cd050ba7535cccc8d34c2718e7e3"
+}

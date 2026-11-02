@@ -1,0 +1,9 @@
+{
+  "resumed_from_step": 48,
+  "checkpoint": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000048-494e209e",
+  "training_fingerprint": "14cdb0e983d5c571e69f51f0cc9b32ec14e1cd050ba7535cccc8d34c2718e7e3",
+  "model_data_training_implementation_unchanged": true,
+  "original_log_archived": "logs/train-before-checkpoint-io.jsonl",
+  "transport": "Verified read-only checkpoint cache; persistent writes unchanged",
+  "transport_implementation_sha256": "3efb315bb58fe25781a2757ee0ae7fee59a4421c136ac4982869b0d0d1c991c8"
+}

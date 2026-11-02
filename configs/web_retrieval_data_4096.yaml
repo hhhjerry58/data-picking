@@ -1,0 +1,100 @@
+dataset_kind: web_retrieval
+artifact_root: /mnt/tianzhu_hot/data-picking
+dataset_id: math-web-retrieval-v2-4096-seed20261023
+model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+target:
+  name: EleutherAI/hendrycks_math
+  revision: 21a5633873b6a120296cce3e2df9d5550074f4a3
+  files:
+  - path: algebra/train-00000-of-00001.parquet
+    bytes: 505186
+    sha256: 73347f5b55869f21ff094361025dbd12d291e971aa4d72142eacee10438e449f
+  - path: counting_and_probability/train-00000-of-00001.parquet
+    bytes: 329354
+    sha256: d37ae017930df41678edee50dcde18c17fb06afaff9eb505c1b95f1002bfcb31
+  - path: geometry/train-00000-of-00001.parquet
+    bytes: 549388
+    sha256: 9dbf5e5b55499e696e0ba72da9d85d4f0be3acbf7eaa6cb014b0fc78bb63784f
+  - path: intermediate_algebra/train-00000-of-00001.parquet
+    bytes: 575154
+    sha256: 0c87f3798ebdfb915b1f9b6fc13c1a8d064c3cb91631ccbe85b83ed5d71150f6
+  - path: number_theory/train-00000-of-00001.parquet
+    bytes: 308653
+    sha256: 81c08649149b39811f2d1d7ddf5dfccf6c4c8044a2e169cfb24db09160c941f4
+  - path: prealgebra/train-00000-of-00001.parquet
+    bytes: 383626
+    sha256: 765b526fb5c0b8385cb7be2c16bf4f6f28cf71f2bc15c826abfbb5fa7f8616cc
+  - path: precalculus/train-00000-of-00001.parquet
+    bytes: 353745
+    sha256: 28bb1ff95525c8d32521509bef91de76339659f5467a381e6e8deea204538f0e
+  train_size: 4096
+  validation_size: 512
+  seed: 20261023
+  max_length: 2048
+  reserved_evaluation_files:
+  - /mnt/tianzhu_hot/data-picking/data/processed/15b20f8fca81ffee/A2.jsonl
+  - /mnt/tianzhu_hot/data-picking/data/processed/15b20f8fca81ffee/B.jsonl
+  preserve_splits_from: /mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v1-seed20261023/target
+web:
+  crawl: CC-MAIN-2023-06
+  window_tokens: 2048
+  seed: 20261023
+  shuffle_seed: 20261026
+  near_duplicate_threshold: 0.8
+  math:
+    name: open-web-math/open-web-math
+    revision: fde8ef8de2300f5e778f56261843dab89f230815
+    files:
+    - path: data/train-00032-of-00114-4fee32b54661f280.parquet
+      bytes: 241175958
+      sha256: d5880b4daf97e9ba122d4a4a5ffcbe51c0ffc940693549ac422614ed450bade9
+    - path: data/train-00033-of-00114-d20028bef60057cc.parquet
+      bytes: 238372543
+      sha256: 67e25bef8c823bb31a5aab3bcabf6d7efc47a8cc568fe0e8013e25c2a37afefc
+    - path: data/train-00099-of-00114-c587048e642b131a.parquet
+      bytes: 243038723
+      sha256: e7861eaf93556e2f381f884db0461bdca71c5d36e39ed1df16804e8ceb509c5c
+    size: 1000
+    seed: 20261023
+    candidate_limit: 4000
+    available_shards: 114
+    shard_seed: 20261023
+  background:
+    name: HuggingFaceFW/fineweb
+    revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+    files:
+    - path: data/CC-MAIN-2023-06/006_00001.parquet
+      bytes: 678116393
+      sha256: 786a2df39007aa63a411d2ef876f4e72d012e78cda9554271aecd75274becec0
+    size: 9000
+    seed: 20261024
+    candidate_limit: 18000
+    available_shards_in_crawl: 350
+    shard_seed: 20261024
+control_sft:
+  name: HuggingFaceH4/ultrachat_200k
+  revision: 8049631c405ae6576f93f445c6b8166f76f5505a
+  files:
+  - path: data/train_sft-00001-of-00003-0a1804bcb6ae68c6.parquet
+    bytes: 243897199
+    sha256: c8230190bc8b29084c974ff32f05589b458fad1908fc4b2fb2b9e1e9f7921f03
+  split: train_sft
+  pool_size: 4096
+  seed: 20261025
+  max_length: 2048
+overlap:
+  problem_min_tokens: 12
+  solution_min_tokens: 40
+  containment_threshold: 0.8
+  anchors_per_text: 8
+statistics:
+  reported_loss_scores:
+  - delta_loss
+  - relative_gain
+  minhash_permutations: 64
+  minhash_seed: 20261023
+  lsh_bands: 16
+  lsh_rows: 4
+publish_sft_view: true
