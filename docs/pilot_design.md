@@ -136,20 +136,9 @@ loss 下降量与相对下降比例并列考察，不设主次。
 
 ## 8. 拟实现的代码结构和接口
 
-已实现的主要文件：
-
-```text
-configs/pilot.yaml                 # 数据、模型、训练、打分、评估配置
-src/data_picking/data.py           # 规范化、分组去重、划分与 manifest
-src/data_picking/tokenization.py   # 训练和评估共享的模板与 response mask
-src/data_picking/loss.py           # 逐样本 masked causal NLL
-src/data_picking/checkpoint.py     # 完整 checkpoint 校验、保存与恢复
-scripts/prepare_data.py            # 输出 A1/A2/B 和缓存 tokenization
-scripts/train_sft.py               # 只读取 A1，执行 SFT
-scripts/score.py                   # 对固定 split 输出每条样本的 NLL
-scripts/analyze.py                 # 合并、计算指标、bootstrap 和画图
-tests/                            # mask/loss、数据隔离、真实续训等关键检查
-```
+已实现的核心模块位于 `src/data_picking/`：`data.py` 负责分组和划分，
+`tokenization.py` / `loss.py` 定义共享评分口径，`training.py` / `checkpoint.py` 负责训练和完整恢复。
+统一运行入口是 `scripts/experiment.py`，目录和分阶段命令见 [操作指南](workflow.md)。
 
 使用 PyTorch + Transformers 实现单卡 trainer。固定 revision 直接下载 Parquet，数据处理和分析使用 pyarrow、NumPy、scikit-learn、Matplotlib；依赖版本记录在 requirements 和生效配置中。若后续换 LoRA 或更大模型，应作为显式实验变体记录，不能和全参数结果混称。
 

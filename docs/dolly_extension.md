@@ -63,7 +63,7 @@ Dolly 与 MATH 的来源、题型、文风和回答质量混杂；可分性不�
 已完成的完整测量继续保存在挂载目录；原 A2/B notebook 的梯度附录复用其中经过模型与样本一致性核对的 A2/B 部分。
 用于这版展示的两域统计保存在 `metrics/a2_dolly_loss/`，不改动原始三域结果。
 更新已有 notebook 时保持目录时间，并在挂载的 `analysis_history/` 备份修改前的版本。
-追加或更新梯度部分使用 `scripts/append_gradient_analysis.py`，具体入口见实验分析索引。
+追加或更新梯度部分使用 `scripts/experiment.py append-gradients`，具体入口见实验分析索引。
 
 结果存入 `experiments-analysis/YYYY-MM-DD_HHMMSSZ_<run_id>/`。已执行 notebook 和小结果快照在仓库，
 完整数据、日志和梯度明细在 `/mnt/tianzhu_hot/data-picking`。
@@ -72,8 +72,8 @@ Dolly 与 MATH 的来源、题型、文风和回答质量混杂；可分性不�
 
 ```bash
 source scripts/env.sh
-uv --no-cache pip install --python .venv/bin/python -r requirements-generalization.txt
-.venv/bin/python scripts/prepare_dolly.py
+uv --no-cache pip install --python .venv/bin/python -r requirements.txt
+.venv/bin/python scripts/experiment.py prepare --config configs/dolly_extension.yaml
 ```
 
 先检查空闲 GPU，再分别测量两个模型。模型大文件可使用 SHA256 校验通过的临时内存副本；
@@ -81,11 +81,11 @@ uv --no-cache pip install --python .venv/bin/python -r requirements-generalizati
 blobfuse 配置读取同一存储中的原文件：
 
 ```bash
-.venv/bin/python scripts/stage_evaluation_weights.py --blob-config /path/to/existing/blobfuse2.yaml
-CUDA_VISIBLE_DEVICES=1 .venv/bin/python scripts/measure_gradients.py --model reference
-CUDA_VISIBLE_DEVICES=3 .venv/bin/python scripts/measure_gradients.py --model sft
-.venv/bin/python scripts/analyze_generalization.py
-.venv/bin/python scripts/export_generalization_notebook.py \
+.venv/bin/python scripts/experiment.py stage-weights --blob-config /path/to/existing/blobfuse2.yaml
+CUDA_VISIBLE_DEVICES=1 .venv/bin/python scripts/experiment.py gradients --config configs/dolly_extension.yaml --model reference
+CUDA_VISIBLE_DEVICES=3 .venv/bin/python scripts/experiment.py gradients --config configs/dolly_extension.yaml --model sft
+.venv/bin/python scripts/experiment.py analyze --config configs/dolly_extension.yaml
+.venv/bin/python scripts/experiment.py export \
   --run-dir /mnt/tianzhu_hot/data-picking/runs/math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42
 ```
 

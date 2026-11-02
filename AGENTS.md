@@ -10,7 +10,8 @@
   authorized training on local GPUs. The first pair is MATH Algebra (A) and
   Number Theory (B), with A1=1,024 and A2=B=512; see `configs/pilot.yaml`.
 - The implementation is in `src/data_picking/` and `scripts/`. Source
-  `scripts/env.sh` and use `.venv/bin/python`. Select a free GPU explicitly with
+  `scripts/env.sh` and use `.venv/bin/python`. The command entry point is
+  `scripts/experiment.py`; see `docs/workflow.md`. Select a free GPU explicitly with
   `CUDA_VISIBLE_DEVICES`; do not disturb other users' GPU processes.
 - Use Chinese for project discussion and review documents unless requested otherwise.
 
@@ -59,6 +60,54 @@
   Measure and retain loss plus gradient diagnostics for A2/C on both models;
   its notebook follows Dolly's loss presentation with a gradient appendix. Document upstream data
   processing and distinguish a source replication from a multiple-seed estimate.
+- The current document-retrieval data bundle is `configs/web_retrieval_data_4096.yaml`:
+  multi-subject MATH target train/validation, 1,000 injected OpenWebMath pages
+  and 9,000 unlabeled FineWeb background pages from one fixed CC crawl, plus
+  a general-SFT control pool. Reserve legacy
+  A2/B problem groups, record target-overlap quarantine and source confounds,
+  and never treat unlabeled CC pages as verified non-math negatives.
+  Raw documents use no chat template; bounded windows score every token after
+  the document's first exactly once. Preserve all body text and document IDs.
+- The math SFT probe uses `configs/web_math_sft.yaml`: 4,096 training examples,
+  the original 512 validation examples, effective batch 64 (micro batch 2,
+  accumulation 32), one epoch / 64 steps, checkpoints every 16 steps. Keep the
+  original 1,024-example training set as a subset. Run `train --check-only` to
+  verify the prepared data and schedule before launch; save optimizer and enable
+  automatic resume. The original 1,024-example data bundle remains historical.
+- The user has authorized the web-retrieval verification run. Its frozen loss
+  evaluation is `configs/web_retrieval_eval.yaml`: final step 64, two FP32
+  scoring shards, 1:9 source-preserving length control, both loss changes and
+  raw-loss baselines. Intermediate checkpoints are validation-NLL diagnostics.
+  `configs/web_retrieval_gradients.yaml` defines an independent fixed random
+  64-document-per-source gradient appendix; accumulate gradients across all
+  windows before computing document norms. No source label is a verified
+  semantic negative, and no document-selection training benefit is established.
+- The user authorized two follow-up diagnostics in `configs/probe_diagnostics.yaml`:
+  cross-evaluate the step-64 math probe on the exact legacy A2/UltraChat pool,
+  and score the same complete web pool at steps 16/32/48. Keep the existing
+  length-matched IDs and step-64 formal result. These are post-result diagnostics,
+  with no checkpoint selection or new training; export a separate notebook.
+- The user authorized separate OpenStax and FineMath-4+ source tests in
+  `configs/document_quality.yaml`, using the existing reference/step-64 models
+  and the same 9,000 background pages. OpenStax uses complete CNXML modules,
+  preserves MathML structure and glossaries, and quarantines empty source
+  formulas before scoring. FineMath is a seeded 1,000-document sample from
+  three pinned shards restricted to the background crawl, without extra topic
+  or score filtering. Report chapter-cluster bootstrap for textbooks and the
+  limited common support of the fixed powers-of-two length control. No training
+  or new gradient measurements; preserve the prior notebooks.
+- The user authorized direct document-training utility comparisons in
+  `configs/document_utility.yaml`: general FineWeb, OpenWebMath, OpenStax and
+  FineMath, seeds 42/43/44, all initialized from the same reference model.
+  Each run consumes exactly 1,048,576 supervised document tokens in 64 steps
+  (16,384 tokens/step), with token-normalized gradients and unchanged within-window
+  context. Evaluate the original 512 held-out MATH answers only at the fixed final
+  step, report both loss changes and paired math-minus-general contrasts.
+  Save full state at 32/64 with auto-resume, including batches and cursor.
+  Checkpoint transport may use verified direct uploads to the same mounted blobs
+  when the FUSE backing cache cannot hold full states; keep numerical fingerprints
+  unchanged and document transport provenance. No superiority finding is not proof
+  of equivalence or validation of per-example data-selection scores.
 
 # Artifact storage
 
@@ -88,7 +137,7 @@
   use `/dev/shm/data-picking-*`: blobfuse2 cannot unlink open temporary files.
   This is not a storage location for retained experiment artifacts.
 - Large mounted checkpoints may need a temporary RAM copy for evaluation.
-  `scripts/stage_evaluation_weights.py` verifies original SHA-256 values before
+  `scripts/maintenance/stage_weights.py` verifies original SHA-256 values before
   use; persistent sources stay on the mount. Avoid CUDA copies directly from
   mmap-backed blobfuse tensors. Never log the blob mount's credentials or signed URLs.
 

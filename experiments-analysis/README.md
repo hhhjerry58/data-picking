@@ -16,6 +16,19 @@
 | 2026-10-21 17:23:47 | [algebra / number_theory · seed 42 · loss + grad](2026-10-21_172347Z_math-algebra-numbertheory-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6849 | 0.7007 |
 | 2026-10-22 09:33:05 | [algebra / Dolly C · loss + grad](2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.6162 | 0.8563 |
 | 2026-10-22 11:37:52 | [algebra / UltraChat C · loss + grad](2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.9857 | 0.9869 |
+| 2026-10-23 09:58:32 | [MATH target / OpenWebMath + CC · seed 42 · loss + grad](2026-10-23_095832Z_math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.3046 | 0.2137 |
+| 2026-10-23 16:56:39 | [MATH probe 诊断：A2/UltraChat AUC；网页 checkpoint 轨迹](2026-10-23_165639Z_math-web-probe-diagnostics-qwen25-1p5b-seed42/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.9915 | 0.9960 |
+| 2026-10-24 10:20:53 | [OpenStax / CC · step 64](2026-10-24_102053Z_math-document-quality-qwen25-1p5b-step64-seed20261024/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.1099 | 0.0691 |
+| 2026-10-24 10:20:53 | [FineMath-4+ / CC · step 64](2026-10-24_102053Z_math-document-quality-qwen25-1p5b-step64-seed20261024/analysis.ipynb) | Qwen2.5-1.5B-Instruct | 0.1685 | 0.0818 |
+
+直接训练效用（下表是目标 loss 变化，不是来源 AUC）：
+
+| 结果时间（UTC） | 实验 notebook / 来源 | 最终目标 NLL | loss 下降量 | 相对下降比例 |
+| --- | --- | --- | --- | --- |
+| 2026-10-25 16:12:54 | [general · 3 seeds](2026-10-25_161254Z_document-utility-qwen25-1p5b-t1048576-s64/analysis.ipynb) | 0.71504 | 0.02846 | 0.03441 |
+| 2026-10-25 16:12:54 | [openwebmath · 3 seeds](2026-10-25_161254Z_document-utility-qwen25-1p5b-t1048576-s64/analysis.ipynb) | 0.70971 | 0.03379 | 0.03951 |
+| 2026-10-25 16:12:54 | [openstax · 3 seeds](2026-10-25_161254Z_document-utility-qwen25-1p5b-t1048576-s64/analysis.ipynb) | 0.89193 | -0.14843 | -0.27372 |
+| 2026-10-25 16:12:54 | [finemath · 3 seeds](2026-10-25_161254Z_document-utility-qwen25-1p5b-t1048576-s64/analysis.ipynb) | 0.72180 | 0.02170 | 0.02206 |
 
 <!-- experiments-index:end -->
 
@@ -36,7 +49,7 @@ YYYY-MM-DD_HHMMSSZ_<run_id>/
 ```
 
 Dolly 和 UltraChat notebook 展示各自的 A2/C loss 对比，包含 C 抽样 manifest、重复统计和两域长度匹配快照；通过
-`scripts/export_generalization_notebook.py --run-dir <run_dir>` 导出，具体配置见
+`scripts/experiment.py export --run-dir <run_dir>` 导出，具体配置见
 [Dolly 扩展说明](../docs/dolly_extension.md)。
 UltraChat 的首轮问答定义和来源说明见 [UltraChat 复验方案](../docs/ultrachat_extension.md)。
 
@@ -48,7 +61,7 @@ UltraChat 的首轮问答定义和来源说明见 [UltraChat 复验方案](../do
 
 ```bash
 source scripts/env.sh
-.venv/bin/python scripts/append_gradient_analysis.py \
+.venv/bin/python scripts/experiment.py append-gradients \
   --notebook-dir experiments-analysis/<directory> \
   --measurement-run /mnt/tianzhu_hot/data-picking/runs/<measurement_run_id>
 ```
@@ -64,16 +77,17 @@ source scripts/env.sh
 
 ```bash
 source scripts/env.sh
-uv --no-cache pip install --python .venv/bin/python -r requirements-notebook.txt
-.venv/bin/python scripts/export_analysis_notebook.py \
+uv --no-cache pip install --python .venv/bin/python -r requirements.txt
+.venv/bin/python scripts/experiment.py export \
   --run-dir "/mnt/tianzhu_hot/data-picking/runs/<run_id>"
 ```
 
-导出命令会复制小体积结果、检查哈希、执行所有 notebook 单元格并更新上面的索引，
-不重新训练或评分，也不重新运行 bootstrap；notebook 重算并核对点估计，区间来自原始结果快照。
+导出命令会准备小体积结果、检查哈希、执行所有 notebook 单元格并更新上面的索引，
+不重新训练或评分。扩展 run 在缺少相应两域 review 统计时会先计算并缓存统计；
+已导出的 notebook 只重算并核对点估计，区间来自保存的结果快照。
 每个源文件限制为 10 MiB，防止意外把大规模数据放进仓库。
 已有目录默认拒绝覆盖；`--overwrite` 会明确替换 notebook 和导出快照，使用前需保留人工 review 笔记。
 索引标记之间由脚本维护，其他说明和人工备注可写在标记之外。
 
-第一次在其他 Python 环境重跑 notebook 时，安装 `requirements-notebook.txt` 中的分析依赖，
+第一次在其他 Python 环境重跑 notebook 时，安装 `requirements/notebook.txt` 中的分析依赖，
 并将 kernel 工作目录设为当前实验子目录或仓库根目录。

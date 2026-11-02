@@ -46,11 +46,11 @@ bootstrap 区间不包含训练随机性，域识别效果也不直接证明进�
 
 ```bash
 source scripts/env.sh
-.venv/bin/python scripts/prepare_ultrachat.py
-CUDA_VISIBLE_DEVICES=1 .venv/bin/python scripts/measure_gradients.py --config configs/ultrachat_extension.yaml --model reference
-CUDA_VISIBLE_DEVICES=3 .venv/bin/python scripts/measure_gradients.py --config configs/ultrachat_extension.yaml --model sft
-.venv/bin/python scripts/analyze_generalization.py --config configs/ultrachat_extension.yaml
-.venv/bin/python scripts/export_generalization_notebook.py \
+.venv/bin/python scripts/experiment.py prepare --config configs/ultrachat_extension.yaml
+CUDA_VISIBLE_DEVICES=1 .venv/bin/python scripts/experiment.py gradients --config configs/ultrachat_extension.yaml --model reference
+CUDA_VISIBLE_DEVICES=3 .venv/bin/python scripts/experiment.py gradients --config configs/ultrachat_extension.yaml --model sft
+.venv/bin/python scripts/experiment.py analyze --config configs/ultrachat_extension.yaml
+.venv/bin/python scripts/experiment.py export \
   --run-dir /mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42
 ```
 
