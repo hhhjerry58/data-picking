@@ -1,0 +1,84 @@
+{
+  "identity": {
+    "config": {
+      "artifact_root": "/mnt/tianzhu_hot/data-picking",
+      "run_id": "math-web-probe-diagnostics-qwen25-1p5b-seed42",
+      "web_evaluation_config": "configs/web_retrieval_eval.yaml",
+      "legacy_run": "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42",
+      "legacy_snapshot": "experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/snapshot",
+      "qa_checkpoint_step": 64,
+      "web_checkpoint_steps": [
+        16,
+        32,
+        48,
+        64
+      ],
+      "scoring": {
+        "forward_dtype": "float32",
+        "attention_backend": "math",
+        "batch_size": 4,
+        "chunk_size": 128,
+        "sanity_tolerance": 2e-05,
+        "legacy_reference_tolerance": 2e-05
+      },
+      "analysis": {
+        "reported_loss_scores": [
+          "delta_loss",
+          "relative_gain"
+        ],
+        "raw_loss_baselines": [
+          "neg_ref_loss",
+          "neg_sft_loss",
+          "pos_ref_loss",
+          "pos_sft_loss"
+        ],
+        "bootstrap_samples": 2000,
+        "bootstrap_seed": 20261031,
+        "tie_seed": 20261101,
+        "qa_top_fractions": [
+          0.1,
+          0.2
+        ]
+      },
+      "checkpoint_policy": "Diagnostic only; retain the original fixed step-64 result and do not select a checkpoint using evaluation data.",
+      "scope": "Existing checkpoints only; no optimizer updates; no new gradient measurements."
+    },
+    "files": {
+      "configs/probe_diagnostics.yaml": "99090372aa9a6800b0289742effa4ad2c6df5d27121e915203c4808735f13104",
+      "configs/web_retrieval_eval.yaml": "be6fb3180b2f4ca139e2cbaf3a1967567f3fcce0a2dd0359f40a22dd48794d3f",
+      "configs/web_math_sft.yaml": "f61b1ba9ae216fff043ad3b911eacf7f3f25b623c43be7da47ca9fd644d307ee",
+      "/mnt/tianzhu_hot/data-picking/runs/math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/data/evaluation.jsonl": "31f87af03356d3c200d58ac1e672eb0de9b64868bf040c7da1d0e85eb4ab793e",
+      "experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/snapshot/per_example.parquet": "52fe9b539746fc27ee28be24fef8fc6afccd8186367818900b1d66f3cf189ba1",
+      "experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/snapshot/length_matched_ids.json": "09260371fb339eaa2194050abd6d7b7248b96d6c48be7fdbfbb02f793f0aadb5",
+      "experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/snapshot/metrics.json": "38103b96f269804f047e12649ec7b285cb66fd1fa4a29a4b8ff3e925004a7a95",
+      "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/target/train.jsonl": "887cb159c5499be4208ac94816a56601afa0fce682b79e523a3683dc015bc842",
+      "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/web/windows.parquet": "bb8907002405d6f8c9689e97b65ef468634705fed90c0e81b9030f5bf4a97e6a",
+      "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/web/document_manifest.parquet": "36e600c03c14c091fd9343470219d6ebf259382dd6ca141938e5ba4d613163e5",
+      "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023/web/labels.jsonl": "9ebb3c751b6a79871323e5f001ba0c33ead13681d3519d5becee37551d289fbf",
+      "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/length_matched_ids.json": "563f233ca5601aa2ea606cbb8fa222530e9658f54d16b930fe6298202736c96c",
+      "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/metrics_web/metrics.json": "e93ad7bc552333dfa4e622d8dfc46e927188c11bd94d2b858c35d5616148530e"
+    },
+    "checkpoints": {
+      "16": {
+        "path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000016-9e8beec1",
+        "state_sha256": "fc534a9a378f1b2334257f82e9fe98940734d211a957947d092788c173b5856e"
+      },
+      "32": {
+        "path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000032-aeae0447",
+        "state_sha256": "16e63b4022534bb3e225d14c2dcb81df64c8738c0388557ee9eb5cfbe25924b4"
+      },
+      "48": {
+        "path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000048-494e209e",
+        "state_sha256": "9e5988735a9de8bee9e68fdbac6c30683092cab0aedf0690f6da61dca9986daf"
+      },
+      "64": {
+        "path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/checkpoints/step-000064-a96c8e03",
+        "state_sha256": "ef43521b16315fa0d124b51a8879839efffc88ae789e654e83a5ec989292a28b"
+      }
+    },
+    "web_run": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42"
+  },
+  "fingerprint": "a1d22fc558fd7fe52ec40bcaf2daf7eaed9df5f630f5c62dcd4d53baebffa146",
+  "frozen_at_utc": "2026-10-23T16:28:05.524044+00:00",
+  "known_before_diagnostics": "Original step-64 web result and legacy step-32 QA results already observed; these are follow-up diagnostics, not a new preregistered confirmation."
+}

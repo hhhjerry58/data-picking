@@ -1,0 +1,6 @@
+{
+  "experiments-analysis/2026-10-22_113752Z_math-algebra-ultrachat-lengthonly-qwen25-1p5b-seed42/analysis.ipynb": "e3a9211c919e7b03785f7114c816cf3d809e4522d52a71503924fd5c1bbe9523",
+  "experiments-analysis/2026-10-21_172347Z_math-algebra-numbertheory-qwen25-1p5b-seed42/analysis.ipynb": "9524e84fd3f0e56906181b06320b430145ff8e4f11282a1c2a68f48396a371f5",
+  "experiments-analysis/2026-10-22_093305Z_math-algebra-numbertheory-dolly-lengthonly-qwen25-1p5b-seed42/analysis.ipynb": "5ef33eaa4df552df73af3b2a79e6b7739661210183e3a360d1baa04df0f8deb6",
+  "experiments-analysis/2026-10-23_095832Z_math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/analysis.ipynb": "7e854db93c5a8d5b4c17a466c116ce376d8404d77816f96be89cc7476cde54a3"
+}

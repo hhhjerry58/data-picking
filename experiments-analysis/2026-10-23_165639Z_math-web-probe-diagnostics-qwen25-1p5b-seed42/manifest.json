@@ -1,0 +1,70 @@
+{
+  "run_id": "math-web-probe-diagnostics-qwen25-1p5b-seed42",
+  "directory": "2026-10-23_165639Z_math-web-probe-diagnostics-qwen25-1p5b-seed42",
+  "analysis_type": "probe_transfer_diagnostics",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42",
+  "result_time_utc": "2026-10-23T16:56:39.211935+00:00",
+  "timestamp_basis": "metrics/metrics.json completed_at_utc",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/metrics.json",
+      "bytes": 210322,
+      "sha256": "4492090e08e2ce473bb1dad6a86202a3ba9f334f2c40311aa4240535ff65ad44"
+    },
+    "qa_metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/qa_metrics.json",
+      "bytes": 51040,
+      "sha256": "32516dc850442b64fdeb688f4480ef5f2df53a13c842af22058307d113240e0e"
+    },
+    "qa_per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/qa_per_example.parquet",
+      "bytes": 360564,
+      "sha256": "30a18c6d3c1c1a380b04b9b8c21e96fac1aca91099f799d749e27ee6312ad800"
+    },
+    "web_per_document.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/web_per_document.parquet",
+      "bytes": 3500830,
+      "sha256": "a1749bb7fec88433a61488c0277542e7054f1d88f01660f6b4107930632a1ed8"
+    },
+    "qa_length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/qa_length_matched_ids.json",
+      "bytes": 6660,
+      "sha256": "09260371fb339eaa2194050abd6d7b7248b96d6c48be7fdbfbb02f793f0aadb5"
+    },
+    "web_length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/metrics/web_length_matched_ids.json",
+      "bytes": 247863,
+      "sha256": "563f233ca5601aa2ea606cbb8fa222530e9658f54d16b930fe6298202736c96c"
+    },
+    "diagnostic_plan.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/diagnostic_plan.json",
+      "bytes": 5185,
+      "sha256": "f3cc0c020eaa2e7c4891264de1f743fcdb35f7a00a1a86c7c9f23ed4bd81207a"
+    },
+    "original_notebook_hashes.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/original_notebook_hashes.json",
+      "bytes": 723,
+      "sha256": "198d8892ad47427ceda8fa620a7277a59a3f60d7eab361d0476b391accff57e6"
+    },
+    "qa_overlap.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-diagnostics-qwen25-1p5b-seed42/qa_overlap.json",
+      "bytes": 197,
+      "sha256": "8f0ba655d29a76bedc805c7151c09128230d595d23dc34a13da5748eeb829c9c"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/effective_config.json",
+      "bytes": 173262,
+      "sha256": "7b82aa53e76213b405e90f77780e6ecc6ac8cc41f82116a2878c69aa3951457b"
+    }
+  },
+  "exporter": {
+    "script": "scripts/notebooks/export_probe.py",
+    "sha256": "5c611d5ba76ef61a62e1b3e8c1d358370489a6c7f9886920d46dcc30c8eb5695"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 7,
+    "notebook_sha256": "c69d1da522525fb1e243dfc967831b0283e6dd62c713a4e805d641c4a397f9f6",
+    "gpu_required": false
+  }
+}
