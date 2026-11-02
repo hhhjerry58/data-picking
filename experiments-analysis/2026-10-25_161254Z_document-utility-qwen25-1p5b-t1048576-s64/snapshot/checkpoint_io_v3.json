@@ -1,0 +1,4 @@
+{
+  "adapter_sha256": "88dafef3567421d6e1b71725c8f919293b61389ed674dc1e07901f0a4e6d659a",
+  "change": "Every future checkpoint uses server-enforced Content-MD5 for all blocks, exact committed block names/order/sizes, stable ETag and full local SHA-256 before manifest/marker. Initial recovery checkpoints and the initial general checkpoint additionally receive complete range readback. Avoid redundant full downloads after this transport validation; no numerical or checkpoint payload change."
+}

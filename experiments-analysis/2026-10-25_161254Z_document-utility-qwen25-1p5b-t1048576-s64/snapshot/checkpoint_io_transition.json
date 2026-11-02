@@ -1,0 +1,6 @@
+{
+  "reason": "FUSE checkpoint writes/close failed with EIO; backing cache filesystem had only 0.01 GiB free. Use direct block upload to identical persistent destinations with full readback verification. Numerical trainer/config/data unchanged.",
+  "adapter_sha256": "4c7d18b24ec0babf1727a7664f72c9684a02fcd9ec659c96357567b6cbbd741f",
+  "trainer_sha256": "e9a7b5a0649142cdd6a100453c6a8785f2c5d049944830f1042d54041d3d2014",
+  "at_utc": "2026-10-25T14:36:17.795601+00:00"
+}

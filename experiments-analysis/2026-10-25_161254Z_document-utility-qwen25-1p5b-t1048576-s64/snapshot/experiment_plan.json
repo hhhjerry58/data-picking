@@ -1,0 +1,72 @@
+{
+  "config": {
+    "artifact_root": "/mnt/tianzhu_hot/data-picking",
+    "run_id": "document-utility-qwen25-1p5b-t1048576-s64",
+    "model": {
+      "name": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+    },
+    "runtime_model_dir": "/dev/shm/data-picking-runtime/weights/e42f629272d19991/model",
+    "data": {
+      "web_bundle": "/mnt/tianzhu_hot/data-picking/data/processed/math-web-retrieval-v2-4096-seed20261023",
+      "quality_bundle": "/mnt/tianzhu_hot/data-picking/data/processed/math-document-quality-v1-seed20261024",
+      "target_file": "target/validation.jsonl",
+      "window_length": 2048,
+      "arms": [
+        "general",
+        "openwebmath",
+        "openstax",
+        "finemath"
+      ],
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "sampling": "Seeded permutation of existing document windows without replacement; consume an exact supervised-token budget. Split a window at optimizer-step boundaries while retaining its full preceding context and masking previously consumed targets. No cross-document packing or new chat template."
+    },
+    "training": {
+      "steps": 64,
+      "tokens_per_step": 16384,
+      "total_supervised_tokens": 1048576,
+      "micro_batch_size": 2,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "adam_epsilon": 1e-08,
+      "max_grad_norm": 1.0,
+      "warmup_steps": 7,
+      "save_steps": 32,
+      "save_optimizer": true,
+      "auto_resume": true,
+      "parameter_dtype": "float32",
+      "autocast_dtype": "bfloat16",
+      "attention_backend": "math",
+      "loss_normalization": "Sum of target-token NLL divided by the fixed token budget of the optimizer step."
+    },
+    "scoring": {
+      "forward_dtype": "float32",
+      "attention_backend": "math",
+      "batch_size": 4,
+      "chunk_size": 128,
+      "sanity_tolerance": 2e-05
+    },
+    "analysis": {
+      "reported_loss_scores": [
+        "delta_loss",
+        "relative_gain"
+      ],
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261025,
+      "contrast": "Math-arm improvement minus same-seed general-arm improvement; positive favors math documents. Both loss changes reported in parallel.",
+      "uncertainty": "Report all three seeds and their range; paired target-question-group bootstrap conditional on these trained models, plus hierarchical seed-and-question-group bootstrap. Three seeds do not establish population-wide equivalence."
+    },
+    "checkpoint_policy": "Final step 64 fixed before training; intermediate step 32 is recovery only and is not selected using target losses.",
+    "interpretation": "Direct source-level training-utility test from the reference model; no target-SFT updates follow document training. A lack of statistically detectable superiority is not proof of equivalence or validation of per-example data-selection scores."
+  },
+  "config_sha256": "32a96b69516398b3b0fd5a883bb279fb8f22d7bc823bcda16565820e7324137e",
+  "frozen_at_utc": "2026-10-25T14:13:42.503079+00:00"
+}

@@ -1,0 +1,4 @@
+{
+  "adapter_sha256": "fe6f510935eb7b5778e5658a0a2c6f54d4e5fa64129acfa60423adc8c8c308a6",
+  "change": "Reuse HTTPS connections, 8 MiB blocks / 64 workers, same byte integrity and full remote readback; numerical trainer unchanged."
+}

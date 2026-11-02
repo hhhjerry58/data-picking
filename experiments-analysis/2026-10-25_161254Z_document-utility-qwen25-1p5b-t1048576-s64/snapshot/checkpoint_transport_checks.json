@@ -1,0 +1,16 @@
+{
+  "bad_md5_rejected": true,
+  "http_status": 400,
+  "error_code": "Md5Mismatch",
+  "roundtrip": {
+    "source": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64-general-seed42/checkpoints/io-v3-test/state.pt",
+    "runtime_copy": "/dev/shm/data-picking-runtime/direct-checkpoints/document-utility-qwen25-1p5b-t1048576-s64-general-seed42/io-v3-test/state.pt",
+    "sha256": "b8b5dabaa3454f7fa46a97c51cec9ccd118ffc0d61df6e46d845ef200a2fd1bb",
+    "bytes": 9437184,
+    "etag": "\"0x8DF32A806897861\"",
+    "adapter_sha256": "88dafef3567421d6e1b71725c8f919293b61389ed674dc1e07901f0a4e6d659a",
+    "verified_at_utc": "2026-10-25T14:55:35.920869+00:00",
+    "full_remote_readback": true,
+    "transport": "Server-validated Content-MD5 per uploaded block; committed block order and sizes; stable ETag; local full-file SHA-256. Full If-Match range readback when full_remote_readback is true."
+  }
+}

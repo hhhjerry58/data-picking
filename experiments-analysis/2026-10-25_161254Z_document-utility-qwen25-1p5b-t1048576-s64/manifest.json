@@ -1,0 +1,86 @@
+{
+  "run_id": "document-utility-qwen25-1p5b-t1048576-s64",
+  "directory": "2026-10-25_161254Z_document-utility-qwen25-1p5b-t1048576-s64",
+  "analysis_type": "document_training_utility",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64",
+  "result_time_utc": "2026-10-25T16:12:54.906440+00:00",
+  "timestamp_basis": "metrics/metrics.json completed_at_utc",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/metrics/metrics.json",
+      "bytes": 29680,
+      "sha256": "92526c47e0c311ac6140778d86e030e973e40054459d2b0ca60da083905746dd"
+    },
+    "per_example.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/metrics/per_example.parquet",
+      "bytes": 237375,
+      "sha256": "aa914ee8f4af6258f78beef191a120fcb0a1637e8528614f0a5b04e468144c44"
+    },
+    "training.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/metrics/training.parquet",
+      "bytes": 25824,
+      "sha256": "59a747bf0b1a1c90270c62ca48d032e04c1c580d8ec1eb7c6e20f108d48ca373"
+    },
+    "experiment_plan.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/experiment_plan.json",
+      "bytes": 3090,
+      "sha256": "78f32e720d2a2580d6c68a9f57815af4fba8b31c45a7171ef46f891e69cd05dd"
+    },
+    "data_preparation.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/data_preparation.json",
+      "bytes": 6031,
+      "sha256": "c7b6a2900b095988fcb93d6488d03dfd73b3f68601b70cfc82eb26c1fb5d59e9"
+    },
+    "checkpoint_io_transition.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/checkpoint_io_transition.json",
+      "bytes": 472,
+      "sha256": "ca376293aed65c587630f0e9450523764531c6be9780cfc839ce21f59cf9520f"
+    },
+    "checkpoint_io_v2.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/checkpoint_io_v2.json",
+      "bytes": 233,
+      "sha256": "d5c1ecd7f1ef2e4d4b11dfb7e3fb46031f3dd04ba3438e549a82788872481685"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/analysis_effective_config.json",
+      "bytes": 2948,
+      "sha256": "7419753a1721c420711eaa04c645dfafea0476b2090e27f6f2a155a67759a916"
+    },
+    "checkpoint_io_v3.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/checkpoint_io_v3.json",
+      "bytes": 496,
+      "sha256": "6456b9dea4de9ec78c888cca084b6e8a33663c044454bd78f674abf6e66d0726"
+    },
+    "checkpoint_transport_checks.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/checkpoint_transport_checks.json",
+      "bytes": 923,
+      "sha256": "d629b3873bdd6106c03dfccd05b5dbe4d52bac763b36f75715d2bf8d041f66d8"
+    },
+    "completion_audit.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/document-utility-qwen25-1p5b-t1048576-s64/completion_audit.json",
+      "bytes": 9495,
+      "sha256": "846f5ede20fd440b449303226ab106ef6557c9dd441242ba64f79ba9da7a93a8"
+    }
+  },
+  "exporter": {
+    "script": "scripts/notebooks/export_utility.py",
+    "sha256": "ab0950dcd512ddb876fdcf79bd0c2f3002a37998a51a70d2d6ebb264fcd666be"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 6,
+    "notebook_sha256": "90659904af224d2351423a8627a86631e80a9147cc06ef3e4509c5f14a61205a",
+    "gpu_required": false
+  },
+  "supplements": [
+    {
+      "added_at_utc": "2026-10-26T04:22:11.889391+00:00",
+      "files": [
+        "checkpoint_io_v3.json",
+        "checkpoint_transport_checks.json",
+        "completion_audit.json"
+      ],
+      "note": "补充最终 I/O 验证与完成审计；原 notebook 内容、输出、结果时间和导出器记录不变。"
+    }
+  ]
+}
