@@ -1,0 +1,66 @@
+artifact_root: /mnt/tianzhu_hot/data-picking
+run_id: math-document-quality-qwen25-1p5b-step64-seed20261024
+bundle_id: math-document-quality-v1-seed20261024
+base_evaluation_config: configs/web_retrieval_eval.yaml
+checkpoint_step: 64
+seed: 20261024
+sources:
+  openstax:
+    repository: openstax/osbooks-college-algebra-bundle
+    revision: 463991614337632b0e02cbb6c76223cbb0d423d3
+    collections:
+      - collections/college-algebra-2e.collection.xml
+      - collections/precalculus-2e.collection.xml
+    selection: All distinct modules inside named chapter subcollections; standalone front/back matter excluded by TOC structure, never by model scores.
+    unit: Complete CNXML module; shared module IDs counted once, canonical chapter from the first collection.
+    formulas: Convert every MathML expression to LaTeX; fail on unsupported mathematical elements; retain image descriptions and flag image-dependent content.
+    exclude_empty_math_modules: true
+  finemath:
+    name: HuggingFaceTB/finemath
+    revision: e92b25a616738fe95dc186b64dfb19f9c8525594
+    subset: finemath-4plus
+    crawl: CC-MAIN-2023-06
+    size: 1000
+    shard_seed: 20261024
+    files:
+      - path: finemath-4plus/train-00022-of-00064.parquet
+        bytes: 285625844
+        sha256: d8f0548f5e73166ff60535ba2f219d85ab96eba23dff659411ea2876a66bd058
+      - path: finemath-4plus/train-00009-of-00064.parquet
+        bytes: 288931475
+        sha256: 5e2b8db60462621ac0e45dd9865103f685915b09eee577f505b35f95ff601ea5
+      - path: finemath-4plus/train-00039-of-00064.parquet
+        bytes: 287576805
+        sha256: 2b893fdc56c818f601f100d4e7b4ee5183ab337b97e041f870ede9ff434b0d91
+    selection: Seeded uniform sample from eligible matching-crawl rows in three seeded shards; no local topic/score/answer-length filters.
+data:
+  window_length: 2048
+  near_duplicate_threshold: 0.8
+  minhash_seed: 20261024
+  audit_seed: 20261025
+  audit_size_per_source: 50
+  target_overlap:
+    problem_min_tokens: 15
+    solution_min_tokens: 30
+    containment_threshold: 0.8
+    anchors_per_text: 8
+scoring:
+  forward_dtype: float32
+  attention_backend: math
+  batch_size: 4
+  chunk_size: 128
+  num_shards: 1
+  sanity_tolerance: 0.00002
+analysis:
+  reported_loss_scores: [delta_loss, relative_gain]
+  raw_loss_baselines: [neg_ref_loss, neg_sft_loss, pos_ref_loss, pos_sft_loss]
+  top_fractions: [0.01, 0.05, 0.10]
+  bootstrap_samples: 2000
+  bootstrap_seed: 20261026
+  tie_seed: 20261027
+  length_matching_seed: 20261028
+  matched_background_per_math: 9
+  length_control: Fixed power-of-two document-token bins; keep 1:9 source ratio in every retained bin; report common-support retention and residual length AUC.
+  openstax_bootstrap: Chapter clusters (merging any duplicate-linked chapters), background duplicate-document groups; stratified by source.
+  finemath_bootstrap: Duplicate-document groups; stratified by source.
+protocol: Two separate source retrieval comparisons using the same fixed 9000 FineWeb background pages and existing reference / final step-64 models. No retraining, checkpoint selection, score sign changes, or new gradient measurements.

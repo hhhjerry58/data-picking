@@ -1,0 +1,75 @@
+{
+  "run_id": "math-document-quality-qwen25-1p5b-step64-seed20261024",
+  "directory": "2026-10-24_102053Z_math-document-quality-qwen25-1p5b-step64-seed20261024",
+  "analysis_type": "document_quality_sources",
+  "source_run_dir": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024",
+  "result_time_utc": "2026-10-24T10:20:53.147080+00:00",
+  "timestamp_basis": "metrics/metrics.json completed_at_utc",
+  "files": {
+    "metrics.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/metrics/metrics.json",
+      "bytes": 93127,
+      "sha256": "8ef54c4b767465be5e3d4afe07dfe1cbc5d3923a59295846c9b8b5ff729389d3"
+    },
+    "per_document.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/metrics/per_document.parquet",
+      "bytes": 1970202,
+      "sha256": "616b4dbfe1854831e61aaf6acb5e1d0f0390a61cbab4a1afa61eeee7e08c452f"
+    },
+    "new_source_metadata.parquet": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/metrics/new_source_metadata.parquet",
+      "bytes": 380280,
+      "sha256": "5fbeed12a92242c8765df1d8134b07a5dcad61e39a729fe9e7538fa8e79116cf"
+    },
+    "openstax_length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/metrics/openstax_length_matched_ids.json",
+      "bytes": 8178,
+      "sha256": "f9007f460e9d67c84c0c421c908972678802bc90b05c2c8836d25cd38e077107"
+    },
+    "finemath_length_matched_ids.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/metrics/finemath_length_matched_ids.json",
+      "bytes": 248403,
+      "sha256": "2136b3aac0325b6693dda527f2b6f5f1c36e18dde65696cac3f0b3c054fff421"
+    },
+    "evaluation_plan.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/evaluation_plan.json",
+      "bytes": 4876,
+      "sha256": "0bef9fbc8d8ad19bd45d0d113a453ef13d6f337e90437fa1edcd83e4e89ec101"
+    },
+    "preparation_plan_v2.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/preparation_plan_v2.json",
+      "bytes": 8521,
+      "sha256": "a2b20022cd263f9fe430f1b681292d1f125e218a28e81c7895004d5a130c4f8a"
+    },
+    "quality_audit_review.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/quality_audit_review.json",
+      "bytes": 4306,
+      "sha256": "2ad1b68fb821b04e5952f57276ecfbc0cd798b2ab0f0a4dad83c3b1b4cf5380a"
+    },
+    "length_control_plan.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-document-quality-qwen25-1p5b-step64-seed20261024/length_control_plan.json",
+      "bytes": 291621,
+      "sha256": "43e23a1cd0e85e8b4df50d274c181e159666ae5f17c9d8d3cbb2723eb4f04587"
+    },
+    "dataset_summary.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/data/processed/math-document-quality-v1-seed20261024/summary.json",
+      "bytes": 3697,
+      "sha256": "4def2ad17c1450058ef0d3d6992943e6d99e3247c9108466e57a0458b0d161b9"
+    },
+    "effective_config.json": {
+      "source_path": "/mnt/tianzhu_hot/data-picking/runs/math-web-probe-qwen25-1p5b-n4096-b64-s64-seed42/effective_config.json",
+      "bytes": 173262,
+      "sha256": "7b82aa53e76213b405e90f77780e6ecc6ac8cc41f82116a2878c69aa3951457b"
+    }
+  },
+  "exporter": {
+    "script": "scripts/notebooks/export_quality.py",
+    "sha256": "7e5985cb9cf974ebd315e8d73ee7be8850e8b8bdb6256299384fd9fd0d3cd1e4"
+  },
+  "execution": {
+    "status": "completed",
+    "code_cells": 7,
+    "notebook_sha256": "f5eaf900986e3c87ae27319560aabce4178b8cebf79e26fe44c3a6a7f13897fe",
+    "gpu_required": false
+  }
+}
