@@ -291,7 +291,7 @@
   "execution": {
     "status": "completed",
     "code_cells": 18,
-    "notebook_sha256": "af514c4d3634e5ba1780fb1477aca3109ee9fea754d607739d1ac706bc767f6a",
+    "notebook_sha256": "e3a9211c919e7b03785f7114c816cf3d809e4522d52a71503924fd5c1bbe9523",
     "gpu_required": false,
     "completed_at_utc": "2026-10-22T13:43:33.355278+00:00"
   },
@@ -368,5 +368,19 @@
     "script_sha256": "9ebd498c1f1a66c8d88e34f991b61b312e6a5c5d315ac2f4b6d320e28ccc3485",
     "preserved_loss_cells": 26,
     "loss_snapshots_unchanged": true
-  }
+  },
+  "integrity_updates": [
+    {
+      "updated_at_utc": "2026-11-02T05:57:03.416838+00:00",
+      "reason": "记录已有 notebook 内核版本元数据更新；所有单元格、保存输出和结果快照均与原提交一致，本次不重新执行或修改 notebook。",
+      "previous_notebook_sha256": "af514c4d3634e5ba1780fb1477aca3109ee9fea754d607739d1ac706bc767f6a",
+      "notebook_sha256": "e3a9211c919e7b03785f7114c816cf3d809e4522d52a71503924fd5c1bbe9523",
+      "metadata_change": {
+        "field": "metadata.language_info.version",
+        "previous": "3.12.3",
+        "current": "3.11.13"
+      },
+      "cells_and_outputs_unchanged": true
+    }
+  ]
 }
