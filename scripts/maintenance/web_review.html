@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>数学文档审阅 · OpenStax / FineMath-4+ / OpenWebMath / FineWeb</title>
+<style>
+:root{color-scheme:light;--ink:#172c3c;--muted:#5e7281;--line:#dbe5ea;--blue:#086d80;--paper:#fff}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:var(--ink);font:14px/1.6 system-ui,sans-serif}
+header{padding:22px 30px 16px;background:var(--paper);border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:var(--blue)}h1{font-size:25px;letter-spacing:-.04em;margin:3px 0 6px}p{margin:5px 0;color:var(--muted)}
+.toolbar{padding:16px 30px;display:flex;flex-wrap:wrap;gap:12px;align-items:end;border-bottom:1px solid var(--line);background:#f9fbfc}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+select,input,button{font:inherit;border:1px solid #c9d8e0;border-radius:7px;padding:9px 11px;background:white;color:var(--ink)}
+input{min-width:240px}select{max-width:270px}button{cursor:pointer}button:hover{border-color:var(--blue);color:var(--blue)}button:disabled{opacity:.4;cursor:default}
+input:focus,select:focus,button:focus-visible{outline:2px solid #78b9c8;outline-offset:2px}.search{flex:1}.search input{width:100%}
+main{display:grid;grid-template-columns:350px minmax(0,1fr);max-width:1700px;margin:auto}
+aside{padding:16px;border-right:1px solid var(--line);height:calc(100vh - 242px);min-height:420px;overflow:auto}
+.pager{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:9px 0 15px;font-size:12px}.pager button{padding:5px 9px}
+#status{font-size:12px;color:var(--muted)}.card{display:block;text-align:left;width:100%;margin-bottom:9px;padding:12px;border:1px solid var(--line)}
+.card[aria-pressed=true]{border-color:var(--blue);background:#eaf5f7;box-shadow:inset 3px 0 var(--blue)}
+.card strong{font-size:13px;display:block;overflow-wrap:anywhere}.card small{display:block;color:var(--muted);font-size:11px}.snippet{font-size:12px;color:var(--muted);margin-top:6px}
+.badge{font-size:10px;padding:2px 6px;border-radius:4px;background:#e5f1f8;color:#146092;display:inline-block;margin-bottom:5px}.badge.background{background:#fff0df;color:#8c4b08}
+.badge.openstax{background:#e1f4ea;color:#216447}.badge.finemath{background:#eee9fb;color:#634599}
+article{padding:24px 30px;height:calc(100vh - 242px);min-height:420px;overflow:auto;background:white}
+#doc-title{font-size:19px;margin:0 0 8px;overflow-wrap:anywhere}.doc-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:12px 0}
+a{color:var(--blue);overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}
+.stat{border:1px solid var(--line);border-radius:7px;padding:11px}.stat span{display:block;color:var(--muted);font-size:11px}.stat b{font-size:19px;font-variant-numeric:tabular-nums}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.85 ui-monospace,Consolas,monospace;margin:20px 0;color:#203441}details{background:#f5f8fa;padding:8px 12px;border-radius:6px}details pre{font-size:12px}
+.note{font-size:12px;color:var(--muted)}#doc-meta{font-size:12px;color:var(--muted)}
+@media(max-width:850px){header,.toolbar{padding:15px}main{grid-template-columns:270px minmax(0,1fr)}article{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){main{display:block}aside{height:300px;min-height:0;border-right:0;border-bottom:1px solid var(--line)}article{height:auto;min-height:400px}input{min-width:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">DATA PICKING / CORPUS REVIEW</div>
+  <h1>看看模型实际读到了什么</h1>
+  <p id="corpus-summary">正在载入正文和固定 step 64 的评分…</p>
+  <p class="note">只读审阅，不更改实验。合并展示多个来源，不是重新定义实验候选池；共用 FineWeb 背景只计一次。默认固定 seed 随机顺序，不按分数挑样本。</p>
+</header>
+<section class="toolbar" aria-label="筛选工具">
+  <label>来源<select id="source"><option value="all">全部来源</option></select></label>
+  <label class="search">搜索全文 / 教材标题 / URL / ID<input id="search" type="search" placeholder="例如：Functions、integral、wikipedia.org…"></label>
+  <label>排序<select id="sort"><option value="random">固定随机顺序</option><option value="delta_loss:desc">loss 下降量：大 → 小</option><option value="delta_loss:asc">loss 下降量：小 → 大</option><option value="relative_gain:desc">相对下降比例：大 → 小</option><option value="relative_gain:asc">相对下降比例：小 → 大</option><option value="ref_mean_nll:asc">Reference NLL：低 → 高</option><option value="sft_mean_nll:asc">SFT NLL：低 → 高</option><option value="token_count:desc">Token 数：长 → 短</option><option value="token_count:asc">Token 数：短 → 长</option></select></label>
+</section>
+<main>
+  <aside aria-label="候选文档"><div id="status" role="status">正在读取正文…</div><div class="pager"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div><div id="list"></div></aside>
+  <article id="detail" aria-label="完整文档正文">
+    <div id="doc-source" class="badge"></div><h2 id="doc-title">选择左侧文档</h2><div id="doc-meta"></div>
+    <div class="doc-actions"><a id="url" target="_blank" rel="noopener noreferrer">打开原始网站 ↗</a><button id="download">下载当前全文 TXT</button></div>
+    <div class="stats"><div class="stat"><span>Reference NLL</span><b id="ref"></b></div><div class="stat"><span>SFT NLL · step 64</span><b id="sft"></b></div><div class="stat"><span>loss 下降量</span><b id="delta"></b></div><div class="stat"><span>相对下降比例</span><b id="relative"></b></div></div>
+    <p class="note">下降量 = ref − SFT；相对下降 = (ref − SFT) / max(ref, 1e-6)。正文以纯文本完整显示，不执行网页 HTML，也不重新渲染公式。原始网站可能已变化。</p>
+    <p id="corpus-note" class="note"></p>
+    <details><summary>来源与溯源信息</summary><pre id="provenance"></pre></details><pre id="body"></pre>
+  </article>
+</main>
+<script id="payload" type="application/json">__REVIEW_DATA__</script>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const payload = JSON.parse($('payload').textContent);
+$('payload').remove();
+const docs = payload.documents;
+const names = payload.corpus_names;
+const notes = {
+  openstax:'OpenStax：本轮实际评分的完整教材小节，保留书名和章节；MathML 已转 LaTeX，图像仅保留文字描述，可能仍依赖视觉信息。',
+  finemath:'FineMath-4+：本轮固定随机样本，限定 CC-MAIN-2023-06。上游质量分数可在溯源信息中查看，不等于人工核验标签。',
+  openwebmath:'OpenWebMath：原实验注入文档，限定 CC-MAIN-2023-06。来源标签不保证公式完整或数学结论正确。',
+  background:'FineWeb：原实验共用的未标注 CC-MAIN-2023-06 背景，可能包含数学内容，不是人工确认的非数学文档。'
+};
+for (const [corpus,name] of Object.entries(names)) {
+  const count = payload.corpus_counts[corpus];
+  if (!count) continue;
+  const option = document.createElement('option'); option.value = corpus; option.textContent = name + ' · ' + count.toLocaleString();
+  $('source').append(option);
+}
+$('corpus-summary').textContent = docs.length.toLocaleString() + ' 篇完整正文 · ' + Object.keys(names).filter(key => payload.corpus_counts[key]).map(key => names[key]).join(' / ') + ' · 固定 step 64 的评分';
+const sourceQuery = new URLSearchParams(location.search);
+// Remote SSH's integrated browser can percent-encode the entire query string.
+const requestedSource = sourceQuery.get('source') ?? [...sourceQuery.keys()].find(key => key.startsWith('source='))?.slice(7);
+if (Object.hasOwn(payload.corpus_counts, requestedSource)) $('source').value = requestedSource;
+const pageSize = 40;
+let filtered = docs, pageIndex = 0, selected = null, timer;
+const fmt = value => Number(value).toFixed(5);
+function documentTitle(row) {
+  if (row.title) return row.title;
+  try { return new URL(row.url).hostname || row.id; } catch { return row.id; }
+}
+function showDocument(row) {
+  selected = row;
+  $('doc-source').textContent = names[row.corpus];
+  $('doc-source').className = 'badge ' + row.corpus;
+  $('corpus-note').textContent = notes[row.corpus] || '';
+  let safeUrl = null;
+  try { const parsed = new URL(row.url); if (['http:','https:'].includes(parsed.protocol)) safeUrl = parsed.href; } catch {}
+  $('doc-title').textContent = documentTitle(row);
+  $('doc-meta').textContent = [row.book, row.chapter, row.id, row.token_count.toLocaleString() + ' tokens', row.text.length.toLocaleString() + ' 字符'].filter(Boolean).join(' · ');
+  $('url').hidden = !safeUrl;
+  if (safeUrl) $('url').href = safeUrl; else $('url').removeAttribute('href');
+  $('ref').textContent = fmt(row.ref_mean_nll); $('sft').textContent = fmt(row.sft_mean_nll);
+  $('delta').textContent = fmt(row.delta_loss); $('relative').textContent = (row.relative_gain * 100).toFixed(2) + '%';
+  $('provenance').textContent = JSON.stringify(Object.fromEntries(Object.entries(row).filter(([key]) => key !== 'text')), null, 2);
+  $('body').textContent = row.text;
+  $('detail').scrollTop = 0;
+  for (const button of $('list').children) button.setAttribute('aria-pressed', String(button.dataset.id === row.id));
+}
+function renderList() {
+  $('list').replaceChildren();
+  const pages = Math.ceil(filtered.length / pageSize);
+  $('status').textContent = '匹配 ' + filtered.length.toLocaleString() + ' / ' + docs.length.toLocaleString() + ' 篇 · seed ' + payload.seed;
+  $('page').textContent = pages ? (pageIndex + 1) + ' / ' + pages : '0 / 0';
+  $('prev').disabled = pageIndex === 0; $('next').disabled = pageIndex + 1 >= pages;
+  const visible = filtered.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
+  for (const row of visible) {
+    const card = document.createElement('button'); card.className = 'card'; card.dataset.id = row.id;
+    const badge = document.createElement('span'); badge.className = 'badge ' + row.corpus; badge.textContent = names[row.corpus];
+    const title = document.createElement('strong'); title.textContent = documentTitle(row);
+    const chapter = document.createElement('small'); chapter.textContent = [row.book,row.chapter].filter(Boolean).join(' / ');
+    const meta = document.createElement('small'); meta.textContent = row.token_count.toLocaleString() + ' tokens · Δ ' + fmt(row.delta_loss) + ' · ' + (row.relative_gain*100).toFixed(1) + '%';
+    const preview = document.createElement('div'); preview.className = 'snippet'; preview.textContent = row.text.slice(0,125).replace(/\s+/g,' ') + (row.text.length > 125 ? '…' : '');
+    card.append(badge,title,chapter,meta,preview); card.onclick = () => showDocument(row);
+    card.setAttribute('aria-pressed', String(selected?.id === row.id)); $('list').append(card);
+  }
+  if (visible.length && !visible.some(row => row.id === selected?.id)) showDocument(visible[0]);
+  $('detail').hidden = !visible.length;
+}
+function applyFilters() {
+  const source = $('source').value, query = $('search').value.trim().toLowerCase();
+  filtered = docs.filter(row => (source === 'all' || row.corpus === source) && (!query || [row.id,row.url,row.text,row.title,row.book,row.chapter].some(value => typeof value === 'string' && value.toLowerCase().includes(query))));
+  if ($('sort').value !== 'random') {
+    const [key,direction] = $('sort').value.split(':');
+    filtered.sort((a,b) => (a[key]-b[key]) * (direction === 'asc' ? 1 : -1) || a.id.localeCompare(b.id));
+  }
+  pageIndex = 0; renderList();
+}
+$('source').onchange = applyFilters; $('sort').onchange = applyFilters;
+$('search').oninput = () => { clearTimeout(timer); timer = setTimeout(applyFilters, 250); };
+$('prev').onclick = () => { pageIndex--; renderList(); };
+$('next').onclick = () => { pageIndex++; renderList(); };
+$('download').onclick = () => {
+  if (!selected) return;
+  const text = JSON.stringify(Object.fromEntries(Object.entries(selected).filter(([key]) => key !== 'text')), null, 2) + '\n\n' + selected.text;
+  const url = URL.createObjectURL(new Blob([text], {type:'text/plain;charset=utf-8'}));
+  const link = document.createElement('a'); link.href = url; link.download = selected.id.replace(/[^a-zA-Z0-9_-]/g,'_') + '.txt'; link.click();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+};
+applyFilters();
+</script>
+</body>
+</html>
